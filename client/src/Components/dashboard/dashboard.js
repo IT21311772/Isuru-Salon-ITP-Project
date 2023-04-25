@@ -14,7 +14,7 @@ function DashBoard() {
      
       <MainLayout>
         <center>
-            <h1>Hello  world!!</h1>
+            <h1>Heading</h1>
         </center>
       
       <br />
