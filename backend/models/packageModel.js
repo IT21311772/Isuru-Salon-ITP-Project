@@ -3,22 +3,11 @@ const mongoose = require('mongoose')
 // DB SHCEMA AND MODEL
 const postSchema = mongoose.Schema(
     {
-        title: {
-            type:String,
-            required:true,
-        },
-        type: {
-            type:String,
-            required:true,
-        },
-        description: {
-            type:String,
-            required:true,
-        },
-        price: {
-            type:String,
-            required:true,
-        }, 
+        sId: String,
+        sName: String,
+        sPrice: String,
+        sCategory: String,
+         
     },
     
     {
@@ -27,4 +16,4 @@ const postSchema = mongoose.Schema(
 
 );
 
-module.exports = mongoose.model("Post", postSchema);
+module.exports = mongoose.model("Services", postSchema);

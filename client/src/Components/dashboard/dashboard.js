@@ -3,23 +3,21 @@ import Button from "react-bootstrap/Button";
 import { useLocation, useNavigate } from "react-router-dom"; //use to create dynamic application
 import MainLayout from "../../layouts/MainLayout";
 
-function DashBoard() {
+function dashboard() {
 
   const navigate = useNavigate();
   const location = useLocation()
 
 
   return (
-    <div className="App">
-     
+    <div className="dashboard">
       <MainLayout>
-        <center>
-            <h1>Hello  !!</h1>
-        </center>
-      
+      <h1>Hello 
+        {location.state.id}  
+        !!</h1>
       <br />
       </MainLayout>
-      <div className="dash">
+      
       <div className="container mt-5 d-flex justify-content-center">
       <button className="btn-func" onClick={() => navigate("/posts")}>
         Package Management
@@ -59,10 +57,8 @@ function DashBoard() {
       </button>
       
       </div>
-      </div>
-      
     </div>
   );
 }
 
-export default DashBoard;
+export default dashboard;
