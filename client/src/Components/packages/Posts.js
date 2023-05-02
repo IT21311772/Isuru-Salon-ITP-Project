@@ -92,33 +92,66 @@ return (
         
       <br /><br />
         {/* <button onClick={() => navigate(-1)}>BACK</button> */}
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={show} onHide={handleClose} >
             <Modal.Header closeButton>
-                <Modal.Title>Update a Package</Modal.Title>
+                <Modal.Title style={{color:"#b30059"}}>Update Package</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body style={{width:"100%", height:"200%"}}>
                 <Form>
                     <Form.Group>
                         <Form.Control 
-                            style={{marginBottom: "1rem"}}
+                            style={{width: "80%",
+                                    padding: "6px 10px",
+                                    margin: "10px 0",
+                                    border: "1px solid #c762a1",
+                                    borderRadius: "5px",
+                                    boxSizing: "border-box",
+                                    display: "block",
+                                    marginLeft: "10%"}}
                             placeholder="title"
                             name="title"
                             value={updatedPost.title ? updatedPost.title : ""}
                             onChange={handleChange}/>
-                        <Form.Control 
-                            style={{marginBottom: "1rem"}}
+                        <Form.Select
+                            style={{width: "80%",
+                            padding: "6px 10px",
+                            margin: "10px 0",
+                            border: "1px solid #c762a1",
+                            borderRadius: "5px",
+                            boxSizing: "border-box",
+                            display: "block",
+                            marginLeft: "10%"}}
                             placeholder="type"
                             name="type"
                             value={updatedPost.type ? updatedPost.type : ""}
-                            onChange={handleChange}/>
+                            onChange={handleChange}>
+                                <option>Package Type</option>
+                                <option>Daily Package</option>
+                                <option>Event Package</option>
+                                <option>Seasonal Package</option>
+                            </Form.Select>
                         <Form.Control 
-                            style={{marginBottom: "1rem"}}
+                            style={{width: "80%",
+                            padding: "6px 10px",
+                            margin: "10px 0",
+                            border: "1px solid #c762a1",
+                            borderRadius: "5px",
+                            boxSizing: "border-box",
+                            display: "block",
+                            marginLeft: "10%"}}
                             placeholder="description"
                             name="description"
                             value={updatedPost.description ? updatedPost.description : ""}
                             onChange={handleChange}/>
                         <Form.Control 
-                            style={{marginBottom: "1rem"}}
+                            style={{width: "80%",
+                            padding: "6px 10px",
+                            margin: "10px 0",
+                            border: "1px solid #c762a1",
+                            borderRadius: "5px",
+                            boxSizing: "border-box",
+                            display: "block",
+                            marginLeft: "10%"}}
                             placeholder="price"
                             name="price"
                             value={updatedPost.price ? updatedPost.price : ""}
@@ -127,10 +160,13 @@ return (
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <button style={{borderRadius:"5px", background:"#a66f72", padding:"0.5%"}} onClick={handleClose}>
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"200px", fontSize:"17px", 
+                border:"#b30059", marginRight:"25%"}} onClick={handleClose}>
                     Close
-                </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#a66f72", padding:"0.5%", width:"30%"}} onClick={saveUpdatedPost}>
+                </button>
+                <br />
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"200px", fontSize:"17px", 
+                border:"#b30059", marginRight:"25%"}} onClick={saveUpdatedPost}>
                     Save Changes
                 </button>
             </Modal.Footer>

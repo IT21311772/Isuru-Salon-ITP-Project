@@ -36,7 +36,7 @@ function CreatePost () {
     };
 
     return (
-        <div className="packages">
+        <div className="packages-create">
 
         <div className="Create-post">
             <h1 className="title">Create New Package</h1><br />
@@ -50,7 +50,7 @@ function CreatePost () {
                         style={{width:"80%", marginLeft:"10%"}}
                         required />
                     
-                    <Form.Select name="type"
+                    <Form.Select name="type" className="Form-Control" 
                         value={post.type} 
                         placeholder="Package Type"
                         onChange={handleChange} 
@@ -78,7 +78,8 @@ function CreatePost () {
                         required />
                 </Form.Group>
                 <br />
-                < button style={{borderRadius:"5px", background:"#a66f72", padding:"1%", width:"40%"}} onClick={handleClick}>CREATE PACKAGE</button>
+                < button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"45%", fontSize:"17px", 
+                paddingLeft:"5px", paddingRight:"5px", border:"#b30059"}} onClick={handleClick}>CREATE PACKAGE</button>
             </Form>
             <br />
             {/* <br />
