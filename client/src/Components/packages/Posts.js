@@ -141,7 +141,7 @@ return (
             <>
             
             <Form>
-                <InputGroup className="my-3" style={{width:"20%", marginLeft:"75%"}}>
+                <InputGroup className="my-1" style={{width:"20%", marginLeft:"75%"}}>
                     <Form.Control 
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Search here"/>
@@ -149,18 +149,19 @@ return (
             </Form>
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#a66f72", padding:"0.5%"}}><Link to="/posts/create" style={{color:"white", textDecoration:"none"}}>Create New Package</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#a66f72", padding:"0.5%"}}><Link to="/posts/report" style={{color:"white", textDecoration:"none"}}>Download Package Menu</Link></button>
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/posts/create" style={{color:"white", textDecoration:"none"}}>Create New Package</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/posts/report" style={{color:"white", textDecoration:"none"}}>Download Package Menu</Link></button>
             
                 <br /><br />
                 <center>
-                    <h1 style={{color:"black", fontWeight:"bold"}}>Packages Page</h1>
+                    <h1 style={{color:"#660033", fontWeight:"bolder", fontSize:"50px"}}>Packages Page</h1>
                 </center>
 
                 <div className="container">
                 <button onClick={() => sorting("type")}>Sort by Type</button>&nbsp;
                 <button onClick={() => sorting("price")}>Sort by Price</button>
                 </div>
+                <br />
                     
                         {posts.filter((post) => {
                             return search.toLowerCase() === ''
@@ -172,21 +173,18 @@ return (
                         .map((post) => {
                     return (
 
-                        
                             <div key={post._id} className = "package-preview" >
                                 <center>
                                     <h2>{post.title}</h2>
                                     <p>{post.type}</p>
                                     <p>{post.description}</p>
                                     <p>Rs. {post.price}.00</p>
-                                        <button style={{color:"white", background:"#3d3c3c", border:"black"}} onClick={() => updatePost(post)}>UPDATE</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <button onClick={() => updatePost(post)}>UPDATE</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <button onClick={() => deletePost(post._id)}>DELETE</button><br />
+                                        <button style={{color:"white", background:"#3d3c3c", border:"black"}} onClick={() => deletePost(post._id)}>DELETE</button><br />
                                     
                                 </center>
-                            </div>
-                        
-                          
+                            </div>   
                     );
                 })}
             </>

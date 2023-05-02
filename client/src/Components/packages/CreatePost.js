@@ -38,7 +38,6 @@ function CreatePost () {
     return (
         <div className="packages">
 
-        
         <div className="Create-post">
             <h1 className="title">Create New Package</h1><br />
             <Form className="Form">
