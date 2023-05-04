@@ -213,7 +213,7 @@ return (
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/emp/add" style={{color:"white", textDecoration:"none"}}>Add Employee</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/emp/report" style={{color:"white", textDecoration:"none"}}>Download Employee List</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/emp/empDetails" style={{color:"white", textDecoration:"none"}}>Download Employee List</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/emp/report" style={{color:"white", textDecoration:"none"}}>Employee Salary</Link></button>
 
 

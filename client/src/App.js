@@ -11,6 +11,7 @@ import ReactPdfPrint from './Components/packages/ReactPdfPrint';
 import Client from './Components/packages/Client';
 import AddEmployee from './Components/employees/addEmployee';
 import Employees from './Components/employees/Employee';
+import ReportPdf from './Components/employees/ReportPdf';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
                 <Route path='/emp' element={<Employees />} />
                 <Route path='/emp/add' element={<AddEmployee />} />
                 <Route path='/emp/add/emp' element={<Employees />} />
+                <Route path='/emp/empDetails' element={<ReportPdf />} />
             </Routes>
         </div>
     );
