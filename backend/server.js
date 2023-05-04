@@ -15,10 +15,12 @@ app.use(cors());
 // Import the routes
 const userRoutes = require('./routes/userRoutes');
 const packageRoutes = require('./routes/packageRoutes');
+const inventoryRoutes = require('./routes/inventoryRoutes');
 
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/Post", packageRoutes);
+app.use("/api/Product", inventoryRoutes);
 
 // Connect the database
 mongoose
