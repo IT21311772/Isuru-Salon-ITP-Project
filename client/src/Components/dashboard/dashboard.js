@@ -1,66 +1,41 @@
 import "./dashboard.css";
-import Button from "react-bootstrap/Button";
-import { useLocation, useNavigate } from "react-router-dom"; //use to create dynamic application
+import { useNavigate } from "react-router-dom"; //use to create dynamic application
 import MainLayout from "../../layouts/MainLayout";
 
 function DashBoard() {
 
   const navigate = useNavigate();
-  const location = useLocation()
+  // const location = useLocation()
 
 
   return (
     <div className="App">
      
       <MainLayout>
-        <center>
-            <h1>Hello  !!</h1>
-        </center>
-      
-      <br />
+        <center><h1 style={{fontFamily:"mulish,sans-serif"}}>DashBoard</h1></center><br />
       </MainLayout>
+
       <div className="dash">
-      <div className="container mt-5 d-flex justify-content-center">
-      <button className="btn-func" onClick={() => navigate("/posts")}>
-        Package Management
-      </button>
+        <center>
+        <div className="container">
+          <button className="btn-func" onClick={() => navigate("/posts")}>Package Management</button>
+          <button className="btn-func" onClick={() => navigate("/posts")}>Service Management</button>
+        </div>
+        <div className="container">
+          <button className="btn-func" onClick={() => navigate("/posts")}>Schedule Management</button>
+          <button className="btn-func" onClick={() => navigate("/posts")}>Finance Management</button>
+        </div>
 
-      <button className="btn-func" onClick={() => navigate("/posts")}>
-      Service Management
-      </button>
-
-      <button className="btn-func" onClick={() => navigate("/posts")}>
-      Schedule Management
-      </button>
-
-      <button className="btn-func" onClick={() => navigate("/posts")}>
-      Finance Management
-      </button>
-
+        <div className="container">
+          <button className="btn-func" onClick={() => navigate("/posts")}>Appointment Management</button>
+          <button className="btn-func" onClick={() => navigate("/posts")}> Inventory Management</button>
+        </div>
+        <div className="container">
+          <button className="btn-func" onClick={() => navigate("/posts")}>Supplier Management</button>
+          <button className="btn-func" onClick={() => navigate("/posts")}>Employee Management</button>
+        </div>
+        </center>
       </div>
-
-      <br />
-
-      <div className="container mt-5 d-flex justify-content-center">
-      <button className="btn-func" onClick={() => navigate("/posts")}>
-      Appointment Management
-      </button>
-
-      <button className="btn-func" onClick={() => navigate("/posts")}>
-      Inventory Management
-      </button>
-
-      <button className="btn-func" onClick={() => navigate("/posts")}>
-      Supplier Management
-      </button>
-
-      <button className="btn-func" onClick={() => navigate("/posts")}>
-      Employee Management
-      </button>
-      
-      </div>
-      </div>
-      
     </div>
   );
 }

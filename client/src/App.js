@@ -7,6 +7,7 @@ import Login from './Components/login/Login';
 import Signup from './Components/login/Signup';
 import DashBoard from './Components/dashboard/dashboard';
 import ReactPdfPrint from './Components/packages/ReactPdfPrint';
+import Client from './Components/packages/Client'
 
 function App() {
     return ( 
@@ -19,6 +20,7 @@ function App() {
                 <Route path='/posts/create' element={<CreatePost />} />
                 <Route path='/posts/create/posts' element={<Posts />} />
                 <Route path='/posts/report' element={<ReactPdfPrint />} />
+                <Route path='/posts/clientPack' element={<Client />} />
             </Routes>
         </div>
     );

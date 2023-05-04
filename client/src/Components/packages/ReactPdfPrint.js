@@ -28,18 +28,20 @@ const ReactPdfPrint = () => {
 
     return (
         <>
-        
-            <div ref={componentRef} style={{width: '100%', height: '100%'}}>
-            <div className="container mt-3  p-5 mt-4 rounded-3">
-                <img src={Logo} style={{width:'20%', height:'20%', marginLeft:'0%'}}></img>
-                <br /><br />
+            <div className="package-report">
+            <div ref={componentRef} style={{width: '100%', height: '100%', background:"white", backgroundColor:"white"}}>
+            <div className="container mt-3" style={{background:"white", backgroundColor:"white"}}>
+                <img src={Logo} style={{width:'20%', height:'20%', marginLeft:'0%', marginBottom:'2%'}}></img>
+                <div style={{width:'20%', height:'20%', marginRight:'0%', marginTop:'-19%'}}>
                     <h5>Isuru Salon</h5>
                     <br></br>
                     <h6>  225/2J</h6>
                     <h6>  High Level Road</h6>
                     <h6>  Homagama</h6>
+                    </div>
             </div>
-                <h1 className="text-center my-3 border py-2">Salon Packages</h1>
+            <br /><br /><br /><br />
+                <h1 className="text-center my-3 border py-2" style={{fontWeight:"bold"}}>Salon Packages</h1>
                 <br />
                 <Table className="w-75 mx-auto" bordered>
                     <thead>
@@ -70,9 +72,10 @@ const ReactPdfPrint = () => {
             </div>
             <br />
             <center>
-                <button className="btn btn-secondary" style={{ borderRadius:"5px"}} onClick={handlePrint}>Download</button>
+                <button className="btn btn-secondary" style={{ borderRadius:"5px", width:"20%"}} onClick={handlePrint}>Download</button>
             </center>
-            
+            <br /><br /><br />
+            </div>
         </>
     );
 };
