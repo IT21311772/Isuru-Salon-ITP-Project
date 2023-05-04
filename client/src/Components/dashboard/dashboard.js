@@ -32,7 +32,7 @@ function DashBoard() {
         </div>
         <div className="container">
           <button className="btn-func" onClick={() => navigate("/posts")}>Supplier Management</button>
-          <button className="btn-func" onClick={() => navigate("/posts")}>Employee Management</button>
+          <button className="btn-func" onClick={() => navigate("/emp")}>Employee Management</button>
         </div>
         </center>
       </div>

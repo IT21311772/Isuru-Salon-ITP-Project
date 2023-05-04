@@ -1,4 +1,5 @@
 import './Components/packages/package.css';
+import './Components/employees/Employee.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from 'react-router-dom';
 import CreatePost from './Components/packages/CreatePost';
@@ -7,7 +8,10 @@ import Login from './Components/login/Login';
 import Signup from './Components/login/Signup';
 import DashBoard from './Components/dashboard/dashboard';
 import ReactPdfPrint from './Components/packages/ReactPdfPrint';
-import Client from './Components/packages/Client'
+import Client from './Components/packages/Client';
+import AddEmployee from './Components/employees/addEmployee';
+import Employees from './Components/employees/Employee';
+
 
 function App() {
     return ( 
@@ -21,6 +25,9 @@ function App() {
                 <Route path='/posts/create/posts' element={<Posts />} />
                 <Route path='/posts/report' element={<ReactPdfPrint />} />
                 <Route path='/posts/clientPack' element={<Client />} />
+                <Route path='/emp' element={<Employees />} />
+                <Route path='/emp/add' element={<AddEmployee />} />
+                <Route path='/emp/add/emp' element={<Employees />} />
             </Routes>
         </div>
     );
