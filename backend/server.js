@@ -17,12 +17,17 @@ const userRoutes = require('./routes/userRoutes');
 const packageRoutes = require('./routes/packageRoutes');
 const empRoutes = require('./routes/employeeRoutes');
 const salRoutes = require('./routes/salaryRoutes');
+const customPackRoutes = require('./routes/customPackRoutes');
+const financeRoutes = require('./routes/financeRoutes');
 
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/Post", packageRoutes);
 app.use("/api/emp", empRoutes);
 app.use("/api/sal", salRoutes);
+
+app.use("/api/CustPost", customPackRoutes);
+app.use("/api/Fin", financeRoutes);
 
 // Connect the database
 mongoose
