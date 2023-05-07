@@ -26,7 +26,6 @@ function MainLayout({children}) {
           
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <label className="navbar-brand" onClick={()=>navigate("/dash")}>
-              Finance Management
             </label>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               {/* <li className="mt-2" style={{marginLeft:'-40%'}}> 
