@@ -8,6 +8,8 @@ import Signup from './Components/login/Signup';
 import DashBoard from './Components/dashboard/dashboard';
 import ReactPdfPrint from './Components/packages/ReactPdfPrint';
 import Client from './Components/packages/Client'
+import CustomPack from './Components/packages/CustomPack';
+import CustomSucces from './Components/packages/CustomSucces';
 
 function App() {
     return ( 
@@ -21,6 +23,8 @@ function App() {
                 <Route path='/posts/create/posts' element={<Posts />} />
                 <Route path='/posts/report' element={<ReactPdfPrint />} />
                 <Route path='/posts/clientPack' element={<Client />} />
+                <Route path='/posts/clientPack/create' element={<CustomPack />} />
+                <Route path='/posts/clientPack/create/customsucces' element={<CustomSucces />} />
             </Routes>
         </div>
     );
