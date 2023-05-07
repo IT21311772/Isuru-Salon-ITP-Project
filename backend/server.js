@@ -16,11 +16,13 @@ app.use(cors());
 const userRoutes = require('./routes/userRoutes');
 const packageRoutes = require('./routes/packageRoutes');
 const empRoutes = require('./routes/employeeRoutes');
+const salRoutes = require('./routes/salaryRoutes');
 
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/Post", packageRoutes);
 app.use("/api/emp", empRoutes);
+app.use("/api/sal", salRoutes);
 
 // Connect the database
 mongoose

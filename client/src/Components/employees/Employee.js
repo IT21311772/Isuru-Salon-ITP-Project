@@ -201,7 +201,7 @@ return (
 
         {emp ? (
             
-            <>
+            <div>
             
             <Form>
                 <InputGroup className="my-1" style={{width:"20%", marginLeft:"75%"}}>
@@ -214,7 +214,7 @@ return (
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/emp/add" style={{color:"white", textDecoration:"none"}}>Add Employee</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/emp/empDetails" style={{color:"white", textDecoration:"none"}}>Download Employee List</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/emp/report" style={{color:"white", textDecoration:"none"}}>Employee Salary</Link></button>
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/emp/sals" style={{color:"white", textDecoration:"none"}}>Employee Salary</Link></button>
 
 
                 <br /><br />
@@ -227,6 +227,22 @@ return (
                 <button onClick={() => sorting("salary")}>Sort by Salary</button>
                 </div>
                 <br />
+
+                <div className="container">   
+            
+                <table class="table">
+                <thead>
+                  <tr>
+                  <th scope="col">Employee Name</th>
+                  <th scope="col">Employee Id</th>
+                  <th scope="col">Salary</th>
+                  <th scope="col">Joined Date</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Phone Number</th>
+                  <th></th>
+                  <th scope="col">Action</th>
+                  </tr>
+                </thead>
                     
                         {emp.filter((data) => {
                             return search.toLowerCase() === ''
@@ -239,29 +255,37 @@ return (
                                   data.phoneNo.toLowerCase().includes(search)
                         })
 
-
                         
-                        .map((employee) => {
+                        .map((data) => {
                             return (
         
-                                    <div key={employee._id} className = "package-preview" >
-                                        <center>
-                                            <h2>{employee.name}</h2>
-                                            <p>{employee.id}</p>
-                                            <p>{employee.salary}</p>
-                                            <p>{employee.joinedDate}</p>
-                                            <p>{employee.address}</p>
-                                            <p>{employee.phoneNo}</p>
-                                                <button onClick={() => updatePost(employee)}>UPDATE</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <button style={{color:"white", background:"#3d3c3c", border:"black"}} onClick={() => deletePost(employee._id)}>DELETE</button><br />
-                                            
-                                        </center>
+                                <tbody>
+                                <tr>
+                                <td>{data.name}</td>
+                                <td>{data.id}</td>
+                                <td>{data.salary}</td>
+                                <td>{data.joinedDate}</td>
+                                <td>{data.address}</td>
+                                <td>{data.phoneNo}</td>
+                                <td >
+                                
+                                <button  style={{width: "70%",
+                                            marginLeft:'10px'                   
+                                }} onClick={() => updatePost(data)}>UPDATE</button>   </td>
         
-                                    </div>   
+                                <td>
+                                <button style={{width: "80%", marginLeft:'-20%', marginTop:""}} onClick={() => deletePost(data._id)}>DELETE</button>
+                                </td>
+                                
+                                
+                                </tr>
+                                </tbody>   
                             );
                         })}
-            </>
+                        </table>
+                        </div>
+                        
+            </div>
         ) : (
           ""
         )}
