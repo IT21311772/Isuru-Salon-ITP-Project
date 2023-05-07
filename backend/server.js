@@ -15,6 +15,8 @@ app.use(cors());
 // Import the routes
 const userRoutes = require('./routes/userRoutes');
 const packageRoutes = require('./routes/packageRoutes');
+const supplierRoutes = require('./routes/supplierRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 const appointmentRoutes = require('./routes/appointmentRoutes');
 const inventoryRoutes = require('./routes/inventoryRoutes');
 const empRoutes = require('./routes/employeeRoutes');
@@ -24,6 +26,8 @@ const financeRoutes = require('./routes/financeRoutes');
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/Post", packageRoutes);
+app.use("/api/Sup", supplierRoutes);
+app.use("/api/Ord", orderRoutes)
 app.use("/api/Book", appointmentRoutes);
 app.use("/api/Product", inventoryRoutes);
 app.use("/api/emp", empRoutes);
