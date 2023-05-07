@@ -94,7 +94,7 @@ return (
         {/* <button onClick={() => navigate(-1)}>BACK</button> */}
         <Modal show={show} onHide={handleClose} >
             <Modal.Header closeButton>
-                <Modal.Title style={{color:"#b30059"}}>Update Package</Modal.Title>
+                <Modal.Title style={{color:"#b30059"}}>Update a Package</Modal.Title>
             </Modal.Header>
             <Modal.Body style={{width:"100%", height:"200%"}}>
                 <Form>
