@@ -11,6 +11,7 @@ import ReactPdfPrint from './Components/packages/ReactPdfPrint';
 import Client from './Components/packages/Client';
 import AddTransactions from './Components/finance/addTransactions';
 import Transactions from './Components/finance/Transactions';
+import FinanceReport from '../src/Components/finance/FinanceReport';
 
 function App() {
     return ( 
@@ -27,6 +28,7 @@ function App() {
                 <Route path='/fin'element={<Transactions />} />
                 <Route path='/fin/add' element={<AddTransactions />} />
                 <Route path='/fin/add/trans'element={<Transactions />} />
+                <Route path='/fin/report' element={<FinanceReport />} />
             </Routes>
         </div>
     );

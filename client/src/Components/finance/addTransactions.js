@@ -47,7 +47,7 @@ function CreatePost () {
                     <Form.Control className="Form-Control" 
                         name="amount" 
                         value={data.amount}
-                        placeholder="Amount"
+                        placeholder="Amount (LKR)"
                         onChange={handleChange}
                         style={{width:"80%", marginLeft:"10%"}}
                         required />
@@ -58,23 +58,36 @@ function CreatePost () {
                         onChange={handleChange} 
                         style={{width:"80%", marginLeft:"10%"}}
                         required>
-                            <option>Package Type</option>
+                            <option>Transaction Type</option>
                             <option>Income</option>
-                            <option>Expenses</option>
+                            <option>Expense</option>
+                            
+                    </Form.Select>
+
+                    <Form.Select name="category" className="Form-Control" 
+                        value={data.category} 
+                        placeholder="Category"
+                        onChange={handleChange} 
+                        style={{width:"80%", marginLeft:"10%"}}
+                        required>
+                            <option>Select Category</option>
+                            <option>Salary</option>
+                            <option>Stationery</option>
+                            <option>Supplier charges</option>
+                            <option>Food</option>
+                            <option>Transport</option>
+                            <option>Bills</option>
+                            <option>Medical</option>
+                            <option>TAX</option>
+                            <option>Services</option>
                             
                     </Form.Select>
 
                     <Form.Control className="Form-Control"
-                        name="category" 
-                        value={data.category}
-                        placeholder="Category"
-                        onChange={handleChange} 
-                        style={{width:"80%", marginLeft:"10%"}}
-                        required />
-                    <Form.Control className="Form-Control"
                         name="date" 
                         value={data.date}
                         placeholder="Date"
+                        type="Date"
                         onChange={handleChange} 
                         style={{width:"80%", marginLeft:"10%"}}
                         required />

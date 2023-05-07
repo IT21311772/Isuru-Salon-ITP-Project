@@ -199,7 +199,7 @@ return (
 
         {data ? (
             
-            <>
+            <div>
             
             <Form>
                 <InputGroup className="my-1" style={{width:"20%", marginLeft:"75%"}}>
@@ -211,7 +211,7 @@ return (
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/fin/add" style={{color:"white", textDecoration:"none"}}>Add New Transaction</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/posts/report" style={{color:"white", textDecoration:"none"}}>Download Package Menu</Link></button>
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/fin/report" style={{color:"white", textDecoration:"none"}}>Download Package Menu</Link></button>
             
                 <br /><br />
                 <center>
@@ -220,9 +220,26 @@ return (
 
                 <div className="container">
                 <button onClick={() => sorting("type")}>Sort by Type</button>&nbsp;
-                <button onClick={() => sorting("amount")}>Sort by Amount</button>
                 </div>
                 <br />
+
+            <div className="container">   
+            
+                <table class="table">
+                <thead>
+                  <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Reference</th>
+                  <th></th>
+                  <th scope="col">Action</th>
+                  </tr>
+                </thead>
+               
                     
                         {data.filter((post) => {
                             return search.toLowerCase() === ''
@@ -233,26 +250,39 @@ return (
                                   post.reference.toLowerCase().includes(search) ||
                                   post.description.toLowerCase().includes(search)
                         })
-                        .map((post) => {
+                        .map((post,index) => {
                     return (
+                        <tbody>
+                        <tr>
+                        <td>{index+1}</td>
+                        <td>{post.amount}</td>
+                        <td>{post.type}</td>
+                        <td>{post.category}</td>
+                        <td>{post.date}</td>
+                        <td>{post.description}</td>
+                        <td>{post.reference}</td>
+                        <td >
+                        
+                        <button  style={{width: "70%",
+                                    marginLeft:'10px'                   
+                        }} onClick={() => updatePost(post)}>UPDATE</button>   </td>
 
-                            <div key={post._id} className = "package-preview" >
-                                <center>
-                                    <h2>{post.amount}</h2>
-                                    <p>{post.type}</p>
-                                    <p>{post.category}</p>
-                                    <p>{post.date}</p>
-                                    <p>{post.description}</p>
-                                    <p>{post.reference}</p>
-                                        <button onClick={() => updatePost(post)}>UPDATE</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <button style={{color:"white", background:"#3d3c3c", border:"black"}} onClick={() => deletePost(post._id)}>DELETE</button><br />
-                                    
-                                </center>
-                            </div>   
+                        <td>
+                        <button style={{width: "80%", marginLeft:'-20%', marginTop:""}} onClick={() => deletePost(post._id)}>DELETE</button>
+                        </td>
+                        
+                        
+                        </tr>
+                        </tbody>
+                             
                     );
                 })}
-            </>
+                </table>
+                </div>
+
+                
+            </div>
+            
         ) : (
           ""
         )}
