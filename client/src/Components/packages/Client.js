@@ -83,6 +83,9 @@ return (
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;
+
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/posts/clientPack/create" style={{color:"white", textDecoration:"none"}}>Customize Your Package</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
+
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/posts/report" style={{color:"white", textDecoration:"none"}}>Download Package Menu</Link></button>
             
                 <br /><br />

@@ -11,31 +11,23 @@ const ReactPdfPrint = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        axios.get("/api/Post/posts")
+        axios.get("/api/Fin/trans")
             .then((res) => {
                 console.log(res)
                 setPosts(res.data);
             })
             .catch((err) => console.log(err));
 }, []);
- // Creating Printing function
- const componentPDF = useRef();
- const handlePrint = useReactToPrint({
-  content: ()=> componentPDF.current,
-  documentTitle: "Available Services - Isuru Salon",
-  onAfterPrint:()=>alert("Data saved in PDF")
- });
 
-
-
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+        documentTitle: 'salon-packages',
+        onAfterPrint: ()=> alert('Print success')
+    });
 
     return (
         <>
-        
-            <div ref={componentPDF} style={{width: '100%', height: '100%'}}>
-            <div className="container mt-3  p-5 mt-4 rounded-3">
-                <img src={Logo} style={{width:'20%', height:'20%', marginLeft:'0%'}}></img>
-                <br /><br />
             <div className="package-report">
             <div ref={componentRef} style={{width: '100%', height: '100%', background:"white", backgroundColor:"white"}}>
             <div className="container mt-3" style={{background:"white", backgroundColor:"white"}}>
@@ -53,10 +45,12 @@ const ReactPdfPrint = () => {
                 <br />
                 <Table className="w-75 mx-auto" bordered>
                     <thead>
-                        <th>Package Title</th>
-                        <th>Package Type</th>
-                        <th>Services</th>
-                        <th>Package Price</th>
+                        <th>Amount</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Reference</th>
                     </thead>
                     <tbody>
                     {posts ? (
@@ -64,10 +58,12 @@ const ReactPdfPrint = () => {
                             {posts.map((post) => {
                                 return (
                                         <tr key={post._id} >
-                                            <td>{post.title}</td>
+                                            <td>{post.amount}</td>
                                             <td>{post.type}</td>
+                                            <td>{post.category}</td>
+                                            <td>{post.date}</td>
                                             <td>{post.description}</td>
-                                            <td>Rs. {post.price}.00</td>
+                                            <td>{post.reference}</td>
                                         </tr>
                                         );
                             })}

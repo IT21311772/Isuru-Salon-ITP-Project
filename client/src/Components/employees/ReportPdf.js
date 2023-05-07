@@ -6,36 +6,28 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table } from "react-bootstrap";
 import Logo from '../../images/logo.jpg';
 
-const ReactPdfPrint = () => {
+const ReportPdf = () => {
 
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        axios.get("/api/Post/posts")
+        axios.get("/api/emp/emps")
             .then((res) => {
                 console.log(res)
                 setPosts(res.data);
             })
             .catch((err) => console.log(err));
 }, []);
- // Creating Printing function
- const componentPDF = useRef();
- const handlePrint = useReactToPrint({
-  content: ()=> componentPDF.current,
-  documentTitle: "Available Services - Isuru Salon",
-  onAfterPrint:()=>alert("Data saved in PDF")
- });
 
-
-
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+        documentTitle: 'Salaon-employees',
+        onAfterPrint: ()=> alert('Print success')
+    });
 
     return (
         <>
-        
-            <div ref={componentPDF} style={{width: '100%', height: '100%'}}>
-            <div className="container mt-3  p-5 mt-4 rounded-3">
-                <img src={Logo} style={{width:'20%', height:'20%', marginLeft:'0%'}}></img>
-                <br /><br />
             <div className="package-report">
             <div ref={componentRef} style={{width: '100%', height: '100%', background:"white", backgroundColor:"white"}}>
             <div className="container mt-3" style={{background:"white", backgroundColor:"white"}}>
@@ -53,10 +45,12 @@ const ReactPdfPrint = () => {
                 <br />
                 <Table className="w-75 mx-auto" bordered>
                     <thead>
-                        <th>Package Title</th>
-                        <th>Package Type</th>
-                        <th>Services</th>
-                        <th>Package Price</th>
+                        <th>Employee Name</th>
+                        <th>Employee ID</th>
+                        <th>Salary</th>
+                        <th>Joined date</th>
+                        <th>Address</th>
+                        <th>Phone Number</th>
                     </thead>
                     <tbody>
                     {posts ? (
@@ -64,10 +58,12 @@ const ReactPdfPrint = () => {
                             {posts.map((post) => {
                                 return (
                                         <tr key={post._id} >
-                                            <td>{post.title}</td>
-                                            <td>{post.type}</td>
-                                            <td>{post.description}</td>
-                                            <td>Rs. {post.price}.00</td>
+                                            <td>{post.name}</td>
+                                            <td>{post.id}</td>
+                                            <td>{post.salary}</td>
+                                            <td>{post.joinedDate}</td>
+                                            <td>{post.address}</td>
+                                            <td>{post.phoneNO}</td>
                                         </tr>
                                         );
                             })}
@@ -88,4 +84,4 @@ const ReactPdfPrint = () => {
     );
 };
 
-export default ReactPdfPrint;
+export default ReportPdf;
