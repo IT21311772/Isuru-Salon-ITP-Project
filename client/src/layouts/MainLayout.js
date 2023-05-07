@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -27,6 +27,7 @@ function MainLayout({children}) {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <label className="navbar-brand" onClick={()=>navigate("/home")}>
               Service Management
+              </label>
             <label className="navbar-brand" onClick={()=>navigate("/dash")}>
               Finance Management
 

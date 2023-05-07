@@ -1,5 +1,4 @@
 import "./dashboard.css";
-import { useNavigate } from "react-router-dom"; //use to create dynamic application
 import MainLayout from "../../layouts/MainLayout";
 import { useNavigate } from "react-router-dom";
 
