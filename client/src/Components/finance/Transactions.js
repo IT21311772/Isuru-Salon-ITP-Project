@@ -4,7 +4,7 @@ import {Form, InputGroup } from "react-bootstrap";
 // import {useNavigate } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
 import { Link } from "react-router-dom";
-import './package.css';
+import './transactions.css';
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
 
 
 // const navigate = useNavigate();
-const [posts, setPosts] = useState([]);
+const [data, setData] = useState([]);
 const [updatedPost, setUpdatedPost] = useState({})
 const [search, setSearch] = useState('');
 console.log(search);
@@ -22,17 +22,17 @@ const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
 
 useEffect(() => {
-    axios.get("/api/Post/posts")
+    axios.get("/api/Fin/trans")
         .then((res) => {
             console.log(res)
-            setPosts(res.data);
+            setData(res.data);
         })
         .catch((err) => console.log(err));
 }, []);
 
 const deletePost = (id) => {
 axios
-.delete(`/api/Post/delete/${id}`)
+.delete(`/api/Fin/delete/${id}`)
 .then((res) => console.log(res))
 .catch((err) => console.log(err));
 
@@ -56,7 +56,7 @@ setUpdatedPost((prev) => {
 };
 
 const saveUpdatedPost = () => {
-axios.put(`/api/Post/update/${updatedPost._id}`, updatedPost)
+axios.put(`/api/Fin/update/${updatedPost._id}`, updatedPost)
 .then((res) => console.log(res))
 .catch((err) => console.log(err));
 
@@ -68,17 +68,17 @@ window.location.reload();
 const [order, setOrder] = useState("ASC");
 const sorting = (col) =>{
   if(order ==="ASC"){
-    const sorted = [...posts].sort((a,b) =>
+    const sorted = [...data].sort((a,b) =>
         a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1);
 
-        setPosts(sorted);
+        setData(sorted);
         setOrder("DESC");
   }
   if(order ==="DESC"){
-    const sorted = [...posts].sort((a,b) =>
+    const sorted = [...data].sort((a,b) =>
         a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1);
 
-        setPosts(sorted);
+        setData(sorted);
         setOrder("ASC");
     }
   };
@@ -94,7 +94,7 @@ return (
         {/* <button onClick={() => navigate(-1)}>BACK</button> */}
         <Modal show={show} onHide={handleClose} >
             <Modal.Header closeButton>
-                <Modal.Title style={{color:"#b30059"}}>Update a Package</Modal.Title>
+                <Modal.Title style={{color:"#b30059"}}>Update Transactions</Modal.Title>
             </Modal.Header>
             <Modal.Body style={{width:"100%", height:"200%"}}>
                 <Form>
@@ -108,9 +108,9 @@ return (
                                     boxSizing: "border-box",
                                     display: "block",
                                     marginLeft: "10%"}}
-                            placeholder="title"
-                            name="title"
-                            value={updatedPost.title ? updatedPost.title : ""}
+                            placeholder="Amount"
+                            name="amount"
+                            value={updatedPost.amount ? updatedPost.amount : ""}
                             onChange={handleChange}/>
                         <Form.Select
                             style={{width: "80%",
@@ -125,10 +125,9 @@ return (
                             name="type"
                             value={updatedPost.type ? updatedPost.type : ""}
                             onChange={handleChange}>
-                                <option>Package Type</option>
-                                <option>Daily Package</option>
-                                <option>Event Package</option>
-                                <option>Seasonal Package</option>
+                                <option>Transaction Type</option>
+                                <option>Income</option>
+                                <option>Expense</option>
                             </Form.Select>
                         <Form.Control 
                             style={{width: "80%",
@@ -139,7 +138,33 @@ return (
                             boxSizing: "border-box",
                             display: "block",
                             marginLeft: "10%"}}
-                            placeholder="description"
+                            placeholder="Category"
+                            name="category"
+                            value={updatedPost.category ? updatedPost.category : ""}
+                            onChange={handleChange}/>
+                        <Form.Control 
+                            style={{width: "80%",
+                            padding: "6px 10px",
+                            margin: "10px 0",
+                            border: "1px solid #c762a1",
+                            borderRadius: "5px",
+                            boxSizing: "border-box",
+                            display: "block",
+                            marginLeft: "10%"}}
+                            placeholder="Date"
+                            name="date"
+                            value={updatedPost.date ? updatedPost.date : ""}
+                            onChange={handleChange}/>
+                        <Form.Control 
+                            style={{width: "80%",
+                            padding: "6px 10px",
+                            margin: "10px 0",
+                            border: "1px solid #c762a1",
+                            borderRadius: "5px",
+                            boxSizing: "border-box",
+                            display: "block",
+                            marginLeft: "10%"}}
+                            placeholder="Description"
                             name="description"
                             value={updatedPost.description ? updatedPost.description : ""}
                             onChange={handleChange}/>
@@ -152,9 +177,9 @@ return (
                             boxSizing: "border-box",
                             display: "block",
                             marginLeft: "10%"}}
-                            placeholder="price"
-                            name="price"
-                            value={updatedPost.price ? updatedPost.price : ""}
+                            placeholder="Reference"
+                            name="reference"
+                            value={updatedPost.reference ? updatedPost.reference : ""}
                             onChange={handleChange}/>
                     </Form.Group>
                 </Form>
@@ -172,9 +197,9 @@ return (
             </Modal.Footer>
         </Modal>
 
-        {posts ? (
+        {data ? (
             
-            <>
+            <div>
             
             <Form>
                 <InputGroup className="my-1" style={{width:"20%", marginLeft:"75%"}}>
@@ -185,45 +210,79 @@ return (
             </Form>
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/posts/create" style={{color:"white", textDecoration:"none"}}>Create New Package</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/posts/report" style={{color:"white", textDecoration:"none"}}>Download Package Menu</Link></button>
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/fin/add" style={{color:"white", textDecoration:"none"}}>Add New Transaction</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/fin/report" style={{color:"white", textDecoration:"none"}}>Download Package Menu</Link></button>
             
                 <br /><br />
                 <center>
-                    <h1 style={{color:"#660033", fontWeight:"bolder", fontSize:"50px"}}>Updated Packages</h1>
+                    <h1 style={{color:"#660033", fontWeight:"bolder", fontSize:"50px"}}>Income & Expenses</h1>
                 </center>
 
                 <div className="container">
                 <button onClick={() => sorting("type")}>Sort by Type</button>&nbsp;
-                <button onClick={() => sorting("price")}>Sort by Price</button>
                 </div>
                 <br />
+
+            <div className="container">   
+            
+                <table class="table">
+                <thead>
+                  <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Reference</th>
+                  <th></th>
+                  <th scope="col">Action</th>
+                  </tr>
+                </thead>
+               
                     
-                        {posts.filter((post) => {
+                        {data.filter((post) => {
                             return search.toLowerCase() === ''
                                 ? post
-                                : post.title.toLowerCase().includes(search) ||
+                                : post.category.toLowerCase().includes(search) ||
                                   post.type.toLowerCase().includes(search) ||
+                                  post.date.toLowerCase().includes(search) ||
+                                  post.reference.toLowerCase().includes(search) ||
                                   post.description.toLowerCase().includes(search)
                         })
-                        .map((post) => {
+                        .map((post,index) => {
                     return (
+                        <tbody>
+                        <tr>
+                        <td>{index+1}</td>
+                        <td>{post.amount}</td>
+                        <td>{post.type}</td>
+                        <td>{post.category}</td>
+                        <td>{post.date}</td>
+                        <td>{post.description}</td>
+                        <td>{post.reference}</td>
+                        <td >
+                        
+                        <button  style={{width: "70%",
+                                    marginLeft:'10px'                   
+                        }} onClick={() => updatePost(post)}>UPDATE</button>   </td>
 
-                            <div key={post._id} className = "package-preview" >
-                                <center>
-                                    <h2>{post.title}</h2>
-                                    <p>{post.type}</p>
-                                    <p>{post.description}</p>
-                                    <p>Rs. {post.price}.00</p>
-                                        <button onClick={() => updatePost(post)}>UPDATE</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <button style={{color:"white", background:"#3d3c3c", border:"black"}} onClick={() => deletePost(post._id)}>DELETE</button><br />
-                                    
-                                </center>
-                            </div>   
+                        <td>
+                        <button style={{width: "80%", marginLeft:'-20%', marginTop:""}} onClick={() => deletePost(post._id)}>DELETE</button>
+                        </td>
+                        
+                        
+                        </tr>
+                        </tbody>
+                             
                     );
                 })}
-            </>
+                </table>
+                </div>
+
+                
+            </div>
+            
         ) : (
           ""
         )}
