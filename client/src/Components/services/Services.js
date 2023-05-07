@@ -20,7 +20,7 @@ function Posts() {
 
   useEffect(() => {
     axios
-      .get("/api/Post/posts")
+      .get("/api/Serv/posts")
       .then((res) => {
         console.log(res);
         setPosts(res.data); //get respose from data under data category
@@ -32,7 +32,7 @@ function Posts() {
   const deletePost = (id) => {
     //console.log(id);
     axios
-      .delete(`/api/Post/delete/${id}`)
+      .delete(`/api/Serv/delete/${id}`)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
@@ -58,7 +58,7 @@ function Posts() {
 
   const saveUpdatedPost = () => {
     axios
-      .put(`/api/Post/update/${updatedPost._id}`, updatedPost)
+      .put(`/api/Serv/update/${updatedPost._id}`, updatedPost)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
@@ -106,8 +106,8 @@ function Posts() {
 
   <div className="container mt-3  p-3 mt-4 rounded-3"> 
           <div className="d-grid d-md-flex justify-content-md-end mb-3 ">
-                <button className="btn-generate " onClick={() => navigate("/posts/report")}>Generate Report</button> &nbsp;
-                <button className="btn-add " type="submit" onClick={() => navigate("/posts/create")}>Add New Service</button>
+                <button className="btn-generate " onClick={() => navigate("/services/report")}>Generate Report</button> &nbsp;
+                <button className="btn-add " type="submit" onClick={() => navigate("/services/create")}>Add New Service</button>
         </div>
   
   </div>

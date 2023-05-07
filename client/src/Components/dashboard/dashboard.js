@@ -2,7 +2,7 @@ import "./dashboard.css";
 import MainLayout from "../../layouts/MainLayout";
 import { useNavigate } from "react-router-dom";
 
-function dashboard() {
+function Dashboard() {
 
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ function dashboard() {
         Package Management
       </button>
 
-      <button className="btn-func" onClick={() => navigate("/posts")}>
+      <button className="btn-func" onClick={() => navigate("/services")}>
       Service Management
       </button>
 
@@ -61,4 +61,4 @@ function dashboard() {
   );
 }
 
-export default dashboard;
+export default Dashboard;
