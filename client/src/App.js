@@ -11,6 +11,11 @@ import Login from './Components/login/Login';
 import Signup from './Components/login/Signup';
 import DashBoard from './Components/dashboard/dashboard';
 import ReactPdfPrint from './Components/packages/ReactPdfPrint';
+import Client from './Components/packages/Client'
+
+import Services from './Components/services/Services';
+import Report from './Components/services/Report'
+import CreateService from './Components/services/CreateService';
 import Client from './Components/packages/Client';
 import AddSupplier from './Components/suppliers/AddSupplier';
 import Supplier from './Components/suppliers/Suppliers';
@@ -45,6 +50,12 @@ function App() {
                 <Route path='/posts/create/posts' element={<Posts />} />
                 <Route path='/posts/report' element={<ReactPdfPrint />} />
                 <Route path='/posts/clientPack' element={<Client />} />
+
+                <Route path='/services' element={<Services />} />
+                <Route path='/services/report' element={<Report />} />
+                <Route path='/services/create' element={<CreateService />} />
+
+
                 <Route path='/sup/add' element={<AddSupplier />} />
                 <Route path='/sups' element={<Supplier />} />
                 <Route path='/sup/add/sups' element={<Supplier />} />
@@ -70,6 +81,7 @@ function App() {
                 <Route path='/fin/add' element={<AddTransactions />} />
                 <Route path='/fin/add/trans'element={<Transactions />} />
                 <Route path='/fin/report' element={<FinanceReport />} />
+
             </Routes>
         </div>
     );

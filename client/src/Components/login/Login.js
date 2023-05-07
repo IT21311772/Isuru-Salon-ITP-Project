@@ -26,6 +26,7 @@ export default function Login() {
             });
             if (status === 200) {
               localStorage.setItem("currentUser", JSON.stringify(data));
+              history ({state:{id:name}});
               window.location.href = "/home";
             } else {
               setError("Invalid Credentials.");

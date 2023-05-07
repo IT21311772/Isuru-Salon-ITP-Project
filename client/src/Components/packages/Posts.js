@@ -94,6 +94,7 @@ return (
         {/* <button onClick={() => navigate(-1)}>BACK</button> */}
         <Modal show={show} onHide={handleClose} >
             <Modal.Header closeButton>
+                <Modal.Title style={{color:"#b30059"}}>Update Package</Modal.Title>
                 <Modal.Title style={{color:"#b30059"}}>Update a Package</Modal.Title>
             </Modal.Header>
             <Modal.Body style={{width:"100%", height:"200%"}}>
@@ -190,6 +191,7 @@ return (
             
                 <br /><br />
                 <center>
+                    <h1 style={{color:"#660033", fontWeight:"bolder", fontSize:"50px"}}>Salon Packages</h1>
                     <h1 style={{color:"#660033", fontWeight:"bolder", fontSize:"50px"}}>Updated Packages</h1>
                 </center>
 

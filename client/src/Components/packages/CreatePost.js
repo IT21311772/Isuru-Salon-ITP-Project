@@ -1,39 +1,43 @@
-import { Form } from "react-bootstrap";
-import {useNavigate} from 'react-router-dom';
-import { useState } from "react";
+import { Button, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react"; //deleted the (, useEffect )
 import axios from "axios";
-import './package.css';
+import MainLayout from "../../layouts/MainLayout";
 
-function CreatePost () {
-    const navigate = useNavigate();
-    const [post, setPost] = useState ({
-        title: "",
-        type: "",
-        description: "",
-        price: "",
+
+function CreateService() {
+  const navigate = useNavigate();
+  const [post, setPost] = useState({
+    sId: "",
+    sName: "",
+    sPrice: "",
+    sCategory:"",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target; //handleChange function is use to get input value
+
+    setPost((prev) => {
+      return {
+        ...prev,
+        [name]: value, //save the values and change the next value
+      };
     });
+  };
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
 
-        setPost((prev) => {
-            return {
-                ...prev,
-                [name]: value,
-            };
-        });
-    };
+  const handleClick = (event) => {
+    event.preventDefault();
 
-    const handleClick = (event) => {
-        event.preventDefault();
+    //give last part of url insted of the whole URL and send the other part to package.json
+    //send data to database using post method
+    axios
+      .post("/api/Post/create", post)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
 
-        axios.post("/api/Post/create", post)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
-
-        navigate("posts");
-        
-    };
+    navigate("/posts");
+  };
 
     return (
         <div className="packages-create">
@@ -89,4 +93,4 @@ function CreatePost () {
     );
 }
 
-export default CreatePost;
+export default CreateService;
