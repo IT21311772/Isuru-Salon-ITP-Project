@@ -1,23 +1,21 @@
 import "./dashboard.css";
-import Button from "react-bootstrap/Button";
-import { useLocation, useNavigate } from "react-router-dom"; //use to create dynamic application
 import MainLayout from "../../layouts/MainLayout";
+import { useNavigate } from "react-router-dom";
 
 function dashboard() {
 
   const navigate = useNavigate();
-  const location = useLocation()
-
 
   return (
     <div className="dashboard">
       <MainLayout>
-      <h1>Hello 
-        {location.state.id}  
-        !!</h1>
+        <center>
+            <h1>Hello  !!</h1>
+        </center>
+      
       <br />
       </MainLayout>
-      
+      <div className="dash">
       <div className="container mt-5 d-flex justify-content-center">
       <button className="btn-func" onClick={() => navigate("/posts")}>
         Package Management
@@ -57,6 +55,8 @@ function dashboard() {
       </button>
       
       </div>
+      </div>
+      
     </div>
   );
 }

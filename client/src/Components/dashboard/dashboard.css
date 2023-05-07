@@ -1,16 +1,16 @@
-/* .btn-func{
+.btn-func{
   padding: 10%;
   margin-right: -40%;
   border-radius: 5px;
   border: none;
-  width: 70%;
   font-size: 20px;
   color: white;
-  background-color: #a66f72;
-}
-
-.dash{
-  margin-right: 60%;
+  background-color: #f65365;
+  display: inline-block;
+  width: 300px;
+  padding: 20px;
+  margin: 30px;
+  font-family: mulish,sans-serif;
 }
 
 .btn-logout{
@@ -45,6 +45,6 @@
   width: 6%;
   font-size: 18px;
   color: white;
-  background-color: #a66f72;
-  
+  background-color: #f65365;
+  font-family: mulish,sans-serif; 
 }

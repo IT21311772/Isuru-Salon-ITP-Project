@@ -20,7 +20,7 @@ const ReactPdfPrint = () => {
 }, []);
  // Creating Printing function
  const componentPDF = useRef();
- const generatePDF = useReactToPrint({
+ const handlePrint = useReactToPrint({
   content: ()=> componentPDF.current,
   documentTitle: "Available Services - Isuru Salon",
   onAfterPrint:()=>alert("Data saved in PDF")
@@ -29,60 +29,55 @@ const ReactPdfPrint = () => {
 
 
 
- return (
-    <div >
-          <div className="container mt-2  p-3  rounded-3"> 
-         <div className="d-grid d-md-flex justify-content-md-end mb-3 ">
-                <button className="btn-report " onClick={generatePDF}>Print Report</button>
-        </div></div>
-
-         <div ref={componentPDF} style={{width:'100%'}} className="container  p-3" >
-        <div className="container mt-1  p-5  rounded-3">
-   
-        <img src={Logo} style={{width:'20%', height:'10%'}}></img>
-        <br /><br />
-            <h5>Isuru Salon</h5>
-            <br></br>
-            <h6>  225/2J</h6>
-            <h6>  High Level Road</h6>
-            <h6>  Homagama</h6>
-            <br></br>
-            <div className="container mt-1 bg-light p-5  rounded-3">
-            <center><h4>Available Services Report</h4></center>
+    return (
+        <>
+        
+            <div ref={componentPDF} style={{width: '100%', height: '100%'}}>
+            <div className="container mt-3  p-5 mt-4 rounded-3">
+                <img src={Logo} style={{width:'20%', height:'20%', marginLeft:'0%'}}></img>
+                <br /><br />
+                    <h5>Isuru Salon</h5>
+                    <br></br>
+                    <h6>  225/2J</h6>
+                    <h6>  High Level Road</h6>
+                    <h6>  Homagama</h6>
             </div>
-      </div>
-
-    
-    <div className="container mt-3 bg-light p-5 mt-4 rounded-3">
-    <table className="table  table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">Service ID</th>
-                  <th scope="col">Servie Name</th>
-                  <th scope="col">Price</th>
-                  <th scope="col">Category</th>
-                  
-                </tr>
-              </thead> 
-              <tbody>
-                {posts.map((item) =>(
-                    <tr>
-                        <td>{item.sId}</td>
-                        <td>{item.sName}</td>
-                        <td>{item.sPrice}</td>
-                        <td>{item.sCategory}</td>
-                    </tr>
-                )) }
-              
-                </tbody>
-              </table>
-    
-
-
-    </div></div>
-</div>
-  )
-}
-
+                <h1 className="text-center my-3 border py-2">Salon Packages</h1>
+                <br />
+                <Table className="w-75 mx-auto" bordered>
+                    <thead>
+                        <th>Package Title</th>
+                        <th>Package Type</th>
+                        <th>Services</th>
+                        <th>Package Price</th>
+                    </thead>
+                    <tbody>
+                    {posts ? (
+                        <>
+                            {posts.map((post) => {
+                                return (
+                                        <tr key={post._id} >
+                                            <td>{post.title}</td>
+                                            <td>{post.type}</td>
+                                            <td>{post.description}</td>
+                                            <td>Rs. {post.price}.00</td>
+                                        </tr>
+                                        );
+                            })}
+                        </>
+                    ) : (
+                     ""
+                    )}
+                    </tbody>
+                </Table>
+            </div>
+            <br />
+            <center>
+                <button className="btn btn-secondary" style={{ borderRadius:"5px"}} onClick={handlePrint}>Download</button>
+            </center>
+            
+        </>
+    );
+};
 
 export default ReactPdfPrint;

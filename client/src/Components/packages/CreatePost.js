@@ -39,91 +39,58 @@ function CreateService() {
     navigate("/posts");
   };
 
-  return (
-    <div >
-      <MainLayout>
-      <h1>Add a Service</h1>
-      </MainLayout>
+    return (
+        <div className="packages">
 
-    <div style={{ width: "40%", margin: "auto auto", textAlign: "center" }}>
-     
-      <Form className="container mt-3">
-        <Form.Group className="mb-3">
-          <Form.Control
-            name="sId" //------------------------Change---------------------------
-            value={post.sId} //according to CreatePost state
-            placeholder="Enter Service ID"
-            
-            style={{ marginBottom: "1rem" }}
-            onChange={handleChange}
-            required
-          />
-
-          <Form.Control
-            name="sName" //------------------------Change---------------------------
-            value={post.sName}
-            placeholder="Enter Service Name"
-            style={{ marginBottom: "1rem" }}
-            onChange={handleChange}
-          />
-        </Form.Group>
-
-<Form.Group>
-        <Form.Control
-            name="sPrice" //------------------------Change---------------------------
-            value={post.sPrice}
-            placeholder="Enter Price"
-            style={{ marginBottom: "1rem" }}
-            onChange={handleChange}
-          />
-
-          
         
+        <div className="Create-post">
+            <h1 className="title">Create New Package</h1><br />
+            <Form className="Form">
+                <Form.Group className="Form-Group">
+                    <Form.Control className="Form-Control" 
+                        name="title" 
+                        value={post.title}
+                        placeholder="Title"
+                        onChange={handleChange}
+                        style={{width:"80%", marginLeft:"10%"}}
+                        required />
+                    
+                    <Form.Select name="type"
+                        value={post.type} 
+                        placeholder="Package Type"
+                        onChange={handleChange} 
+                        style={{width:"80%", marginLeft:"10%"}}
+                        required>
+                            <option>Package Type</option>
+                            <option>Daily Package</option>
+                            <option>Event Package</option>
+                            <option>Seasonal Package</option>
+                    </Form.Select>
 
-          <div className="mb-3">
-                <select className="form-select form-select-sm" name="sCategory"
-                value={post.sCategory} onChange={handleChange}
-                >
-                    <option selected>Select the Category</option>
-                    <option value="Hair">Hair</option>
-                    <option value="Skin">Skin</option>
-                    <option value="Body">Body</option>
-                    <option value="Nail">Nail</option>
-                    <option value="Kids">Kids</option>
-                    <option value="Bridal">Bridal</option>
-                </select>
-            </div> &nbsp;
-
-
-        </Form.Group>
-
-        <button
-        className="btn-add"
-          style={{ width: "100%", marginBottom: "1rem" }}
-          
-          onClick={handleClick}
-        >
-          CREATE SERVICE
-        </button>
-      
-      
-      <button
-      className="btn-back"
-        style={{ width: "100%", marginBottom: "1rem" }}
-        
-        onClick={() => navigate(-1)}
-      >
-        BACK
-      </button> 
-      </Form>
-      
-      
-    </div> </div> //to navigate backward
-    
-
-
-    
-  );
+                    <Form.Control className="Form-Control"
+                        name="description" 
+                        value={post.description}
+                        placeholder="Description"
+                        onChange={handleChange} 
+                        style={{width:"80%", marginLeft:"10%"}}
+                        required />
+                    <Form.Control className="Form-Control"
+                        name="price" 
+                        value={post.price}
+                        placeholder="Price"
+                        onChange={handleChange} 
+                        style={{width:"80%", marginLeft:"10%"}}
+                        required />
+                </Form.Group>
+                <br />
+                < button style={{borderRadius:"5px", background:"#a66f72", padding:"1%", width:"40%"}} onClick={handleClick}>CREATE PACKAGE</button>
+            </Form>
+            <br />
+            {/* <br />
+            <button style={{borderRadius:"5px", background:"#a66f72", padding:"0.5%"}} onClick={() => navigate(-1)}> BACK </button>   */}
+        </div>
+        </div>
+    );
 }
 
 export default CreateService;
