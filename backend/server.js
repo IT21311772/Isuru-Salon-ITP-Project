@@ -8,26 +8,28 @@ const app = express();
 
 // Use the middlewares to get the data to backend
 app.use(bodyParser.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 
 // Import the routes
 const userRoutes = require('./routes/userRoutes');
 const packageRoutes = require('./routes/packageRoutes');
+const appointmentRoutes = require('./routes/appointmentRoutes');
 
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/Post", packageRoutes);
+app.use("/api/Book", appointmentRoutes);
 
 // Connect the database
 mongoose
     .connect("mongodb+srv://rishen:rishen123@cluster0.m6wwag4.mongodb.net/?retryWrites=true&w=majority")
     .catch((err) => console.log(err));
 
-    // router.get("/", (req, res) => {
-    //     res.send("Express is here");
-    // });
+// router.get("/", (req, res) => {
+//     res.send("Express is here");
+// });
 
 
 
@@ -36,6 +38,6 @@ app.listen(3001, function () {
     console.log("Server is running");
 });
 
-app.listen(8000, function() {
+app.listen(8000, function () {
     console.log("Port connected");
 });
