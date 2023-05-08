@@ -130,6 +130,20 @@ return (
 
                         <Form.Control 
                             style={{width: "80%",
+                                    padding: "6px 10px",
+                                    margin: "10px 0",
+                                    border: "1px solid #c762a1",
+                                    borderRadius: "5px",
+                                    boxSizing: "border-box",
+                                    display: "block",
+                                    marginLeft: "10%"}}
+                            placeholder="NIC"
+                            name="NIC"
+                            value={updatedPost.NIC ? updatedPost.NIC : ""}
+                            onChange={handleChange}/>
+
+                        <Form.Control 
+                            style={{width: "80%",
                             padding: "6px 10px",
                             margin: "10px 0",
                             border: "1px solid #c762a1",
@@ -221,6 +235,7 @@ return (
                   <tr>
                   <th scope="col">Employee Name</th>
                   <th scope="col">Employee Id</th>
+                  <th scope="col">NIC</th>
                   <th scope="col">Joined Date</th>
                   <th scope="col">Address</th>
                   <th scope="col">Phone Number</th>
@@ -234,6 +249,7 @@ return (
                                 ? data
                                 : data.name.toLowerCase().includes(search) ||
                                   data.id.toLowerCase().includes(search) ||
+                                  data.NIC.toLowerCase().includes(search) ||
                                   data.joinedDate.toLowerCase().includes(search) ||
                                   data.address.toLowerCase().includes(search) ||
                                   data.phoneNo.toLowerCase().includes(search)
@@ -247,6 +263,7 @@ return (
                                 <tr>
                                 <td>{data.name}</td>
                                 <td>{data.id}</td>
+                                <td>{data.NIC}</td>
                                 <td>{data.joinedDate}</td>
                                 <td>{data.address}</td>
                                 <td>{data.phoneNo}</td>

@@ -10,6 +10,10 @@ const empSchema = mongoose.Schema(
             type:String,
             required:true
         },
+        NIC:{
+            type:String,
+            required:true
+        },
         joinedDate:{
             type:String,
             required:true

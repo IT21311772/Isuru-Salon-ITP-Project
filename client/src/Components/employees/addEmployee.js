@@ -9,6 +9,7 @@ function CreatePost () {
     const [emp, setEmp] = useState ({
         name: "",
         id: "",
+        NIC: "",
         joinedDate: "",
         address: "",
         phoneNo: "",
@@ -58,6 +59,15 @@ function CreatePost () {
                         onChange={handleChange} 
                         style={{width:"80%", marginLeft:"10%"}}
                         required />
+
+                        <Form.Control className="Form-Control"
+                        name="NIC" 
+                        value={emp.NIC}
+                        placeholder="NIC"
+                        onChange={handleChange} 
+                        style={{width:"80%", marginLeft:"10%"}}
+                        required />
+
                     <Form.Control className="Form-Control"
                         name="joinedDate" 
                         value={emp.joinedDate}
