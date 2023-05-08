@@ -4,6 +4,10 @@ import {Form, InputGroup } from "react-bootstrap";
 // import {useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import './package.css';
+import Home from "./Home";
+import ContactUs from "./ContactUs";
+import Products from "./Product";
+import Client from "./Client";
 
 
 function App() {
@@ -43,15 +47,15 @@ setUpdatedPost((prev) => {
 const [order, setOrder] = useState("ASC");
 const sorting = (col) =>{
   if(order ==="ASC"){
-    const sorted = [...posts].sort((a,b) =>
-        a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1);
+    const sorted = [...posts].sort((Link,b) =>
+        Link[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1);
 
         setPosts(sorted);
         setOrder("DESC");
   }
   if(order ==="DESC"){
-    const sorted = [...posts].sort((a,b) =>
-        a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1);
+    const sorted = [...posts].sort((Link,b) =>
+        Link[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1);
 
         setPosts(sorted);
         setOrder("ASC");
@@ -63,35 +67,7 @@ const sorting = (col) =>{
 return (
     <div className="packages">
     <div>
-    <nav className="navbar">
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul className="navbar-nav">
-      <li className="nav-item">
-        <a className="nav-link" href="#">Home <span class="sr-only"></span></a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">Products</a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">Services</a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">Packages</a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">Contact Us</a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">Book Now</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-        {/* style={{width:"90%", margin: "auto auto", textAlign: "center"}} */}
-        
-      <br /><br />
-        {/* <button onClick={() => navigate(-1)}>BACK</button> */}
-        
+    
 
         {posts ? (
             
