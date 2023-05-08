@@ -11,11 +11,13 @@ import Signup from './Components/login/Signup';
 import DashBoard from './Components/dashboard/dashboard';
 import ReactPdfPrint from './Components/packages/ReactPdfPrint';
 import Client from './Components/packages/Client';
+
 import AddEmployee from './Components/employees/addEmployee';
 import Employees from './Components/employees/Employee';
 import ReportPdf from './Components/employees/ReportPdf';
 import Salary from './Components/salary/Salary';
 import AddSalary from './Components/salary/addSalary';
+
 import CustomPack from './Components/packages/CustomPack';
 import CustomSucces from './Components/packages/CustomSucces';
 import AddTransactions from './Components/finance/addTransactions';
@@ -42,9 +44,8 @@ function App() {
                 <Route path='/emp/empDetails' element={<ReportPdf />} />
 
                 <Route path='/emp/sals' element={<Salary />} />
-                <Route path='/emp/sals/adds' element={<AddSalary />} />
-                <Route path='/emp/sals/adds/sals' element={<AddSalary />} />
-
+                <Route path='/emp/sals/tap' element={<AddSalary />} />
+                <Route path='/emp/sals/tap/sals' element={<Salary />} />
 
 
                 <Route path='/posts/clientPack/create' element={<CustomPack />} />

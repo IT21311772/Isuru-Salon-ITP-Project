@@ -5,7 +5,8 @@ const sal = require('../models/salaryModel');
 // Create API route for Create method in CRUD Operations
 router.post("/adds", (req, res) => {
     sal.create({
-        id: req.body.name,
+        id: req.body.id,
+        month: req.body.month,
         workingDays: req.body.workingDays,
         payRate: req.body.payRate,
         netSal: req.body.netSal,

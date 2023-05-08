@@ -6,6 +6,10 @@ const salSchema = mongoose.Schema(
             type:String,
             required:true
         },
+        month:{
+            type:String,
+            required:true
+        },
         workingDays:{
             type:Number,
             required:true
@@ -14,7 +18,7 @@ const salSchema = mongoose.Schema(
             type:Number,
             required:true
         },
-        netSalary:{
+        netSal:{
             type:Number,
             required:true
         },

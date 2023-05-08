@@ -84,7 +84,7 @@ return (
             </Form>
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/emp/sals/adds" style={{color:"white", textDecoration:"none"}}>Add Salary</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/emp/sals/tap" style={{color:"white", textDecoration:"none"}}>Add Salary</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/sal/empDetails" style={{color:"white", textDecoration:"none"}}>Download Salary Sheet</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <br /><br />
@@ -102,6 +102,7 @@ return (
                             return search.toLowerCase() === ''
                                 ? data
                                 : data.id.toLowerCase().includes(search) ||
+                                  data.month.toLowerCase().includes(search) ||
                                   data.workingDays.toLowerCase().includes(search) ||
                                   data.payRate.toLowerCase().includes(search) ||
                                   data.netSal.toLowerCase().includes(search) 
@@ -114,6 +115,7 @@ return (
                                     <div key={employee._id} className = "package-preview" >
                                         <center>
                                             <h2>{employee.id}</h2>
+                                            <p>{employee.month}</p>
                                             <p>{employee.workingDays}</p>
                                             <p>{employee.payRate}</p>
                                             <p>{employee.netSal}</p>

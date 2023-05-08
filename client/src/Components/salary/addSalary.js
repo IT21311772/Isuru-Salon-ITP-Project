@@ -31,7 +31,7 @@ function CreatePost () {
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
 
-        navigate("emp/sals");
+        navigate("sals");
         
     };
 
@@ -46,6 +46,14 @@ function CreatePost () {
                         name="id" 
                         value={sal.id}
                         placeholder="Employee ID"
+                        onChange={handleChange}
+                        style={{width:"80%", marginLeft:"10%"}}
+                        required />
+
+                    <Form.Control className="Form-Control" 
+                        name="month" 
+                        value={sal.month}
+                        placeholder="Month"
                         onChange={handleChange}
                         style={{width:"80%", marginLeft:"10%"}}
                         required />
@@ -65,8 +73,8 @@ function CreatePost () {
                         style={{width:"80%", marginLeft:"10%"}}
                         required />
                     <Form.Control className="Form-Control"
-                        name="netSalary" 
-                        value={sal.netSalary}
+                        name="netSal" 
+                        value={sal.netSal}
                         placeholder="Net Salary"
                         onChange={handleChange} 
                         style={{width:"80%", marginLeft:"10%"}}
