@@ -211,7 +211,7 @@ return (
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/fin/add" style={{color:"white", textDecoration:"none"}}>Add New Transaction</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/fin/report" style={{color:"white", textDecoration:"none"}}>Download Package Menu</Link></button>
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/fin/report" style={{color:"white", textDecoration:"none"}}>Download Finance Report</Link></button>
             
                 <br /><br />
                 <center>
@@ -263,12 +263,12 @@ return (
                         <td>{post.reference}</td>
                         <td >
                         
-                        <button  style={{width: "70%",
+                        <button  style={{width: "80%",
                                     marginLeft:'10px'                   
                         }} onClick={() => updatePost(post)}>UPDATE</button>   </td>
 
                         <td>
-                        <button style={{width: "80%", marginLeft:'-20%', marginTop:""}} onClick={() => deletePost(post._id)}>DELETE</button>
+                        <button style={{width: "90%", marginLeft:'-20%', marginTop:""}} onClick={() => deletePost(post._id)}>DELETE</button>
                         </td>
                         
                         
