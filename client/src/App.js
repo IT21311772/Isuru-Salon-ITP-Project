@@ -1,4 +1,4 @@
-import './Components/packages/package.css';
+// import './Components/packages/package.css';
 import './Components/finance/transactions.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from 'react-router-dom';
@@ -25,6 +25,7 @@ function App() {
                 <Route path='/' element={<Login />} />
                 <Route path='/home' element={<DashBoard />} />
                 <Route path='/signup' element={<Signup />} />
+
                 <Route path='/posts' element={<Posts />} />
                 <Route path='/posts/create' element={<CreatePost />} />
                 <Route path='/posts/create/posts' element={<Posts />} />
@@ -32,6 +33,7 @@ function App() {
                 <Route path='/posts/clientPack' element={<Client />} />
                 <Route path='/posts/clientPack/create' element={<CustomPack />} />
                 <Route path='/posts/clientPack/create/clientPack' element={<Client />} />
+
                 <Route path='/clientHome' element={<Home />} />
                 <Route path='/packages' element={<Client />} />
                 <Route path='/contact' element={<ContactUs />} />

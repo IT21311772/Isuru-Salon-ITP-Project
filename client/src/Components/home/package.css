@@ -3,6 +3,11 @@
     margin: auto;
     padding: auto;
   }
+
+  .search{
+    border-color: #b30059;
+
+  }
   
 
   .packages {
@@ -70,15 +75,6 @@
     margin-left: 10%;
   }
   
-  .packages-create .Form-Cont{
-    width: 100%;
-    padding: 6px 10px;
-    margin: 10px 0;
-    border: 1px solid #a66f72;
-    border-radius: 5px;
-    box-sizing: border-box;
-    display: block;
-  }
 
   .package-report{
     background-color: white;
@@ -87,7 +83,7 @@
   
   /* App.js Styling Part */
   
-  .packages .package-preview {
+  .bg-white .package-preview {
     width: 300px;
     padding: 20px;
     margin: 30px;
@@ -99,11 +95,11 @@
     margin-left: 45px;
   }
   
-  .packages .package-preview:hover {
+  .bg-white .package-preview:hover {
     box-shadow: 1px 3px 5px rgba(10, 10, 10, 10);
   }
   
-  .packages .package-preview button {
+  .bg-white .package-preview button {
     color: white;
     background-color: #c762a1;
     border: #dc6c8a;
@@ -115,22 +111,22 @@
     font-size: 13px;
   }
   
-  .packages .package-preview h2{
+  .bg-white .package-preview h2{
     color: black;
     font-weight: bold;
   }
   
-  .packages .package-preview p{
+  .bg-white .package-preview p{
     font-size: 17px;
     color: black;
   }
   
-  .packages .update{
+  .bg-white .update{
     color: white;
     background-color: black;
   }
   
-  .packages button{
+  .bg-white button{
     color: white;
     background-color: #b30059;
     border: #b30059;
@@ -143,10 +139,10 @@
     font-size: 15px;
   }
   
-  .packages button:hover{
+  .bg-white button:hover{
     box-shadow: 1px 3px 5px rgba(10, 10, 10, 10);
   }
   
-  .packages .container button{
+  .bg-white .container button{
     margin-left: 85%;
   }
