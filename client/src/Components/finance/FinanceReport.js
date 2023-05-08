@@ -41,7 +41,7 @@ const ReactPdfPrint = () => {
                     </div>
             </div>
             <br /><br /><br /><br />
-                <h1 className="text-center my-3 border py-2" style={{fontWeight:"bold"}}>Salon Packages</h1>
+                <h1 className="text-center my-3 border py-2" style={{fontWeight:"bold"}}>Finance Report</h1>
                 <br />
                 <Table className="w-75 mx-auto" bordered>
                     <thead>
