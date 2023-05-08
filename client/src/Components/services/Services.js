@@ -122,15 +122,7 @@ function Posts() {
         <Modal.Body>
           <Form>
             <Form.Group>
-              <Form.Control
-                style={{ marginBottom: "1rem" }}
-                placeholder="Service ID"
-                name="sId"
-                value={updatedPost.sId ? updatedPost.sId : ""}
-                onChange={handleChange}
-              />{" "}
-              {/*if updatedPost.title avaliable return that
-                                                                                        if not return nothing */}
+              
               <Form.Control
                 name="sName"
                 value={updatedPost.sName ? updatedPost.sName : ""}
@@ -193,9 +185,9 @@ function Posts() {
                 toLowerCase().includes(search.toLowerCase());
 
 })
-              .map((post) => (
-              <tr key={post.id}>
-                <th scope="row">{post.sId}</th>
+              .map((post, index) => (
+              <tr key={index+1}>
+                <th scope="row">{index+1}</th>
                 <td>{post.sName}</td>
                 <td>{post.sPrice}</td>
                 <td>{post.sCategory}</td>

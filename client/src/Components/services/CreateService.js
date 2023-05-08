@@ -8,7 +8,7 @@ import MainLayout from "../../layouts/MainLayout";
 function CreateService() {
   const navigate = useNavigate();
   const [post, setPost] = useState({
-    sId: "",
+    
     sName: "",
     sPrice: "",
     sCategory:"",
@@ -49,15 +49,7 @@ function CreateService() {
      
       <Form className="container mt-3">
         <Form.Group className="mb-3">
-          <Form.Control
-            name="sId" //------------------------Change---------------------------
-            value={post.sId} //according to CreatePost state
-            placeholder="Enter Service ID"
-            
-            style={{ marginBottom: "1rem" }}
-            onChange={handleChange}
-            required
-          />
+          
 
           <Form.Control
             name="sName" //------------------------Change---------------------------
