@@ -17,6 +17,7 @@ import Employees from './Components/employees/Employee';
 import ReportPdf from './Components/employees/ReportPdf';
 import Salary from './Components/salary/Salary';
 import AddSalary from './Components/salary/addSalary';
+import ReportSal from './Components/salary/ReportSal';
 
 import CustomPack from './Components/packages/CustomPack';
 import CustomSucces from './Components/packages/CustomSucces';
@@ -46,6 +47,7 @@ function App() {
                 <Route path='/emp/sals' element={<Salary />} />
                 <Route path='/emp/sals/tap' element={<AddSalary />} />
                 <Route path='/emp/sals/tap/sals' element={<Salary />} />
+                <Route path='/emp/sal/salDetails' element={<ReportSal />} />
 
 
                 <Route path='/posts/clientPack/create' element={<CustomPack />} />
