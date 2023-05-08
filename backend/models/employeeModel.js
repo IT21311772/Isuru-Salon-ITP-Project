@@ -10,10 +10,6 @@ const empSchema = mongoose.Schema(
             type:String,
             required:true
         },
-        salary:{
-            type:String,
-            required:true
-        },
         joinedDate:{
             type:String,
             required:true

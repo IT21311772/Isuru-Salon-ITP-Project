@@ -9,7 +9,6 @@ function CreatePost () {
     const [emp, setEmp] = useState ({
         name: "",
         id: "",
-        salary: "",
         joinedDate: "",
         address: "",
         phoneNo: "",
@@ -56,13 +55,6 @@ function CreatePost () {
                         name="id" 
                         value={emp.id}
                         placeholder="Employee ID"
-                        onChange={handleChange} 
-                        style={{width:"80%", marginLeft:"10%"}}
-                        required />
-                    <Form.Control className="Form-Control"
-                        name="salary" 
-                        value={emp.salary}
-                        placeholder="Price"
                         onChange={handleChange} 
                         style={{width:"80%", marginLeft:"10%"}}
                         required />

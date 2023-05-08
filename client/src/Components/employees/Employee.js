@@ -127,20 +127,6 @@ return (
                             name="id"
                             value={updatedPost.id ? updatedPost.id : ""}
                             onChange={handleChange}/>
-                                
-                        <Form.Control 
-                            style={{width: "80%",
-                            padding: "6px 10px",
-                            margin: "10px 0",
-                            border: "1px solid #c762a1",
-                            borderRadius: "5px",
-                            boxSizing: "border-box",
-                            display: "block",
-                            marginLeft: "10%"}}
-                            placeholder="salary"
-                            name="salary"
-                            value={updatedPost.salary ? updatedPost.salary : ""}
-                            onChange={handleChange}/>
 
                         <Form.Control 
                             style={{width: "80%",
@@ -155,6 +141,7 @@ return (
                             name="joinedDate"
                             value={updatedPost.joinedDate ? updatedPost.joinedDate : ""}
                             onChange={handleChange}/>
+
                         <Form.Control 
                             style={{width: "80%",
                             padding: "6px 10px",
@@ -224,7 +211,6 @@ return (
 
                 <div className="container">
                 <button onClick={() => sorting("name")}>Sort by Name</button>&nbsp;
-                <button onClick={() => sorting("salary")}>Sort by Salary</button>
                 </div>
                 <br />
 
@@ -235,7 +221,6 @@ return (
                   <tr>
                   <th scope="col">Employee Name</th>
                   <th scope="col">Employee Id</th>
-                  <th scope="col">Salary</th>
                   <th scope="col">Joined Date</th>
                   <th scope="col">Address</th>
                   <th scope="col">Phone Number</th>
@@ -249,7 +234,6 @@ return (
                                 ? data
                                 : data.name.toLowerCase().includes(search) ||
                                   data.id.toLowerCase().includes(search) ||
-                                  data.salary.toLowerCase().includes(search) ||
                                   data.joinedDate.toLowerCase().includes(search) ||
                                   data.address.toLowerCase().includes(search) ||
                                   data.phoneNo.toLowerCase().includes(search)
@@ -263,7 +247,6 @@ return (
                                 <tr>
                                 <td>{data.name}</td>
                                 <td>{data.id}</td>
-                                <td>{data.salary}</td>
                                 <td>{data.joinedDate}</td>
                                 <td>{data.address}</td>
                                 <td>{data.phoneNo}</td>

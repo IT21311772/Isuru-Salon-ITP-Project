@@ -7,7 +7,6 @@ router.post("/add", (req, res) => {
     emp.create({
         name: req.body.name,
         id: req.body.id,
-        salary: req.body.salary,
         joinedDate: req.body.joinedDate,
         address: req.body.address,
         phoneNo: req.body.phoneNo
@@ -40,7 +39,6 @@ router.put("/update/:id", (req, res) => {
         {
             name: req.body.name,
             id: req.body.id,
-            salary: req.body.salary,
             joinedDate: req.body.joinedDate,
             address: req.body.address,
             phoneNo: req.body.phoneNo,

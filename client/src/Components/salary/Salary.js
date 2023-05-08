@@ -74,7 +74,7 @@ return (
         {emp ? (
             
             <>
-            
+            <div>
             <Form>
                 <InputGroup className="my-1" style={{width:"20%", marginLeft:"75%"}}>
                     <Form.Control 
@@ -94,35 +94,50 @@ return (
 
                 <div className="container">
                 <button onClick={() => sorting("id")}>Sort by ID</button>&nbsp;
-                <button onClick={() => sorting("netSal")}>Sort by Net Salary</button>
                 </div>
                 <br />
+                    
+                <div className="container">   
+            
+                <table class="table">
+                <thead>
+                  <tr>
+                  <th scope="col">Employee Id</th>
+                  <th scope="col">Month</th>
+                  <th scope="col">Working days</th>
+                  <th scope="col">Pay Rate</th>
+                  <th scope="col">Net Salary</th>
+                  <th></th>
+                  </tr>
+                </thead>
                     
                         {emp.filter((data) => {
                             return search.toLowerCase() === ''
                                 ? data
                                 : data.id.toLowerCase().includes(search)
-                                  
-                                 
                         })
 
                         
-                        .map((employee) => {
+                        .map((data) => {
                             return (
         
-                                    <div key={employee._id} className = "package-preview" >
-                                        <center>
-                                            <h2>{employee.id}</h2>
-                                            <p>{employee.month}</p>
-                                            <p>{employee.workingDays}</p>
-                                            <p>{employee.payRate}</p>
-                                            <p>{employee.netSal}</p>
-                                        </center>
-        
-                                    </div>   
+                                <tbody>
+                                <tr>
+                                <td>{data.id}</td>
+                                <td>{data.month}</td>
+                                <td>{data.workingDays}</td>
+                                <td>{data.payRate}</td>
+                                <td>{data.netSal}</td>
+                                
+                                </tr>
+                                </tbody>   
                             );
                         })}
-                        
+                        </table>
+                        </div>
+
+
+                 </div>           
             </>
         ) : (
           ""
