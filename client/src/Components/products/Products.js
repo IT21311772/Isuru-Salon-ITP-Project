@@ -217,16 +217,16 @@ return (
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/products/add" style={{color:"white", textDecoration:"none"}}>Add New Products</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/products/report" style={{color:"white", textDecoration:"none"}}>Report</Link></button>
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%", width:"10%"}}><Link to="/products/report" style={{color:"white", textDecoration:"none"}}>Report</Link></button>
             
                 <br /><br />
                 <center>
                     <h1 style={{color:"#660033", fontWeight:"bolder", fontSize:"50px"}}>Products</h1>
                 </center>
 
-                <div className="container">
-                <button onClick={() => sorting("type")}>Sort by Type</button>&nbsp;
-                <button onClick={() => sorting("totalPrice")}>Sort by Price</button>
+                <div className="container ">
+                <button className="btnSort" onClick={() => sorting("type")}>Sort by Type</button>&nbsp;
+                <button className="btnSort" onClick={() => sorting("totalPrice")}>Sort by Price</button>
                 </div>
                 <br />
 
@@ -275,11 +275,11 @@ return (
                         <td >
                         
                         <button  style={{width: "70%",
-                                    marginLeft:'10px'                   
+                                    marginLeft:'10px'  , background:"#b30059" , color:"white"                
                         }} onClick={() => updatePost(post)}>UPDATE</button>   </td>
 
                         <td>
-                        <button style={{width: "80%", marginLeft:'-20%', marginTop:""}} onClick={() => deletePost(post._id)}>DELETE</button>
+                        <button style={{width: "80%", marginLeft:'-20%', marginTop:"", background:"#b30059", color:"white"}} onClick={() => deletePost(post._id)}>DELETE</button>
                         </td>
                         
                         

@@ -5,7 +5,7 @@ const Service = require('../models/serviceModel');
 // Create API route for Create method in CRUD Operations
 router.post("/create", (req, res) => {
     Service.create({
-    sId: req.body.sId,
+    // sId: req.body.sId,
     sName: req.body.sName,
     sPrice: req.body.sPrice,
     sCategory: req.body.sCategory,
@@ -36,7 +36,7 @@ router.put("/update/:id", (req, res) => {
     Service.findByIdAndUpdate (
         { _id: req.params.id},
         {
-        sId: req.body.sId,
+        // sId: req.body.sId,
         sName: req.body.sName,
         sPrice: req.body.sPrice,
         sCategory: req.body.sCategory,

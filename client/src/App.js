@@ -24,12 +24,13 @@ import Salary from './Components/salary/Salary';
 import AddSalary from './Components/salary/addSalary';
 import ReportSal from './Components/salary/ReportSal';
 
-
+//imports to home
 import CustomPack from './Components/home/CustomPack';
 import Client from './Components/home/Client';
 import Home from './Components/home/Home';
 import ContactUs from './Components/home/ContactUs';
 import HProducts from './Components/home/Product';
+import CustServices from './Components/home/CustServices'
 
 
 import Attendence from './Components/attendence/Attendence';
@@ -50,11 +51,7 @@ import Appointmentsreport from './Components/appointments/Appointmentsreport';
 
 
 import AddProducts from './Components/products/addProduct';
-import AddEmployee from './Components/employees/addEmployee';
-import Employees from './Components/employees/Employee';
-import ReportPdf from './Components/employees/ReportPdf';
 // import CustomPack from './Components/packages/CustomPack';
-import CustomPack from './Components/packages/CustomPack';
 
 import CustomSucces from './Components/packages/CustomSucces';
 import AddTransactions from './Components/finance/addTransactions';
@@ -87,6 +84,8 @@ function App() {
                 <Route path='/packages' element={<Client />} />
                 <Route path='/contact' element={<ContactUs />} />
                 <Route path='/pros' element={<HProducts />} />
+                <Route path='/service' element={<CustServices />} />
+
 
                 <Route path='/posts/clientPack/create/customsucces' element={<CustomSucces />} />
 

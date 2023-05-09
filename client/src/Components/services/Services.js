@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import { Form } from "react-bootstrap";
 import MainLayout from "../../layouts/MainLayout";
+import "./Services.css"
 
 //create page for show the inputs
 function Posts() {
@@ -122,13 +123,13 @@ function Posts() {
         <Modal.Body>
           <Form>
             <Form.Group>
-              <Form.Control
+              {/* <Form.Control
                 style={{ marginBottom: "1rem" }}
                 placeholder="Service ID"
                 name="sId"
                 value={updatedPost.sId ? updatedPost.sId : ""}
                 onChange={handleChange}
-              />{" "}
+              />{" "} */}
               {/*if updatedPost.title avaliable return that
                                                                                         if not return nothing */}
               <Form.Control
@@ -193,9 +194,9 @@ function Posts() {
                 toLowerCase().includes(search.toLowerCase());
 
 })
-              .map((post) => (
+              .map((post,index) => (
               <tr key={post.id}>
-                <th scope="row">{post.sId}</th>
+                <th scope="row">{index+1}</th>
                 <td>{post.sName}</td>
                 <td>{post.sPrice}</td>
                 <td>{post.sCategory}</td>

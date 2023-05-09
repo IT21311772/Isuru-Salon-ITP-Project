@@ -49,7 +49,7 @@ function CreateService() {
      
       <Form className="container mt-3">
         <Form.Group className="mb-3">
-          <Form.Control
+          {/* <Form.Control
             name="sId" //------------------------Change---------------------------
             value={post.sId} //according to CreatePost state
             placeholder="Enter Service ID"
@@ -57,7 +57,7 @@ function CreateService() {
             style={{ marginBottom: "1rem" }}
             onChange={handleChange}
             required
-          />
+          /> */}
 
           <Form.Control
             name="sName" //------------------------Change---------------------------

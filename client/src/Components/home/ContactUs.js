@@ -23,7 +23,7 @@ function app(){
         <a className="nav-link"  href="./packages">Packages</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link"  href="#">Services</a>
+        <a className="nav-link"  href="./service">Services</a>
       </li>
       <li className="nav-New">
         <a className="nav-link-item"  href="#">Book Now</a>
@@ -43,7 +43,7 @@ function app(){
     <div className="row">
 
         <div className="col-md-9 mb-md-0 mb-2">
-            <form id="contact-form" name="contact-form" className='ml-3'>
+            <form id="contact-form" name="contact-form" className='ml-3' style={{marginLeft:"10%"}}>
 
                 <div className="row ml-5">
 
@@ -92,7 +92,7 @@ function app(){
             <div className="status"></div>
         </div>
 
-        <div className="col-md-3 text-center">
+        {/* <div className="col-md-3 text-center">
             <ul className="list-unstyled mb-0">
                 <li><i className="fas fa-map-marker-alt fa-2x"></i>
                     <p>Homagama, WP 10200, SL</p>
@@ -106,7 +106,7 @@ function app(){
                     <p>isurusalon@gmail.com</p>
                 </li>
             </ul>
-        </div>
+        </div> */}
     </div>
 
 </section>

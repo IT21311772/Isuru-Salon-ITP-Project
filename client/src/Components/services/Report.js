@@ -69,9 +69,9 @@ export default function Report() {
                 </tr>
               </thead> 
               <tbody>
-                {posts.map((item) =>(
+                {posts.map((item,index) =>(
                     <tr>
-                        <td>{item.sId}</td>
+                        <td>{index+1}</td>
                         <td>{item.sName}</td>
                         <td>{item.sPrice}</td>
                         <td>{item.sCategory}</td>

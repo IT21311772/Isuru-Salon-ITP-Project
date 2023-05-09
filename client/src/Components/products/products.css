@@ -143,3 +143,9 @@
 .product .container button{
   margin-left: 85%;
 }
+
+.btnSort{
+   background:#b30059;
+   color: white;
+   width: 10%;
+}

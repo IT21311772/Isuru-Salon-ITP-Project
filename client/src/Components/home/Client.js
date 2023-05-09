@@ -88,7 +88,7 @@ return (
         <a className="nav-link active"  href="./packages">Packages</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link"  href="#">Services</a>
+        <a className="nav-link"  href="./service">Services</a>
       </li>
       <li className="nav-New">
         <a className="nav-link-item"  href="#">Book Now</a>
