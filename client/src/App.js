@@ -1,4 +1,3 @@
-import './Components/appointments/appointment.css';
 import './Components/packages/package.css';
 import './Components/products/products.css';
 import './Components/employees/Employee.css';
@@ -30,6 +29,7 @@ import AddOrder from './Components/orders/Order'
 import Appointment from './Components/appointments/Appointments';
 import AddAppointment from './Components/appointments/AddAppointment';
 import Appointmentsreport from './Components/appointments/Appointmentsreport';
+
 import Products from './Components/products/Products';
 import AddProducts from './Components/products/addProduct';
 import AddEmployee from './Components/employees/addEmployee';
