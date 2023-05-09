@@ -181,7 +181,7 @@ return (
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/data/add" style={{color:"white", textDecoration:"none"}}>Add Attendence</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/data/report" style={{color:"white", textDecoration:"none"}}>Download Daily Attendence</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/attaend/data/report" style={{color:"white", textDecoration:"none"}}>Download Daily Attendence</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/shedule" style={{color:"white", textDecoration:"none"}}>Shedule</Link></button>
             
                 <br /><br />
@@ -191,7 +191,6 @@ return (
 
                 <div className="container">
                 <button onClick={() => sorting("date")}>Sort by Date</button>&nbsp;
-                <button onClick={() => sorting("id")}>Sort by Employee ID</button>
                 </div>
                 <br />
                 
