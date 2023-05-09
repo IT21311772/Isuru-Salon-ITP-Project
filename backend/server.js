@@ -23,8 +23,15 @@ const inventoryRoutes = require('./routes/inventoryRoutes');
 const empRoutes = require('./routes/employeeRoutes');
 const customPackRoutes = require('./routes/customPackRoutes');
 const financeRoutes = require('./routes/financeRoutes');
+const supMsgRoutes = require('./routes/supMsgRoutes');
+const inveMsgRoutes = require('./routes/inveMsgRoutes');
 const attendenceRoutes = require('./routes/attendenceRoutes');
 const sheduleRoutes = require('./routes/sheduleRoutes');
+
+// const appointmentPackRoutes = require('./routes/appointmentPackRoutes');
+
+const salRoutes = require('./routes/salaryRoutes');
+
 
 
 // Routes
@@ -34,12 +41,20 @@ app.use("/api/Serv", serviceRoutes);
 app.use("/api/Sup", supplierRoutes);
 app.use("/api/Ord", orderRoutes)
 app.use("/api/Book", appointmentRoutes);
+// app.use("/api/PBook", appointmentPackRoutes);
+app.use("/api/Ord", orderRoutes);
+app.use("/api/Msg", supMsgRoutes);
+app.use("/api/IMsg", inveMsgRoutes);
 app.use("/api/Product", inventoryRoutes);
 app.use("/api/emp", empRoutes);
 app.use("/api/CustPost", customPackRoutes);
 app.use("/api/Fin", financeRoutes);
 app.use("/api/sch", attendenceRoutes);
+
 app.use("/api/shedu", sheduleRoutes);
+
+
+app.use("/api/sal", salRoutes);
 
 
 // Connect the database

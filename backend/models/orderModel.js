@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const orderSchema = mongoose.Schema(
     {
@@ -18,8 +18,8 @@ const orderSchema = mongoose.Schema(
             type: Number,
             required: true
         },
-        tprice:{
-            type: Number,
+        price:{
+            type: String,
             required: true
         },
         status:{
@@ -32,4 +32,4 @@ const orderSchema = mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model("orders", orderSchema)
+module.exports = mongoose.model("orders", orderSchema);

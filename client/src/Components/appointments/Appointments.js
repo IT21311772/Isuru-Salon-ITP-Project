@@ -11,7 +11,6 @@ function App() {
     // const navigate = useNavigate();
 
 
-    // const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
     const [updatedPost, setUpdatedPost] = useState({})
     const [search, setSearch] = useState('');
@@ -189,10 +188,42 @@ function App() {
                                     name="service"
                                     value={updatedPost.service ? updatedPost.service : ""}
                                     onChange={handleChange}>
-                                    <option>Select Service</option>
-                                    <option>Hair Cutting</option>
-                                    <option>Hair Coloring</option>
-                                    <option>Nail Arts</option>
+
+                                    <option>Long Layer </option>
+                                    <option>Short Layer</option>
+                                    <option>Ladies Hair Cut</option>
+                                    <option>Curling </option>
+                                    <option>Straightening  </option>
+                                    <option>Keratin Treatment  </option>
+                                    <option>Colouring </option>
+                                    <option>Rebonding</option>
+                                    <option>Head Massage</option>
+                                    <option>Hair Style </option>
+                                    <option>Facial</option>
+                                    <option> Hair Style</option>
+                                    <option>Body Polishing </option>
+                                    <option>First Hair Cutting </option>
+                                    <option>Hair Cut Girls</option>
+                                    <option>Facial</option>
+                                    <option> Hair Style</option>
+                                    <option>Body Polishing </option>
+                                    <option>First Hair Cutting </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 </Form.Select>
                             </Form.Group>
                         </Form>
@@ -216,7 +247,7 @@ function App() {
 
                 {posts ? (
 
-                    <>
+                    <div>
 
                         <Form>
                             <InputGroup className="my-1" style={{ width: "20%", marginLeft: "75%" }}>
@@ -227,8 +258,7 @@ function App() {
                         </Form>
                         <br />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button style={{ borderRadius: "5px", background: "#b30059", padding: "0.5%" }}><Link to="/appointments/add" style={{ color: "white", textDecoration: "none" }}>Create New Package</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button style={{ borderRadius: "5px", background: "#b30059", padding: "0.5%" }}><Link to="/appointments/report" style={{ color: "white", textDecoration: "none" }}>Download Package Menu</Link></button>
+                        <button style={{ borderRadius: "5px", background: "#b30059", padding: "0.5%" }}><Link to="/appointments/report" style={{ color: "white", textDecoration: "none" }}>Download Appointments</Link></button>
 
                         <br /><br />
                         <center>
@@ -240,38 +270,63 @@ function App() {
                         </div>
                         <br />
 
-                        {posts.filter((post) => {
-                            return search.toLowerCase() === ''
-                                ? post
-                                : post.name.toLowerCase().includes(search) ||
-                                post.service.toLowerCase().includes(search) ||
-                                post.email.toLowerCase().includes(search)
-                        })
-                            .map((post) => {
-                                return (
+                        <div className="container">
 
-                                    <div key={post._id} className="package-preview" >
-                                        <center>
-                                            <h2>{post.name}</h2>
-                                            <p>{post.contact}</p>
-                                            <p>{post.email}</p>
-                                            <p>{post.date}</p>
-                                            <p>{post.time}</p>
-                                            <p>{post.service}</p>
-                                            <button onClick={() => updatePost(post)}>UPDATE</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <button style={{ color: "white", background: "#3d3c3c", border: "black" }} onClick={() => deletePost(post._id)}>DELETE</button><br />
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Contact Number</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Time</th>
+                                        <th scope="col">Service</th>
+                                        <th></th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
 
-                                        </center>
-                                    </div>
-                                );
-                            })}
-                    </>
+                                {posts.filter((post) => {
+                                    return search.toLowerCase() === ''
+                                        ? post
+                                        : post.name.toLowerCase().includes(search) ||
+                                        post.service.toLowerCase().includes(search) ||
+                                        post.email.toLowerCase().includes(search)
+                                })
+                                    .map((post) => {
+                                        return (
+
+                                            <tbody>
+                                                <tr>
+                                                    <td>{post.name}</td>
+                                                    <td>{post.contact}</td>
+                                                    <td>{post.email}</td>
+                                                    <td>{post.date}</td>
+                                                    <td>{post.time}</td>
+                                                    <td>{post.service}</td>
+                                                    <td >
+
+                                                    </td >
+
+                                                    <td>
+                                                        <button style={{ width: "120%", marginLeft: '-20%', marginTop: "" }} onClick={() => deletePost(post._id)}>DELETE</button>
+                                                    </td>
+
+
+                                                </tr >
+                                            </tbody >
+                                        );
+                                    })}
+                            </table >
+                        </div >
+
+                    </div >
+
                 ) : (
                     ""
                 )}
-            </div>
-        </div>
+            </div >
+        </div >
     );
 }
 
