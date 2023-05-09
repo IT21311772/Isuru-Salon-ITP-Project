@@ -121,6 +121,7 @@ function CreateService() {
                         onChange={handleChange} 
                         style={{width:"80%", marginLeft:"10%"}}
                         required>
+                            <option>Select Package</option>
                             <option>Daily Package</option>
                             <option>Event Package</option>
                             <option>Seasonal Package</option>
