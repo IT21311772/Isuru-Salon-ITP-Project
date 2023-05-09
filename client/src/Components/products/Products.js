@@ -217,7 +217,12 @@ return (
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/products/add" style={{color:"white", textDecoration:"none"}}>Add New Products</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/products/report" style={{color:"white", textDecoration:"none"}}>Download Package Menu</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/msg" style={{color:"white", textDecoration:"none"}}>View Messages</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
+
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/products/report" style={{color:"white", textDecoration:"none"}}>Report</Link></button>
+
             
                 <br /><br />
                 <center>

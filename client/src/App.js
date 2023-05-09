@@ -73,6 +73,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<Login />} />
                 <Route path='/home' element={<DashBoard />} />
+                <Route path='/suporder' element={<SupOrder />}/>
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/suporder' element={<SupOrder/>} />
 
@@ -81,6 +82,7 @@ function App() {
                 <Route path='/posts/create/posts' element={<Posts />} />
                 <Route path='/posts/report' element={<ReactPdfPrint />} />
                 <Route path='/posts/clientPack' element={<Client />} />
+                <Route path='/sup' element={<Supplier />} />
 
                 <Route path='/posts/clientPack/create' element={<CustomPack />} />
 
@@ -137,6 +139,18 @@ function App() {
                 <Route path='/fin/add' element={<AddTransactions />} />
                 <Route path='/fin/add/trans'element={<Transactions />} />
                 <Route path='/fin/report' element={<FinanceReport />} />
+
+                <Route path='/msg' element={<ViewMsg />}/>
+                <Route path='/msg/add' element={<SendMessage />} />
+                <Route path='/msg/add/msgs' element={<ViewMsg />}/>
+
+                <Route path='/imsg' element={<ViewIMsg />}/>
+                <Route path='/imsg/add' element={<SendIMessage />} />
+                <Route path='/imsg/add/imsgs' element={<ViewIMsg />}/>
+
+                <Route path='/products' element={<Products />} />
+                <Route path='/products/add' element={<CreateProduct />} />
+                <Route path='/products/add/products' element={<Products />} />
 
                 <Route path='/data' element={<Attendence />} />
                 <Route path='/data/add' element={<AttendenceForm />} />
