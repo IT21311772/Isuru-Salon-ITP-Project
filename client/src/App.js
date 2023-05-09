@@ -18,9 +18,6 @@ import ReactPdfPrint from './Components/packages/ReactPdfPrint';
 import AddEmployee from './Components/employees/addEmployee';
 import Employees from './Components/employees/Employee';
 import ReportPdf from './Components/employees/ReportPdf';
-import Salary from './Components/salary/Salary';
-import AddSalary from './Components/salary/addSalary';
-import ReportSal from './Components/salary/ReportSal';
 
 import CustomPack from './Components/home/CustomPack';
 import Client from './Components/home/Client';
