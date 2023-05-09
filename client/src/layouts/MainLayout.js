@@ -28,10 +28,7 @@ function MainLayout({children}) {
             <label className="navbar-brand" onClick={()=>navigate("/home")}>
               Service Management
               </label>
-            <label className="navbar-brand" onClick={()=>navigate("/dash")}>
-              Finance Management
-
-            </label>
+            
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               {/* <li className="mt-2" style={{marginLeft:'-40%'}}> 
               {location.state.id}
