@@ -12,7 +12,8 @@ function DashBoard() {
     <div className="App">
      
       <MainLayout>
-        <center><h1 style={{fontFamily:"mulish,sans-serif"}}>DashBoard</h1></center><br />
+      <br/>
+        <center><h1 style={{fontFamily:"Georgia",fontWeight:"bold"}}>Dashboard</h1></center><br />
       </MainLayout>
 
       <div className="dash">
