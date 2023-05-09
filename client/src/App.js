@@ -16,6 +16,7 @@ import DashBoard from './Components/dashboard/dashboard';
 
 import ReactPdfPrint from './Components/packages/ReactPdfPrint';
 
+
 import AddEmployee from './Components/employees/addEmployee';
 import Employees from './Components/employees/Employee';
 import ReportPdf from './Components/employees/ReportPdf';
@@ -46,13 +47,23 @@ import Appointment from './Components/appointments/Appointments';
 import AddAppointment from './Components/appointments/AddAppointment';
 import Appointmentsreport from './Components/appointments/Appointmentsreport';
 
-import Products from './Components/products/Products';
+
+
 import AddProducts from './Components/products/addProduct';
+import AddEmployee from './Components/employees/addEmployee';
+import Employees from './Components/employees/Employee';
+import ReportPdf from './Components/employees/ReportPdf';
+// import CustomPack from './Components/packages/CustomPack';
+import CustomPack from './Components/packages/CustomPack';
 
 import CustomSucces from './Components/packages/CustomSucces';
 import AddTransactions from './Components/finance/addTransactions';
 import Transactions from './Components/finance/Transactions';
 import FinanceReport from '../src/Components/finance/FinanceReport';
+
+import Products from './Components/products/Products';
+import CreateProduct from './Components/products/addProduct';
+import ProductsPdf from './Components/products/ProductsPdf';
 
 function App() {
     return (
@@ -67,6 +78,7 @@ function App() {
                 <Route path='/posts/create/posts' element={<Posts />} />
                 <Route path='/posts/report' element={<ReactPdfPrint />} />
                 <Route path='/posts/clientPack' element={<Client />} />
+
                 <Route path='/posts/clientPack/create' element={<CustomPack />} />
 
                 <Route path='/posts/clientPack/create/clientPack' element={<Client />} />
@@ -96,9 +108,15 @@ function App() {
                 <Route path='/appointments/report' element={<Appointmentsreport />} />
 
                 <Route path='/products' element={<Products />} />
-                <Route path='/products/add' element={<AddProducts />} />
+                <Route path='/products/add' element={<CreateProduct />} />
                 <Route path='/products/add/products' element={<Products />} />
 
+
+                
+                <Route path='/products' element={<Products />} />
+                <Route path='/products/add' element={<CreateProduct />} />
+                <Route path='/products/add/products' element={<Products />} />
+                <Route path='/products/report' element={<ProductsPdf/>} /> 
                 <Route path='/emp' element={<Employees />} />
                 <Route path='/emp/add' element={<AddEmployee />} />
                 <Route path='/emp/add/emp' element={<Employees />} />
@@ -118,7 +136,8 @@ function App() {
                 <Route path='/data/add' element={<AttendenceForm />} />
                 <Route path='/data/add/data' element={<Attendence />} />
 
-             
+                <Route path='/products/report' element={<ProductsPdf/>} /> 
+
             </Routes>
         </div>
     );

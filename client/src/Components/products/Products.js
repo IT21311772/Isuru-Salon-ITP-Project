@@ -82,8 +82,6 @@ const sorting = (col) =>{
     }
   };
 
-
-
 return (
     <div className="packages">
     <div>
@@ -93,7 +91,7 @@ return (
         {/* <button onClick={() => navigate(-1)}>BACK</button> */}
         <Modal show={show} onHide={handleClose} >
             <Modal.Header closeButton>
-                <Modal.Title style={{color:"#b30059"}}>Update Package</Modal.Title>
+                <Modal.Title style={{color:"#b30059"}}>Update Product</Modal.Title>
             </Modal.Header>
             <Modal.Body style={{width:"100%", height:"200%"}}>
                 <Form>
@@ -159,9 +157,22 @@ return (
                             boxSizing: "border-box",
                             display: "block",
                             marginLeft: "10%"}}
-                            placeholder="quantity"
-                            name="quantity"
-                            value={updatedPost.quantity ? updatedPost.quantity : ""}
+                            placeholder="Remaining quantity"
+                            name="rquantity"
+                            value={updatedPost.rquantity ? updatedPost.rquantity : ""}
+                            onChange={handleChange}/>
+                        <Form.Control 
+                            style={{width: "80%",
+                            padding: "6px 10px",
+                            margin: "10px 0",
+                            border: "1px solid #c762a1",
+                            borderRadius: "5px",
+                            boxSizing: "border-box",
+                            display: "block",
+                            marginLeft: "10%"}}
+                            placeholder="Used Quantity"
+                            name="uquantity"
+                            value={updatedPost.uquantity ? updatedPost.uquantity : ""}
                             onChange={handleChange}/>
                         <Form.Control 
                             style={{width: "80%",
@@ -194,7 +205,7 @@ return (
 
         {products ? (
             
-            <>
+            <div>
             
             <Form>
                 <InputGroup className="my-1" style={{width:"20%", marginLeft:"75%"}}>
@@ -206,7 +217,7 @@ return (
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/products/add" style={{color:"white", textDecoration:"none"}}>Add New Products</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/posts/report" style={{color:"white", textDecoration:"none"}}>Download Package Menu</Link></button>
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/products/report" style={{color:"white", textDecoration:"none"}}>Report</Link></button>
             
                 <br /><br />
                 <center>
@@ -215,40 +226,72 @@ return (
 
                 <div className="container">
                 <button onClick={() => sorting("type")}>Sort by Type</button>&nbsp;
-                <button onClick={() => sorting("price")}>Sort by Price</button>
+                <button onClick={() => sorting("totalPrice")}>Sort by Price</button>
                 </div>
                 <br />
+
+                <div className="container">
+                    
+                <table class="table">
+                <thead>
+                  <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Remaining Quantity</th>
+                  <th scope="col">Used Quantity</th>
+                  <th scope="col">Total Price</th>
+                  <th></th>
+                  <th scope="col">Action</th>
+                  </tr>
+                </thead>
+
                     
                         {products.filter((post) => {
                             return search.toLowerCase() === ''
                                 ? post
                                 : post.name.toLowerCase().includes(search) ||
                                   post.type.toLowerCase().includes(search) ||
-                                  post.category.toLowerCase().includes(search) ||
-                                  post.date.toLowerCase().includes(search) ||
-                                  post.quantity.toLowerCase().includes(search) ||
-                                  post.totalPrice.toLowerCase().includes(search)
+                                  post.category.toLowerCase().includes(search) 
+                                  //post.date.toLowerCase().includes(search) ||
+                                  //post.quantity.toLowerCase().includes(search) ||
+                                 // post.totalPrice.toLowerCase().includes(search)
                         })
-                        .map((post) => {
+                        .map((post, index) => {
                     return (
 
-                            <div key={post._id} className = "package-preview" >
-                                <center>
-                                    <h2>{post.name}</h2>
-                                    <p>{post.type}</p>
-                                    <p>{post.category}</p>
-                                    <p>{post.date}</p>
-                                    <p>{post.quantity}</p>
-                                    <p>{post.totalPrice}</p>
-                                        <button onClick={() => updatePost(post)}>UPDATE</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <button style={{color:"white", background:"#3d3c3c", border:"black"}} onClick={() => deletePost(post._id)}>DELETE</button><br />
-                                    
-                                </center>
-                            </div>   
+                        <tbody>
+                        <tr>
+                        <td>{index+1}</td>
+                        <td>{post.name}</td>
+                        <td>{post.type}</td>
+                        <td>{post.category}</td>
+                        <td>{post.date}</td>
+                        <td>{post.rquantity}</td>
+                        <td>{post.uquantity}</td>
+                        <td>{post.totalPrice}</td>
+                        <td >
+                        
+                        <button  style={{width: "70%",
+                                    marginLeft:'10px'                   
+                        }} onClick={() => updatePost(post)}>UPDATE</button>   </td>
+
+                        <td>
+                        <button style={{width: "80%", marginLeft:'-20%', marginTop:""}} onClick={() => deletePost(post._id)}>DELETE</button>
+                        </td>
+                        
+                        
+                        </tr>
+                        </tbody>
                     );
                 })}
-            </>
+             </table>
+                </div>
+
+                
+            </div>
         ) : (
           ""
         )}
