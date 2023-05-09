@@ -5,37 +5,37 @@
   }
   
 
-  .employee {
+  .packages {
     /* display: flex; */
     align-items: center;
     justify-content: center;
     height: 120%;
-    background: linear-gradient(
+    /* background: linear-gradient(
         rgba(255, 255, 255, 0.7),
         rgba(255, 255, 255, 0.3)
       ),
-      url("../../images/pexels-photo-114979.jpeg");
+      url("../../images/pexels-photo-114979.jpeg"); */
     background-size: cover;
     background-position: center;
   }
 
-  .employee-create {
+  .packages-create {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 120%;
-    background: linear-gradient(
+    /* background: linear-gradient(
         rgba(255, 255, 255, 0.7),
         rgba(255, 255, 255, 0.3)
       ),
-      url("../../images/pexels-photo-114979.jpeg"); 
+      url("../../images/pexels-photo-114979.jpeg"); */
     background-size: cover;
     background-position: center;
   }
   
-  .employee-create .Create-post {
+  .packages-create .Create-post {
     width: 40%;
-    height: 550px;
+    height: 440px;
     margin: 10%;
     padding: 20px;
     text-align: center;
@@ -46,20 +46,20 @@
     margin-left: 8%;
   }
   
-  .employee-create .title {
+  .packages-create .title {
     font-style: inherit;
     color: #b30059;
     font-weight: bold;
   }
   
   
-  .employee-create .Form-Group {
+  .packages-create .Form-Group {
     text-align: left;
     display: block;
     
   }
   
-  .employee-create .Form-Control {
+  .packages-create .Form-Control {
     width: 80%;
     padding: 6px 10px;
     margin: 10px 0;
@@ -70,7 +70,7 @@
     margin-left: 10%;
   }
   
-  .employee-create .Form-Cont{
+  .packages-create .Form-Cont{
     width: 100%;
     padding: 6px 10px;
     margin: 10px 0;
@@ -80,14 +80,14 @@
     display: block;
   }
 
-  .employee-report{
+  .package-report{
     background-color: white;
     background: white;
   }
   
   /* App.js Styling Part */
   
-  .employee .package-preview {
+  .packages .package-preview {
     width: 300px;
     padding: 20px;
     margin: 30px;
@@ -99,11 +99,11 @@
     margin-left: 45px;
   }
   
-  .employee .package-preview:hover {
+  .packages .package-preview:hover {
     box-shadow: 1px 3px 5px rgba(10, 10, 10, 10);
   }
   
-  .employee .package-preview button {
+  .packages .package-preview button {
     color: white;
     background-color: #c762a1;
     border: #dc6c8a;
@@ -115,22 +115,22 @@
     font-size: 13px;
   }
   
-  .employee .package-preview h2{
+  .packages .package-preview h2{
     color: black;
     font-weight: bold;
   }
   
-  .employee .package-preview p{
+  .packages .package-preview p{
     font-size: 17px;
     color: black;
   }
   
-  .employee .update{
+  .packages .update{
     color: white;
     background-color: black;
   }
   
-  .employee button{
+  .packages button{
     color: white;
     background-color: #b30059;
     border: #b30059;
@@ -143,10 +143,10 @@
     font-size: 15px;
   }
   
-  .employee button:hover{
+  .packages button:hover{
     box-shadow: 1px 3px 5px rgba(10, 10, 10, 10);
   }
   
-  .employee .container button{
+  .packages .container button{
     margin-left: 85%;
   }
