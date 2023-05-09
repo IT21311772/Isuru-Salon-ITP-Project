@@ -4,7 +4,8 @@ import {Form, InputGroup } from "react-bootstrap";
 // import {useNavigate } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
 import { Link } from "react-router-dom";
-import './Attendence.css';
+import './Attendence.css'
+
 
 
 function App() {
@@ -15,17 +16,32 @@ function App() {
 const [data, setData] = useState([]);
 const [updatedPost, setUpdatedPost] = useState({})
 const [search, setSearch] = useState('');
+const [date, setDate] = useState ({
+    date: "2023-5-10"
+});
 
 const [show, setShow] = useState(false);
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
 
 useEffect(() => {
-    axios.get("/api/sch/data")
-        .then((res) => {
-            console.log(res)
-            setData(res.data);
-        })
+
+    const date = new Date();
+
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    
+    // This arrangement can be altered based on how we want the date's format to appear.
+    let currentDate = `${year}-${month}-${day}`;
+
+    console.log(currentDate);
+
+    const dataSch = { date:"2023-5-10"}
+
+
+        axios.post("/api/sch/get/daily", dataSch)
+        .then((res) => setData(res.data))
         .catch((err) => console.log(err));
 }, []);
 
@@ -112,19 +128,6 @@ return (
                             value={updatedPost.name ? updatedPost.name : ""}
                             onChange={handleChange}/>
 
-                        <Form.Control 
-                            style={{width: "80%",
-                            padding: "6px 10px",
-                            margin: "10px 0",
-                            border: "1px solid #c762a1",
-                            borderRadius: "5px",
-                            boxSizing: "border-box",
-                            display: "block",
-                            marginLeft: "10%"}}
-                            placeholder="Employee ID"
-                            name="id"
-                            value={updatedPost.id ? updatedPost.id : ""}
-                            onChange={handleChange}/>
                         
                         <Form.Control 
                             style={{width: "80%",
@@ -138,19 +141,6 @@ return (
                             placeholder="Date"
                             name="date"
                             value={updatedPost.date ? updatedPost.date : ""}
-                            onChange={handleChange}/>
-                        <Form.Control 
-                            style={{width: "80%",
-                            padding: "6px 10px",
-                            margin: "10px 0",
-                            border: "1px solid #c762a1",
-                            borderRadius: "5px",
-                            boxSizing: "border-box",
-                            display: "block",
-                            marginLeft: "10%"}}
-                            placeholder="State"
-                            name="state"
-                            value={updatedPost.state ? updatedPost.state : ""}
                             onChange={handleChange}/>
                     </Form.Group>
                 </Form>
@@ -191,7 +181,8 @@ return (
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/data/add" style={{color:"white", textDecoration:"none"}}>Add Attendence</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/data/report" style={{color:"white", textDecoration:"none"}}>Download Daily Attendence</Link></button>
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/data/report" style={{color:"white", textDecoration:"none"}}>Download Daily Attendence</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/shedule" style={{color:"white", textDecoration:"none"}}>Shedule</Link></button>
             
                 <br /><br />
                 <center>
@@ -203,7 +194,18 @@ return (
                 <button onClick={() => sorting("id")}>Sort by Employee ID</button>
                 </div>
                 <br />
-                    
+                
+                <table style={{backgroundRepeat: 'no-repeat', width: '100%', margin: 0, paddingBottom:5}} border='1'>
+                <thead className="theadt">
+                    <tr style={{height: '40px', width: '100%', margin: 0, border:1, borderStyle:"solid"}}>
+                        <th style={{height: '60px', width: '40px', margin: 0, border:1, borderStyle:"solid", textAlign: 'center', backgroundColor: "#b30059", color: 'white' }}>#</th>
+                        <th style={{height: '60px', width: '40px', margin: 0, border:1, borderStyle:"solid" , textAlign: 'center' , backgroundColor: '#b30059', color: 'white'}}>Name</th>
+                        <th style={{height: '60px', width: '40px', margin: 0, border:1, borderStyle:"solid" , textAlign: 'center' , backgroundColor: '#b30059', color: 'white'}}>Date</th>
+                        <th style={{height: '60px', width: '40px', margin: 0, border:1, borderStyle:"solid" , textAlign: 'center' , backgroundColor: '#b30059', color: 'white'}}>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
                         {data.filter((post) => {
                             return search.toLowerCase() === ''
                                 ? post
@@ -212,23 +214,24 @@ return (
                                   post.date.toLowerCase().includes(search) ||
                                   post.state.toLowerCase().includes(search)
                         })
-                        .map((post) => {
+                        .map((post, index) => {
                     return (
-
-                            <div key={post._id} className = "package-preview" >
-                                <center>
-                                    <h2>{post.name}</h2>
-                                    <p>{post.id}</p>
-                                    <p>{post.date}</p>
-                                    <p>{post.state}</p>
+                       
+                                <tr>
+                                    <td style={{height: '60px', width: '40px', margin: 0, border:1, borderStyle:"solid" , textAlign: 'center'}}>{index +1}</td>
+                                    <td style={{height: '60px', width: '40px', margin: 0, border:1, borderStyle:"solid" , textAlign: 'center'}}>{post.name}</td>
+                                    <td style={{height: '60px', width: '40px', margin: 0, border:1, borderStyle:"solid" , textAlign: 'center'}}>{post.date}</td>
+                                    <td style={{height: '60px', width: '40px', margin: 0, border:1, borderStyle:"solid" , textAlign: 'center'}}>
                                         <button onClick={() => updatePost(post)}>UPDATE</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <button style={{color:"white", background:"#3d3c3c", border:"black"}} onClick={() => deletePost(post._id)}>DELETE</button><br />
+                                    </td>
                                     
-                                </center>
-                            </div>   
+                                </tr>       
                     );
                 })}
+                </tbody>
+                </table>
             </>
         ) : (
           ""

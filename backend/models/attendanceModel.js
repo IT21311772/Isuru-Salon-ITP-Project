@@ -1,27 +1,26 @@
 const mongoose = require('mongoose')
+const {ObjectId} = mongoose.Schema.Types
 
 const attendenceSchema = mongoose.Schema(
     {
-        name:{
-            type:String,
-            required:true,
-        },
-        id:{
-            type:String,
-            required:true,
-        },
+    
         date:{
             type:String,
-            required:true,
+            required:true
         },
-        state:{
+        name:{
             type:String,
-            required:true,
+            trim: true
         },
+        attendance:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref:"Employees"
+         }
     },
     {
         timestamps:true,
     }
+    
 );
 
 module.exports = mongoose.model("Attendece", attendenceSchema);
