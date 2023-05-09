@@ -114,7 +114,7 @@ function Posts() {
 
   <div className="container mt-3  p-3 mt-4 rounded-3"> 
           <div className="d-grid d-md-flex justify-content-md-end mb-3 ">
-                <button className="btn-generate " onClick={() => navigate("/services/report")}>Generate Report</button> &nbsp;
+                <button className="btn-generate " onClick={() => navigate("/services/report")}>Generate a Report</button> &nbsp;
                 <button className="btn-add " type="submit" onClick={() => navigate("/services/create")}>Add New Service</button>
         </div>
   
