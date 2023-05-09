@@ -10,11 +10,15 @@ const empSchema = mongoose.Schema(
             type:String,
             required:true
         },
-        salary:{
+        NIC:{
             type:String,
             required:true
         },
         joinedDate:{
+            type:String,
+            required:true
+        },
+        position:{
             type:String,
             required:true
         },
@@ -26,6 +30,7 @@ const empSchema = mongoose.Schema(
             type:String,
             required:true
         },
+
     },
     {
         timestamps:true
