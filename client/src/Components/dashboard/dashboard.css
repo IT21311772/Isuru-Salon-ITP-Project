@@ -1,19 +1,32 @@
+.dashboard {
+
 .App {
-  background: #fbf6f0;
-  font-family: mulish,sans-serif;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  ),
+  url("../../images/pexels-photo-114979.jpeg");
+
+  background-size: cover;
+  height: 100vh;
+
+  
 }
+
+
 
 .btn-func{
   border-radius: 5px;
   border: none;
   font-size: 20px;
   color: white;
-  background-color: #f65365;
+  background-color: #b30059;
   display: inline-block;
   width: 300px;
   padding: 20px;
   margin: 30px;
-  font-family: mulish,sans-serif;
+  font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .btn-logout{
@@ -25,5 +38,6 @@
   font-size: 18px;
   color: white;
   background-color: #f65365;
+  background-color: #b30059;
   font-family: mulish,sans-serif; 
 }

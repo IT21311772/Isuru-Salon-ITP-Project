@@ -6,12 +6,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table } from "react-bootstrap";
 import Logo from '../../images/logo.jpg';
 
-const ReportPdf = () => {
+const ReportSal = () => {
 
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        axios.get("/api/emp/emps")
+        axios.get("/api/sal/sals")
             .then((res) => {
                 console.log(res)
                 setPosts(res.data);
@@ -22,7 +22,7 @@ const ReportPdf = () => {
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
-        documentTitle: 'Salaon-employees',
+        documentTitle: 'Salaon-employee-salary',
         onAfterPrint: ()=> alert('Print success')
     });
 
@@ -41,17 +41,15 @@ const ReportPdf = () => {
                     </div>
             </div>
             <br /><br /><br /><br />
-                <h1 className="text-center my-3 border py-2" style={{fontWeight:"bold"}}>Salon Packages</h1>
+                <h1 className="text-center my-3 border py-2" style={{fontWeight:"bold"}}>Salary</h1>
                 <br />
                 <Table className="w-75 mx-auto" bordered>
                     <thead>
-                        <th>Employee Name</th>
                         <th>Employee ID</th>
-                        <th>NIC</th>
-                        <th>Joined date</th>
-                        <th>Position</th>
-                        <th>Address</th>
-                        <th>Phone Number</th>
+                        <th>Month</th>
+                        <th>Working Days</th>
+                        <th>Pay Rate</th>
+                        <th>Net Salary</th>
                     </thead>
                     <tbody>
                     {posts ? (
@@ -59,13 +57,11 @@ const ReportPdf = () => {
                             {posts.map((post) => {
                                 return (
                                         <tr key={post._id} >
-                                            <td>{post.name}</td>
                                             <td>{post.id}</td>
-                                            <td>{post.NIC}</td>
-                                            <td>{post.joinedDate}</td>
-                                            <td>{post.position}</td>
-                                            <td>{post.address}</td>
-                                            <td>{post.phoneNo}</td>
+                                            <td>{post.month}</td>
+                                            <td>{post.workingDays}</td>
+                                            <td>{post.payRate}</td>
+                                            <td>{post.netSal}</td>
                                         </tr>
                                         );
                             })}
@@ -86,4 +82,4 @@ const ReportPdf = () => {
     );
 };
 
-export default ReportPdf;
+export default ReportSal;

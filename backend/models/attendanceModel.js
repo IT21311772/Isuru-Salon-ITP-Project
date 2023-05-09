@@ -1,30 +1,27 @@
 const mongoose = require('mongoose')
 
-// DB SHCEMA AND MODEL
-const postSchema = mongoose.Schema(
+const attendenceSchema = mongoose.Schema(
     {
-        title: {
+        name:{
             type:String,
             required:true,
         },
-        type: {
+        id:{
             type:String,
             required:true,
         },
-        description: {
+        date:{
             type:String,
             required:true,
         },
-        price: {
+        state:{
             type:String,
             required:true,
-        }, 
+        },
     },
-    
     {
-        timestamps: true,
+        timestamps:true,
     }
-
 );
 
-module.exports = mongoose.model("Post", postSchema);
+module.exports = mongoose.model("Attendece", attendenceSchema);
