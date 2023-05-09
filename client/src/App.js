@@ -48,6 +48,7 @@ import Appointmentsreport from './Components/appointments/Appointmentsreport';
 
 import Products from './Components/products/Products';
 import AddProducts from './Components/products/addProduct';
+import ProductsPdf from './Components/products/ProductsPdf';
 
 import CustomSucces from './Components/packages/CustomSucces';
 import AddTransactions from './Components/finance/addTransactions';
@@ -98,6 +99,7 @@ function App() {
                 <Route path='/products' element={<Products />} />
                 <Route path='/products/add' element={<AddProducts />} />
                 <Route path='/products/add/products' element={<Products />} />
+                <Route path='/products/report' element={<ProductsPdf/>} />
 
                 <Route path='/emp' element={<Employees />} />
                 <Route path='/emp/add' element={<AddEmployee />} />
