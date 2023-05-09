@@ -14,7 +14,6 @@ import Signup from './Components/login/Signup';
 import DashBoard from './Components/dashboard/dashboard';
 
 import ReactPdfPrint from './Components/packages/ReactPdfPrint';
-import CustomPack from './Components/home/CustomPack';
 import Client from './Components/home/Client';
 import Home from './Components/home/Home';
 import ContactUs from './Components/home/ContactUs';
@@ -36,10 +35,8 @@ import Appointment from './Components/appointments/Appointments';
 import AddAppointment from './Components/appointments/AddAppointment';
 import Appointmentsreport from './Components/appointments/Appointmentsreport';
 
-import Products from './Components/products/Products';
 
-import CreateProduct from './Components/products/addProduct';
-import ProductsPdf from './Components/products/ProductsPdf';
+
 import AddProducts from './Components/products/addProduct';
 import AddEmployee from './Components/employees/addEmployee';
 import Employees from './Components/employees/Employee';
@@ -51,6 +48,7 @@ import AddTransactions from './Components/finance/addTransactions';
 import Transactions from './Components/finance/Transactions';
 import FinanceReport from '../src/Components/finance/FinanceReport';
 
+import Products from './Components/products/Products';
 import CreateProduct from './Components/products/addProduct';
 import ProductsPdf from './Components/products/ProductsPdf';
 
