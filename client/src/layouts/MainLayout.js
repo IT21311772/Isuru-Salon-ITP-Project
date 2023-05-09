@@ -37,7 +37,7 @@ function MainLayout({children}) {
               
               <button 
               style={{ borderRadius:'5px', border:'none', width:'120%',height:'35px', fontSize:'18px', color: 'white', marginLeft:"20%", marginTop:'6px',
-              background: '#f65365'}}
+              background: '#b30059'}}
                 onClick={(logout)}
               >
               Logout

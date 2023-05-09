@@ -5,35 +5,35 @@
   }
   
 
-  .packages {
+  .salary {
     /* display: flex; */
     align-items: center;
     justify-content: center;
     height: 120%;
-    /* background: linear-gradient(
+    background: linear-gradient(
         rgba(255, 255, 255, 0.7),
         rgba(255, 255, 255, 0.3)
       ),
-      url("../../images/pexels-photo-114979.jpeg"); */
+      url("../../images/pexels-photo-114979.jpeg"); 
     background-size: cover;
     background-position: center;
   }
 
-  .packages-create {
+  .salary-create {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 120%;
-    /* background: linear-gradient(
+     background: linear-gradient(
         rgba(255, 255, 255, 0.7),
         rgba(255, 255, 255, 0.3)
       ),
-      url("../../images/pexels-photo-114979.jpeg"); */
+      url("../../images/pexels-photo-114979.jpeg"); 
     background-size: cover;
     background-position: center;
   }
   
-  .packages-create .Create-post {
+  .salary-create .Create-post {
     width: 40%;
     height: 440px;
     margin: 10%;
@@ -46,20 +46,20 @@
     margin-left: 8%;
   }
   
-  .packages-create .title {
+  .salary-create .title {
     font-style: inherit;
     color: #b30059;
     font-weight: bold;
   }
   
   
-  .packages-create .Form-Group {
+  .salary-create .Form-Group {
     text-align: left;
     display: block;
     
   }
   
-  .packages-create .Form-Control {
+  .salary-create .Form-Control {
     width: 80%;
     padding: 6px 10px;
     margin: 10px 0;
@@ -70,7 +70,7 @@
     margin-left: 10%;
   }
   
-  .packages-create .Form-Cont{
+  .salary-create .Form-Cont{
     width: 100%;
     padding: 6px 10px;
     margin: 10px 0;
@@ -87,7 +87,7 @@
   
   /* App.js Styling Part */
   
-  .packages .package-preview {
+  .salary .package-preview {
     width: 300px;
     padding: 20px;
     margin: 30px;
@@ -99,11 +99,11 @@
     margin-left: 45px;
   }
   
-  .packages .package-preview:hover {
+  .salary .package-preview:hover {
     box-shadow: 1px 3px 5px rgba(10, 10, 10, 10);
   }
   
-  .packages .package-preview button {
+  .salary .package-preview button {
     color: white;
     background-color: #c762a1;
     border: #dc6c8a;
@@ -115,22 +115,22 @@
     font-size: 13px;
   }
   
-  .packages .package-preview h2{
+  .salary .package-preview h2{
     color: black;
     font-weight: bold;
   }
   
-  .packages .package-preview p{
+  .salary .package-preview p{
     font-size: 17px;
     color: black;
   }
   
-  .packages .update{
+  .salary .update{
     color: white;
     background-color: black;
   }
   
-  .packages button{
+  .salary button{
     color: white;
     background-color: #b30059;
     border: #b30059;
@@ -143,10 +143,10 @@
     font-size: 15px;
   }
   
-  .packages button:hover{
+  .salary button:hover{
     box-shadow: 1px 3px 5px rgba(10, 10, 10, 10);
   }
   
-  .packages .container button{
+  .salary .container button{
     margin-left: 85%;
   }

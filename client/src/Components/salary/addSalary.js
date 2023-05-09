@@ -13,6 +13,7 @@ function CreatePost () {
         netSalary: "",
     });
 
+
     const handleChange = (event) => {
         const { name, value } = event.target;
 
@@ -26,6 +27,8 @@ function CreatePost () {
 
     const handleClick = (event) => {
         event.preventDefault();
+        sal.netSal = sal.workingDays * sal.payRate
+
 
         axios.post("/api/sal/adds", sal)
         .then((res) => console.log(res))
@@ -35,9 +38,18 @@ function CreatePost () {
         
     };
 
+
+    //calculate salary
+    // const handleCal = (event) => {
+    //     event.preventDefault();
+
+
+        
+    // };
+
     return (
         
-        <div className="packages-create">
+        <div className="salary-create">
         <div className="Create-post">
             <h1 className="title">Add Salary</h1><br />
             <Form className="Form">
@@ -72,15 +84,12 @@ function CreatePost () {
                         onChange={handleChange} 
                         style={{width:"80%", marginLeft:"10%"}}
                         required />
-                    <Form.Control className="Form-Control"
-                        name="netSal" 
-                        value={sal.netSal}
-                        placeholder="Net Salary"
-                        onChange={handleChange} 
-                        style={{width:"80%", marginLeft:"10%"}}
-                        required />
+                    
                 </Form.Group>
                 <br />
+               
+
+
                 < button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"45%", fontSize:"17px", 
                 paddingLeft:"5px", paddingRight:"5px", border:"#b30059"}} onClick={handleClick}>Add Salary </button>
             </Form>

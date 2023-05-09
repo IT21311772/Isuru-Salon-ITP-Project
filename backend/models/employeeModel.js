@@ -18,6 +18,10 @@ const empSchema = mongoose.Schema(
             type:String,
             required:true
         },
+        position:{
+            type:String,
+            required:true
+        },
         address:{
             type:String,
             required:true
@@ -26,6 +30,7 @@ const empSchema = mongoose.Schema(
             type:String,
             required:true
         },
+
     },
     {
         timestamps:true

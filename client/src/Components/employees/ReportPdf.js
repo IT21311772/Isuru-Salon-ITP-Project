@@ -49,6 +49,7 @@ const ReportPdf = () => {
                         <th>Employee ID</th>
                         <th>NIC</th>
                         <th>Joined date</th>
+                        <th>Position</th>
                         <th>Address</th>
                         <th>Phone Number</th>
                     </thead>
@@ -62,6 +63,7 @@ const ReportPdf = () => {
                                             <td>{post.id}</td>
                                             <td>{post.NIC}</td>
                                             <td>{post.joinedDate}</td>
+                                            <td>{post.position}</td>
                                             <td>{post.address}</td>
                                             <td>{post.phoneNo}</td>
                                         </tr>

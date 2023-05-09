@@ -32,15 +32,20 @@ useEffect(() => {
         .catch((err) => console.log(err));
 }, []);
 
+//delete employee
 const deletePost = (id) => {
-axios
-.delete(`/api/emp/delete/${id}`)
-.then((res) => console.log(res))
-.catch((err) => console.log(err));
+    let text = "Do you want to delete";
+    if(window.confirm(text) == true){
+        axios
+        .delete(`/api/emp/delete/${id}`)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
 
-window.location.reload();
+        window.location.reload();
+    }
 };
 
+//update employee
 const updatePost = (post) => {
 setUpdatedPost(post);
 handleShow();
@@ -88,7 +93,7 @@ const sorting = (col) =>{
 
 
 return (
-    <div className="packages">
+    <div className="employee">
     <div>
         {/* style={{width:"90%", margin: "auto auto", textAlign: "center"}} */}
         
@@ -156,6 +161,19 @@ return (
                             value={updatedPost.joinedDate ? updatedPost.joinedDate : ""}
                             onChange={handleChange}/>
 
+                        <Form.Select name="position" className="Form-Control"
+                            value={emp.position}
+                            placeholder="Select Position"
+                            onChange={handleChange}
+                            style={{ width: "80%", marginLeft: "10%" }}
+                            required>
+                            <option>Hair Dresser</option>
+                            <option>Nail Technician</option>
+                            <option>Wax Specialist</option>
+                            <option>Colorist</option>
+                    </Form.Select>
+
+
                         <Form.Control 
                             style={{width: "80%",
                             padding: "6px 10px",
@@ -188,15 +206,17 @@ return (
                 </Form>
             </Modal.Body>
             <Modal.Footer>
+            <button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"200px", fontSize:"17px", 
+                border:"#b30059", marginRight:"25%"}} onClick={saveUpdatedPost}>
+                    Save Changes
+                </button>
+                <br />
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"200px", fontSize:"17px", 
                 border:"#b30059", marginRight:"25%"}} onClick={handleClose}>
                     Close
                 </button>
-                <br />
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"200px", fontSize:"17px", 
-                border:"#b30059", marginRight:"25%"}} onClick={saveUpdatedPost}>
-                    Save Changes
-                </button>
+               
+                
             </Modal.Footer>
         </Modal>
 
@@ -237,6 +257,7 @@ return (
                   <th scope="col">Employee Id</th>
                   <th scope="col">NIC</th>
                   <th scope="col">Joined Date</th>
+                  <th scope="col">Position</th>
                   <th scope="col">Address</th>
                   <th scope="col">Phone Number</th>
                   <th></th>
@@ -251,6 +272,7 @@ return (
                                   data.id.toLowerCase().includes(search) ||
                                   data.NIC.toLowerCase().includes(search) ||
                                   data.joinedDate.toLowerCase().includes(search) ||
+                                  data.position.toLowerCase().includes(search) ||
                                   data.address.toLowerCase().includes(search) ||
                                   data.phoneNo.toLowerCase().includes(search)
                         })
@@ -265,6 +287,7 @@ return (
                                 <td>{data.id}</td>
                                 <td>{data.NIC}</td>
                                 <td>{data.joinedDate}</td>
+                                <td>{data.position}</td>
                                 <td>{data.address}</td>
                                 <td>{data.phoneNo}</td>
                                 <td >

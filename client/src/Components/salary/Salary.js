@@ -64,7 +64,7 @@ const sorting = (col) =>{
 
 
 return (
-    <div className="packages">
+    <div className="salary">
     <div>
         {/* style={{width:"90%", margin: "auto auto", textAlign: "center"}} */}
         
@@ -105,8 +105,8 @@ return (
                   <th scope="col">Employee Id</th>
                   <th scope="col">Month</th>
                   <th scope="col">Working days</th>
-                  <th scope="col">Pay Rate</th>
-                  <th scope="col">Net Salary</th>
+                  <th scope="col">Pay Rate (LKR)</th>
+                  <th scope="col">Net Salary (LKR)</th>
                   <th></th>
                   </tr>
                 </thead>
