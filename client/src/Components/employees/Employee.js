@@ -32,20 +32,15 @@ useEffect(() => {
         .catch((err) => console.log(err));
 }, []);
 
-//delete employee
 const deletePost = (id) => {
-    let text = "Do you want to delete";
-    if(window.confirm(text) == true){
-        axios
-        .delete(`/api/emp/delete/${id}`)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+axios
+.delete(`/api/emp/delete/${id}`)
+.then((res) => console.log(res))
+.catch((err) => console.log(err));
 
-        window.location.reload();
-    }
+window.location.reload();
 };
 
-//update employee
 const updatePost = (post) => {
 setUpdatedPost(post);
 handleShow();
@@ -93,7 +88,7 @@ const sorting = (col) =>{
 
 
 return (
-    <div className="employee">
+    <div className="packages">
     <div>
         {/* style={{width:"90%", margin: "auto auto", textAlign: "center"}} */}
         
@@ -132,19 +127,19 @@ return (
                             name="id"
                             value={updatedPost.id ? updatedPost.id : ""}
                             onChange={handleChange}/>
-
+                                
                         <Form.Control 
                             style={{width: "80%",
-                                    padding: "6px 10px",
-                                    margin: "10px 0",
-                                    border: "1px solid #c762a1",
-                                    borderRadius: "5px",
-                                    boxSizing: "border-box",
-                                    display: "block",
-                                    marginLeft: "10%"}}
-                            placeholder="NIC"
-                            name="NIC"
-                            value={updatedPost.NIC ? updatedPost.NIC : ""}
+                            padding: "6px 10px",
+                            margin: "10px 0",
+                            border: "1px solid #c762a1",
+                            borderRadius: "5px",
+                            boxSizing: "border-box",
+                            display: "block",
+                            marginLeft: "10%"}}
+                            placeholder="salary"
+                            name="salary"
+                            value={updatedPost.salary ? updatedPost.salary : ""}
                             onChange={handleChange}/>
 
                         <Form.Control 
@@ -160,20 +155,6 @@ return (
                             name="joinedDate"
                             value={updatedPost.joinedDate ? updatedPost.joinedDate : ""}
                             onChange={handleChange}/>
-
-                        <Form.Select name="position" className="Form-Control"
-                            value={emp.position}
-                            placeholder="Select Position"
-                            onChange={handleChange}
-                            style={{ width: "80%", marginLeft: "10%" }}
-                            required>
-                            <option>Hair Dresser</option>
-                            <option>Nail Technician</option>
-                            <option>Wax Specialist</option>
-                            <option>Colorist</option>
-                    </Form.Select>
-
-
                         <Form.Control 
                             style={{width: "80%",
                             padding: "6px 10px",
@@ -206,23 +187,21 @@ return (
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-            <button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"200px", fontSize:"17px", 
-                border:"#b30059", marginRight:"25%"}} onClick={saveUpdatedPost}>
-                    Save Changes
-                </button>
-                <br />
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"200px", fontSize:"17px", 
                 border:"#b30059", marginRight:"25%"}} onClick={handleClose}>
                     Close
                 </button>
-               
-                
+                <br />
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"200px", fontSize:"17px", 
+                border:"#b30059", marginRight:"25%"}} onClick={saveUpdatedPost}>
+                    Save Changes
+                </button>
             </Modal.Footer>
         </Modal>
 
         {emp ? (
             
-            <div>
+            <>
             
             <Form>
                 <InputGroup className="my-1" style={{width:"20%", marginLeft:"75%"}}>
@@ -235,7 +214,7 @@ return (
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/emp/add" style={{color:"white", textDecoration:"none"}}>Add Employee</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/emp/empDetails" style={{color:"white", textDecoration:"none"}}>Download Employee List</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/emp/sals" style={{color:"white", textDecoration:"none"}}>Employee Salary</Link></button>
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/emp/report" style={{color:"white", textDecoration:"none"}}>Employee Salary</Link></button>
 
 
                 <br /><br />
@@ -245,70 +224,44 @@ return (
 
                 <div className="container">
                 <button onClick={() => sorting("name")}>Sort by Name</button>&nbsp;
+                <button onClick={() => sorting("salary")}>Sort by Salary</button>
                 </div>
                 <br />
-
-                <div className="container">   
-            
-                <table class="table">
-                <thead>
-                  <tr>
-                  <th scope="col">Employee Name</th>
-                  <th scope="col">Employee Id</th>
-                  <th scope="col">NIC</th>
-                  <th scope="col">Joined Date</th>
-                  <th scope="col">Position</th>
-                  <th scope="col">Address</th>
-                  <th scope="col">Phone Number</th>
-                  <th></th>
-                  <th scope="col">Action</th>
-                  </tr>
-                </thead>
                     
                         {emp.filter((data) => {
                             return search.toLowerCase() === ''
                                 ? data
                                 : data.name.toLowerCase().includes(search) ||
                                   data.id.toLowerCase().includes(search) ||
-                                  data.NIC.toLowerCase().includes(search) ||
+                                  data.salary.toLowerCase().includes(search) ||
                                   data.joinedDate.toLowerCase().includes(search) ||
-                                  data.position.toLowerCase().includes(search) ||
                                   data.address.toLowerCase().includes(search) ||
                                   data.phoneNo.toLowerCase().includes(search)
                         })
 
+
                         
-                        .map((data) => {
+                        .map((employee) => {
                             return (
         
-                                <tbody>
-                                <tr>
-                                <td>{data.name}</td>
-                                <td>{data.id}</td>
-                                <td>{data.NIC}</td>
-                                <td>{data.joinedDate}</td>
-                                <td>{data.position}</td>
-                                <td>{data.address}</td>
-                                <td>{data.phoneNo}</td>
-                                <td >
-                                
-                                <button  style={{width: "70%",
-                                            marginLeft:'10px'                   
-                                }} onClick={() => updatePost(data)}>UPDATE</button>   </td>
+                                    <div key={employee._id} className = "package-preview" >
+                                        <center>
+                                            <h2>{employee.name}</h2>
+                                            <p>{employee.id}</p>
+                                            <p>{employee.salary}</p>
+                                            <p>{employee.joinedDate}</p>
+                                            <p>{employee.address}</p>
+                                            <p>{employee.phoneNo}</p>
+                                                <button onClick={() => updatePost(employee)}>UPDATE</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <button style={{color:"white", background:"#3d3c3c", border:"black"}} onClick={() => deletePost(employee._id)}>DELETE</button><br />
+                                            
+                                        </center>
         
-                                <td>
-                                <button style={{width: "80%", marginLeft:'-20%', marginTop:""}} onClick={() => deletePost(data._id)}>DELETE</button>
-                                </td>
-                                
-                                
-                                </tr>
-                                </tbody>   
+                                    </div>   
                             );
                         })}
-                        </table>
-                        </div>
-                        
-            </div>
+            </>
         ) : (
           ""
         )}

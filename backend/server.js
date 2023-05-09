@@ -21,7 +21,6 @@ const orderRoutes = require('./routes/orderRoutes');
 const appointmentRoutes = require('./routes/appointmentRoutes');
 const inventoryRoutes = require('./routes/inventoryRoutes');
 const empRoutes = require('./routes/employeeRoutes');
-const salRoutes = require('./routes/salaryRoutes');
 const customPackRoutes = require('./routes/customPackRoutes');
 const financeRoutes = require('./routes/financeRoutes');
 const attendenceRoutes = require('./routes/attendenceRoutes');
@@ -36,11 +35,10 @@ app.use("/api/Ord", orderRoutes)
 app.use("/api/Book", appointmentRoutes);
 app.use("/api/Product", inventoryRoutes);
 app.use("/api/emp", empRoutes);
-app.use("/api/sal", salRoutes);
-
 app.use("/api/CustPost", customPackRoutes);
 app.use("/api/Fin", financeRoutes);
 app.use("/api/sch", attendenceRoutes);
+
 
 // Connect the database
 mongoose
