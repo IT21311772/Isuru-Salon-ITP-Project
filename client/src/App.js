@@ -1,4 +1,8 @@
+import './Components/appointments/appointment.css';
 import './Components/packages/package.css';
+import './Components/products/products.css';
+import './Components/employees/Employee.css';
+import './Components/finance/transactions.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from 'react-router-dom';
 import CreatePost from './Components/packages/CreatePost';
@@ -10,15 +14,12 @@ import ReactPdfPrint from './Components/packages/ReactPdfPrint';
 import Client from './Components/packages/Client';
 import AddSupplier from './Components/suppliers/AddSupplier';
 import Supplier from './Components/suppliers/Suppliers';
-import Order from './Components/orders/Order';
-import SuppliersPdf from './Components/suppliers/SuppliersPdf';
-import OrdersPdf from './Components/orders/OrdersPdf';
-import SupOrder from './Components/dashboard/suporder';
-import CreateOrder from './Components/orders/AddOrder';
-
+import Order from './Components/orders/Order'
+import AddOrder from './Components/orders/Order'
+// import SupplierPdf from './Components/suppliers/SuppliersPdf';
 
 function App() {
-    return ( 
+    return (
         <div className="App">
             <Routes>
                 <Route path='/' element={<Login />} />
@@ -42,9 +43,30 @@ function App() {
 
                 
                 
+                <Route path='/appointments' element={<Appointment />} />
+                <Route path='/appointments/add' element={<AddAppointment />} />
+                <Route path='/appointments/add/appointments' element={<Appointment />} />
+                <Route path='/appointments/report' element={<Appointmentsreport />} />
+                <Route path='/products' element={<Products />} />
+                <Route path='/products/add' element={<AddProducts />} />
+                <Route path='/products/add/products' element={<Products />} />
+                <Route path='/emp' element={<Employees />} />
+                <Route path='/emp/add' element={<AddEmployee />} />
+                <Route path='/emp/add/emp' element={<Employees />} />
+                <Route path='/emp/empDetails' element={<ReportPdf />} />
+                <Route path='/posts/clientPack/create' element={<CustomPack />} />
+                <Route path='/posts/clientPack/create/customsucces' element={<CustomSucces />} />
+                <Route path='/fin'element={<Transactions />} />
+                <Route path='/fin/add' element={<AddTransactions />} />
+                <Route path='/fin/add/trans'element={<Transactions />} />
+                <Route path='/fin/report' element={<FinanceReport />} />
             </Routes>
         </div>
     );
 }
   
 export default App;
+
+export default App;
+
+
