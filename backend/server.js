@@ -26,7 +26,11 @@ const financeRoutes = require('./routes/financeRoutes');
 const supMsgRoutes = require('./routes/supMsgRoutes');
 const inveMsgRoutes = require('./routes/inveMsgRoutes');
 const attendenceRoutes = require('./routes/attendenceRoutes');
+
+// const appointmentPackRoutes = require('./routes/appointmentPackRoutes');
+
 const salRoutes = require('./routes/salaryRoutes');
+
 
 
 // Routes
@@ -34,6 +38,9 @@ app.use("/api/users", userRoutes);
 app.use("/api/Post", packageRoutes);
 app.use("/api/Serv", serviceRoutes);
 app.use("/api/Sup", supplierRoutes);
+app.use("/api/Ord", orderRoutes)
+app.use("/api/Book", appointmentRoutes);
+// app.use("/api/PBook", appointmentPackRoutes);
 app.use("/api/Ord", orderRoutes);
 app.use("/api/Msg", supMsgRoutes);
 app.use("/api/IMsg", inveMsgRoutes);

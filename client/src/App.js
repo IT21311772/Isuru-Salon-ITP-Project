@@ -46,6 +46,8 @@ import CreateOrder from './Components/orders/Order'
 import Appointment from './Components/appointments/Appointments';
 import AddAppointment from './Components/appointments/AddAppointment';
 import Appointmentsreport from './Components/appointments/Appointmentsreport';
+import ViewAppointment from './Components/appointments/ViewAppointment';
+
 import Products from './Components/products/Products';
 import AddProducts from './Components/products/addProduct';
 import SupOrder from './Components/dashboard/suporder';
@@ -103,6 +105,12 @@ function App() {
                 <Route path='/sup' element={<Supplier />} />
                 <Route path='/sup/add' element={<AddSupplier />} />
                 <Route path='/sup/add/sups' element={<Supplier />} />
+                <Route path='/ords/addorder' element={<AddOrder />} />
+                <Route path='/ords' element={< Order />} />
+                <Route path='/sup/addorder/ords' element={<Order />} />
+
+
+
                 <Route path='/sup/report' element={<SuppliersPdf/>}/>
                 <Route path='/ord' element={<Order/>}/>
                 <Route  path='/ord/add' element ={<CreateOrder />}/>
@@ -111,7 +119,6 @@ function App() {
                 
                 <Route path='/appointments' element={<Appointment />} />
                 <Route path='/appointments/add' element={<AddAppointment />} />
-                <Route path='/appointments/add/appointments' element={<Appointment />} />
                 <Route path='/appointments/report' element={<Appointmentsreport />} />
 
                 <Route path='/products' element={<Products />} />
@@ -129,15 +136,17 @@ function App() {
                 <Route path='/emp/add' element={<AddEmployee />} />
                 <Route path='/emp/add/emp' element={<Employees />} />
                 <Route path='/emp/empDetails' element={<ReportPdf />} />
+
                 <Route path='/emp/sals' element={<Salary />} />
                 <Route path='/emp/sals/tap' element={<AddSalary />} />
                 <Route path='/emp/sals/tap/sals' element={<Salary />} />
                 <Route path='/emp/sal/salDetails' element={<ReportSal />} />
                 
 
-                <Route path='/fin'element={<Transactions />} />
+
+                <Route path='/fin' element={<Transactions />} />
                 <Route path='/fin/add' element={<AddTransactions />} />
-                <Route path='/fin/add/trans'element={<Transactions />} />
+                <Route path='/fin/add/trans' element={<Transactions />} />
                 <Route path='/fin/report' element={<FinanceReport />} />
 
                 <Route path='/msg' element={<ViewMsg />}/>
@@ -156,11 +165,19 @@ function App() {
                 <Route path='/data/add' element={<AttendenceForm />} />
                 <Route path='/data/add/data' element={<Attendence />} />
 
+
+                <Route path='/appointments/add/ViewAppointment' element={<ViewAppointment />} />
+                <Route path='/ViewAppointment/:id' element={<ViewAppointment />} />
+
+
+            </Routes >
+        </div >
+
                 <Route path='/products/report' element={<ProductsPdf/>} /> 
 
             </Routes>
         </div>
     );
 }
-  
+
 export default App;
