@@ -193,7 +193,6 @@ return (
                 <br /><br />
                 <center>
                     <h1 style={{color:"#660033", fontWeight:"bolder", fontSize:"50px"}}>Salon Packages</h1>
-                    <h1 style={{color:"#660033", fontWeight:"bolder", fontSize:"50px"}}>Updated Packages</h1>
                 </center>
 
                 <div className="container">

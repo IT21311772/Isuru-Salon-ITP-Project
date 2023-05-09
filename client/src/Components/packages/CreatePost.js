@@ -8,10 +8,10 @@ import MainLayout from "../../layouts/MainLayout";
 function CreateService() {
   const navigate = useNavigate();
   const [post, setPost] = useState({
-    sId: "",
-    sName: "",
-    sPrice: "",
-    sCategory:"",
+    title: "",
+    type: "",
+    description: "",
+    price:"",
   });
 
   const handleChange = (event) => {
