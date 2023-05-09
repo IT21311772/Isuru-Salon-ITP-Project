@@ -1,5 +1,7 @@
 import './clientSide.css';
+import "./products.css";
 
+{/*start of the header*/}
 function app(){
     return (
         <div className='home'>
@@ -32,9 +34,14 @@ function app(){
   </div>
 </nav>
 
-<h1>Products</h1>
+<h1 className='Productcreate'>Products</h1>
 
 
+
+
+
+
+{/*start of the footer*/}
 <footer className="text-center text-lg-start bg-light text-muted fixed-bottom">    
   <section className="">
     <div className="container text-center text-md-start mt-5">
