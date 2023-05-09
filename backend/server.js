@@ -22,7 +22,8 @@ const orderRoutes = require('./routes/orderRoutes');
 app.use("/api/users", userRoutes);
 app.use("/api/Post", packageRoutes);
 app.use("/api/Sup", supplierRoutes);
-app.use("/api/Ord", orderRoutes)
+app.use("/api/Ord", orderRoutes);
+
 
 // Connect the database
 mongoose

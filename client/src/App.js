@@ -10,9 +10,12 @@ import ReactPdfPrint from './Components/packages/ReactPdfPrint';
 import Client from './Components/packages/Client';
 import AddSupplier from './Components/suppliers/AddSupplier';
 import Supplier from './Components/suppliers/Suppliers';
-import Order from './Components/orders/Order'
-import AddOrder from './Components/orders/Order'
-// import SupplierPdf from './Components/suppliers/SuppliersPdf';
+import Order from './Components/orders/Order';
+import SuppliersPdf from './Components/suppliers/SuppliersPdf';
+import OrdersPdf from './Components/orders/OrdersPdf';
+import SupOrder from './Components/dashboard/suporder';
+import CreateOrder from './Components/orders/AddOrder';
+
 
 function App() {
     return ( 
@@ -20,19 +23,24 @@ function App() {
             <Routes>
                 <Route path='/' element={<Login />} />
                 <Route path='/home' element={<DashBoard />} />
+                <Route path='/suporder' element={<SupOrder />}/>
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/posts' element={<Posts />} />
                 <Route path='/posts/create' element={<CreatePost />} />
                 <Route path='/posts/create/posts' element={<Posts />} />
                 <Route path='/posts/report' element={<ReactPdfPrint />} />
                 <Route path='/posts/clientPack' element={<Client />} />
+                <Route path='/sup' element={<Supplier />} />
                 <Route path='/sup/add' element={<AddSupplier />} />
-                <Route path='/sups' element={<Supplier />} />
                 <Route path='/sup/add/sups' element={<Supplier />} />
+                <Route path='/sup/report' element={<SuppliersPdf/>}/>
 
-                <Route  path='/ords/addorder' element ={<AddOrder/>}/>
-                <Route path='/ords' element={< Order/>}/>
-                <Route path='/sup/addorder/ords' element={<Order />} />
+                <Route path='/ord' element={<Order/>}/>
+                <Route  path='/ord/add' element ={<CreateOrder />}/>
+                <Route path='/ord/add/ords' element={<Order />}/>
+                <Route path='/ord/report' element={< OrdersPdf/>} />
+
+                
                 
             </Routes>
         </div>

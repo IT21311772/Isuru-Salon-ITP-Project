@@ -7,6 +7,10 @@ import { Link } from "react-router-dom";
 import './supplier.css';
 
 
+
+  
+  
+
 function App() {
 // const navigate = useNavigate();
 
@@ -16,9 +20,14 @@ const [posts, setPosts] = useState([]);
 const [updatedPost, setUpdatedPost] = useState({})
 const [search, setSearch] = useState('');
 
+
+
+
+
 const [show, setShow] = useState(false);
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
+
 
 useEffect(() => {
     axios.get("/api/Sup/sups")
@@ -64,25 +73,42 @@ window.location.reload();
 };
 
 //Sorting function
+// const [order, setOrder] = useState("ASC");
+// const sorting = (col) =>{
+//   if(order ==="ASC"){
+//     const sorted = [...posts].sort((a,b) =>
+//         a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1);
+
+//         setPosts(sorted);
+//         setOrder("DESC");
+//   }
+//   if(order ==="DESC"){
+//     const sorted = [...posts].sort((a,b) =>
+//         a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1);
+
+//         setPosts(sorted);
+//         setOrder("ASC");
+//     }
+//   };
+
+
 const [order, setOrder] = useState("ASC");
-const sorting = (col) =>{
-  if(order ==="ASC"){
-    const sorted = [...posts].sort((a,b) =>
-        a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1);
-
-        setPosts(sorted);
-        setOrder("DESC");
-  }
-  if(order ==="DESC"){
-    const sorted = [...posts].sort((a,b) =>
-        a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1);
-
-        setPosts(sorted);
-        setOrder("ASC");
+const sorting = (col) => {
+    if (order === "ASC") {
+      const sorted = [...posts].sort((a, b) =>
+        a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
+      );
+      setPosts(sorted);
+      setOrder("DESC");
+    }
+    if (order === "DESC") {
+      const sorted = [...posts].sort((a, b) =>
+        a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1
+      );
+      setPosts(sorted);
+      setOrder("ASC");
     }
   };
-
-
 
 return (
     <div className="packages">
@@ -220,7 +246,7 @@ return (
 
         {posts ? (
             
-            <>
+            <div>
             
             <Form>
                 <InputGroup className="my-1" style={{width:"20%", marginLeft:"75%"}}>
@@ -232,8 +258,8 @@ return (
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/sup/add" style={{color:"white", textDecoration:"none"}}>Add New Supplier</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/sup/report" style={{color:"white", textDecoration:"none"}}>Download Supplier List</Link></button>
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/sup/ords/ords" style={{color:"white", textDecoration:"none"}}>Manage Orders</Link></button>
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/sup/report" style={{color:"white", textDecoration:"none"}}>Download Supplier List</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                
                 <br /><br />
                 <center>
                     <h1 style={{color:"#660033", fontWeight:"bolder", fontSize:"50px"}}>Supplier Details</h1>++
@@ -244,36 +270,71 @@ return (
                 <button onClick={() => sorting("price")}>Sort by Price</button>
                 </div>
                 <br />
+
+                <div className="container">
+
+                <table class="table">
+                <thead>
+                  <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Product</th>
+                  <th scope="col">Contact</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Price</th>
+                  <th></th>
+                  <th scope="col">Action</th>
+                  </tr>
+                </thead>
+               
                     
                         {posts.filter((post) => {
                             return search.toLowerCase() === ''
                                 ? post
                                 : post.name.toLowerCase().includes(search) ||
-                                  post.type.toLowerCase().includes(search) ||
-                                  post.product.toLowerCase().includes(search)
+                                  post.product.toLowerCase().includes(search) ||
+                                  post.status.toLowerCase().includes(search) 
+
+
                         })
-                        .map((post) => {
+                        .map((post, index) => {
                     return (
 
-                            <div key={post._id} className = "package-preview" >
-                                <center>
-                                    <h2>{post.name}</h2>
-                                    <p>{post.product}</p>
-                                    <p>{post.contact}</p>
-                                    <p>{post.email}</p>
-                                    <p>{post.status}</p>
-                                    <p>{post.date}</p>
-                                    <p>{post.quantityl}</p>
-                                    <p>{post.price}</p>
-                                        <button onClick={() => updatePost(post)}>UPDATE</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <button style={{color:"white", background:"#3d3c3c", border:"black"}} onClick={() => deletePost(post._id)}>DELETE</button><br />
-                                    
-                                </center>
-                            </div>   
+                        <tbody>
+                        <tr>
+                        <td>{index+1}</td>
+                        <td>{post.name}</td>
+                        <td>{post.product}</td>
+                        <td>{post.contact}</td>
+                        <td>{post.email}</td>
+                        <td>{post.status}</td>
+                        <td>{post.date}</td>
+                        <td>{post.quantity}</td>
+                        <td>{post.price}</td>
+                        <td >
+                        
+                        <button  style={{width: "70%",
+                                    marginLeft:'10px'                   
+                        }} onClick={() => updatePost(post)}>UPDATE</button>   </td>
+
+                        <td>
+                        <button style={{width: "80%", marginLeft:'-20%', marginTop:""}} onClick={() => deletePost(post._id)}>DELETE</button>
+                        </td>
+                        
+                        
+                        </tr>
+                        </tbody>
+                                
                     );
                 })}
-            </>
+                 </table>
+                </div>
+
+                
+            </div>
         ) : (
           ""
         )}
