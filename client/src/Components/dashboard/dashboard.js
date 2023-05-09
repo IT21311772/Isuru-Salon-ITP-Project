@@ -12,6 +12,7 @@ function Dashboard() {
 
       <MainLayout>
         <center><h1 style={{ fontFamily: "mulish,sans-serif" }}>DashBoard</h1></center><br />
+      <br/>
       </MainLayout>
 
       <div className="dash">

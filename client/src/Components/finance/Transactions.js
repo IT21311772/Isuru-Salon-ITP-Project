@@ -113,7 +113,7 @@ const sorting = (col) =>{
 
 
 return (
-    <div className="packages">
+    <div className="finance">
     <div>
         {/* style={{width:"90%", margin: "auto auto", textAlign: "center"}} */}
         
@@ -250,11 +250,11 @@ return (
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/fin/add" style={{color:"white", textDecoration:"none"}}>Add New Transaction</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/fin/report" style={{color:"white", textDecoration:"none"}}>Download Finance Report</Link></button>
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/fin/report" style={{color:"white", textDecoration:"none"}}> Finance Report</Link></button>
             
                 <br /><br />
                 <center>
-                    <h1 style={{color:"#660033", fontWeight:"bolder", fontSize:"50px"}}>Income & Expenses</h1>
+                    <h1 style={{color:"#660033", fontWeight:"bolder", fontSize:"50px"}}>Income & Expense</h1>
                 </center>
 
                 <div className="container">
