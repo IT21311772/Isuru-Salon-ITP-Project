@@ -1,3 +1,5 @@
+.dashboard {
+
 .App {
   font-family:Georgia, 'Times New Roman', Times, serif;
   background: linear-gradient(
@@ -5,8 +7,14 @@
     rgba(255, 255, 255, 0.3)
   ),
   url("../../images/pexels-photo-114979.jpeg");
+
+  background-size: cover;
+  height: 100vh;
+
   
 }
+
+
 
 .btn-func{
   border-radius: 5px;
@@ -29,6 +37,7 @@
   width: 6%;
   font-size: 18px;
   color: white;
+  background-color: #f65365;
   background-color: #b30059;
   font-family: mulish,sans-serif; 
 }

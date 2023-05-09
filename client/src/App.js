@@ -46,6 +46,12 @@ import AddOrder from './Components/orders/Order'
 import Appointment from './Components/appointments/Appointments';
 import AddAppointment from './Components/appointments/AddAppointment';
 import Appointmentsreport from './Components/appointments/Appointmentsreport';
+import Products from './Components/products/Products';
+import AddProducts from './Components/products/addProduct';
+import AddEmployee from './Components/employees/addEmployee';
+import Employees from './Components/employees/Employee';
+import ReportPdf from './Components/employees/ReportPdf';
+import CustomPack from './Components/packages/CustomPack';
 
 
 import ProductsPdf from './Components/products/ProductsPdf';
@@ -137,7 +143,6 @@ function App() {
     );
 }
   
-export default App;
 
 
 
