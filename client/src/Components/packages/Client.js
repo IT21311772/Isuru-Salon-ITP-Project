@@ -63,6 +63,30 @@ const sorting = (col) =>{
 return (
     <div className="packages">
     <div>
+    <nav className="navbar">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul className="navbar-nav">
+      <li className="nav-item">
+        <a className="nav-link" href="#">Home <span class="sr-only"></span></a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="#">Products</a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="#">Services</a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="#">Packages</a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="#">Contact Us</a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="#">Book Now</a>
+      </li>
+    </ul>
+  </div>
+</nav>
         {/* style={{width:"90%", margin: "auto auto", textAlign: "center"}} */}
         
       <br /><br />
@@ -83,7 +107,9 @@ return (
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;
+
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/posts/clientPack/create" style={{color:"white", textDecoration:"none"}}>Customize Your Package</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
+
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/posts/report" style={{color:"white", textDecoration:"none"}}>Download Package Menu</Link></button>
             
                 <br /><br />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -25,9 +25,10 @@ function MainLayout({children}) {
         <div className="container-fluid">
           
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <label className="navbar-brand" onClick={()=>navigate("/dash")}>
-              Finance Management
-            </label>
+            <label className="navbar-brand" onClick={()=>navigate("/home")}>
+              Service Management
+              </label>
+            
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               {/* <li className="mt-2" style={{marginLeft:'-40%'}}> 
               {location.state.id}
@@ -37,6 +38,7 @@ function MainLayout({children}) {
               
               <button 
               style={{ borderRadius:'5px', border:'none', width:'120%',height:'35px', fontSize:'18px', color: 'white', marginLeft:"20%", marginTop:'6px',
+              style={{ borderRadius:'5px', border:'none', width:'120%',height:'35px', fontSize:'18px', color: 'white', marginLeft:"545%", marginTop:'6px',
               background: '#b30059'}}
                 onClick={(logout)}
               >

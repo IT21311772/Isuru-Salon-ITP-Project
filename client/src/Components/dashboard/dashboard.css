@@ -17,7 +17,7 @@
   width: 300px;
   padding: 20px;
   margin: 30px;
-  font-family: mulish,sans-serif;
+  font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .btn-logout{
@@ -28,6 +28,6 @@
   width: 6%;
   font-size: 18px;
   color: white;
-  background-color: #f65365;
+  background-color: #b30059;
   font-family: mulish,sans-serif; 
 }

@@ -7,36 +7,75 @@ export default function Login() {
 
     const history = useNavigate();
 
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState(false)
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [nameError, setNameError] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [formError, setFormError] = useState('');
 
-    async function handleLogin(e) {
-        e.preventDefault();
-
-        if (!email || !password) {
-            return setError('Please enter email and password..!!')
+    const validateName = () => {
+        if (name.trim() === '') {
+          setNameError('Please enter a name');
+        } else {
+          setNameError('');
         }
+      };
+      
+      const validateEmail = () => {
+        const re = /\S+@\S+\.\S+/;
+        if (email.trim() === '') {
+          setEmailError('Please enter an email');
+        } else if (!re.test(email)) {
+          setEmailError('Please enter a valid email');
+        } else {
+          setEmailError('');
+        }
+      };
+      
+      const validatePassword = () => {
+        if (password.trim() === '') {
+          setPasswordError('Please enter a password');
+        } else {
+          setPasswordError('');
+        }
+      };
+      
 
-        try {
-            const { data, status } = await axios.post("/api/users/login", {
+
+      async function handleLogin(e) {
+        e.preventDefault();
+        
+        validateName();
+        validateEmail();
+        validatePassword();
+      
+        if (!nameError && !emailError && !passwordError) {
+          try {
+            const { data, status } = await axios.post('/api/users/login', {
               email,
               password,
             });
+      
             if (status === 200) {
+
               localStorage.setItem("currentUser", JSON.stringify(data));
+              history ({state:{id:name}});
               window.location.href = "/home";
+
             } else {
-              setError("Invalid Credentials.");
+              setFormError('Invalid Credentials.');
             }
           } catch (error) {
             console.log(error);
-            setError("Something went wrong. Please try again later.");
-          }
-
-        
-    }
+            setFormError('Invalid Credentials.');
+          }
+        } else {
+          setFormError('Please fill the required fields before submitting.');
+        }
+      }
+      
 
 
     return (
@@ -44,25 +83,60 @@ export default function Login() {
             <div className="registration-form">
                 <form action='POST'>
                     <div className="subhead">
+                        <br />
                         <h2>Admins Login</h2>
                     </div>
                     <div className="form-icon">
                         <span><i className="icon icon-user"></i></span>
                     </div>
                     <div className="form-group">
-                        <input type="name" className="form-control item" value={name} onChange={(e) => { setName(e.target.value) }} placeholder='User Name' id='' />
-                        {error && name.length <= 0 ?
-                        <label className="error">Enter User Name !!</label> : ""}
+
+                    <input
+                        type="name"
+                        className={`form-control item ${nameError ? 'is-invalid' : ''}`}
+                        value={name}
+                        onChange={(e) => {
+                            setName(e.target.value);
+                            validateName();
+                        }}
+                        placeholder="User Name"
+                        id=""
+                        />
+                        { nameError && <div className="invalid-feedback">{nameError}</div>}
+                        { formError && <div className="alert alert-danger">{formError}</div> }
+
                     </div>
+
                     <div className="form-group">
-                        <input type="email" className="form-control item" value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder='Email' id='' />
-                        {error && email.length <= 0 ?
-                        <label className="error">Fill the field !!</label> : ""}
+                        <input 
+                        type="email" 
+                        className={`form-control item ${emailError ? 'is-invalid' : ''}`}
+                        value={email} 
+                        onChange={(e) => { 
+                            setEmail(e.target.value);
+                            validateEmail();
+                        }} 
+                        placeholder='Email' 
+                        id='' />
+                        { emailError && <div className="invalid-feedback">{emailError}</div>} 
+                        { formError && <div className="alert alert-danger">{formError}</div> }
+  
                     </div>
+
                     <div className="form-group">
-                        <input type="password" className="form-control item" value={password} onChange={(e) => { setPassword(e.target.value) }} placeholder='Password' id='' />
-                        {error && password.length <= 0 ?
-                        <label className="error">Fill the field..!!</label> : ""}
+                        <input 
+                        type="password" 
+                        className={`form-control item ${passwordError ? 'is-invalid' : ''}`}
+                        value={password} 
+                        onChange={(e) => { 
+                            setPassword(e.target.value);
+                            validatePassword();
+                        }} 
+                        placeholder='Password' 
+                        id='' />
+                        { passwordError && <div className="invalid-feedback">{passwordError}</div>}  
+                        { formError && <div className="alert alert-danger">{formError}</div> } 
+
                     </div>
 
                     <center>
