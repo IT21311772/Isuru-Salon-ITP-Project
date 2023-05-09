@@ -5,7 +5,23 @@
   }
   
 
-  .packages {
+  .appointments {
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    height: 700%;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.3)
+      ),
+      url("../../images/pexels-photo-114979.jpeg");
+    background-size: cover;
+    background-position: center;
+  }
+  
+
+  .appointments-create {
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 120%;
@@ -17,23 +33,10 @@
     background-size: cover;
     background-position: center;
   }
-
-  .packages-create {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* height: 120%; */
-    background: linear-gradient(
-        rgba(255, 255, 255, 0.7),
-        rgba(255, 255, 255, 0.3)
-      ),
-      url("../../images/pexels-photo-114979.jpeg");
-    background-size: cover;
-    background-position: center;
-  }
   
   .packages-create .Create-post {
     width: 40%;
+    height: 440px;
     margin: 10%;
     padding: 20px;
     text-align: center;
@@ -83,7 +86,9 @@
     background: white;
   }
   
-  .packages .package-preview {
+  /* App.js Styling Part */
+  
+  .appointments .package-preview {
     width: 300px;
     padding: 20px;
     margin: 30px;
@@ -95,11 +100,11 @@
     margin-left: 45px;
   }
   
-  .packages .package-preview:hover {
+  .appointments .package-preview:hover {
     box-shadow: 1px 3px 5px rgba(10, 10, 10, 10);
   }
   
-  .packages .package-preview button {
+  .appointments .package-preview button {
     color: white;
     background-color: #c762a1;
     border: #dc6c8a;
@@ -111,22 +116,22 @@
     font-size: 13px;
   }
   
-  .packages .package-preview h2{
+  .appointments .package-preview h2{
     color: black;
     font-weight: bold;
   }
   
-  .packages .package-preview p{
+  .appointments .package-preview p{
     font-size: 17px;
     color: black;
   }
   
-  .packages .update{
+  .appointments .update{
     color: white;
     background-color: black;
   }
   
-  .packages button{
+  .appointments button{
     color: white;
     background-color: #b30059;
     border: #b30059;
@@ -139,10 +144,10 @@
     font-size: 15px;
   }
   
-  .packages button:hover{
+  .appointments button:hover{
     box-shadow: 1px 3px 5px rgba(10, 10, 10, 10);
   }
   
-  .packages .container button{
+  .appointments .container button{
     margin-left: 85%;
   }
