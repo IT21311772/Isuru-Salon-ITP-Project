@@ -138,7 +138,6 @@ function CreatePost() {
             setEmailError("");
         }
         return valid;
-
     }
 
 
@@ -227,8 +226,8 @@ function CreatePost() {
                             <option>Body Polishing </option>
                             <option>First Hair Cutting </option>
 
-                        </Form.Select>
-                    </Form.Group>
+                        </Form.Select >
+                    </Form.Group >
 
                     < button style={{
                         borderRadius: "5px",
@@ -242,11 +241,11 @@ function CreatePost() {
                         color: "#ffffff"
 
                     }} onClick={handleClick}>Make Appointment</button>
-                </Form>
+                </Form >
 
                 {/* <br />
             <button style={{borderRadius:"5px", background:"#a66f72", padding:"0.5%"}} onClick={() => navigate(-1)}> BACK </button>   */}
-            </div>
+            </div >
         </div >
     );
 }

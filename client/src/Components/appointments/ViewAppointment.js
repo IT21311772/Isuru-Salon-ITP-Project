@@ -115,13 +115,13 @@ function ViewAppointment() {
                     <p>Date: &nbsp;&nbsp; {posts.date}</p>
                     <p>Time: &nbsp;&nbsp; {posts.time}</p>
                     <p>Service: &nbsp;&nbsp; {posts.service}</p>
-                </div>
+                </div >
 
 
 
                 < button className="btn-update" onClick={() => updatePost(posts)} >UPDATE</button>
                 <button className='btn-delete' onClick={() => deletePost(posts._id)}>DELETE</button>
-            </div>
+            </div >
             <Modal show={show} onHide={handleClose} >
                 <Modal.Header closeButton>
                     <Modal.Title style={{ color: "#b30059" }}>Update Your Appointment</Modal.Title>

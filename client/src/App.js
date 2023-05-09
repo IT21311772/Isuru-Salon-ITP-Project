@@ -36,7 +36,6 @@ import Appointment from './Components/appointments/Appointments';
 import AddAppointment from './Components/appointments/AddAppointment';
 import Appointmentsreport from './Components/appointments/Appointmentsreport';
 import ViewAppointment from './Components/appointments/ViewAppointment';
-
 import Products from './Components/products/Products';
 import AddProducts from './Components/products/addProduct';
 import AddEmployee from './Components/employees/addEmployee';

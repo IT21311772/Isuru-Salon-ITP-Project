@@ -258,7 +258,6 @@ function App() {
                         </Form>
                         <br />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
                         <button style={{ borderRadius: "5px", background: "#b30059", padding: "0.5%" }}><Link to="/appointments/report" style={{ color: "white", textDecoration: "none" }}>Download Appointments</Link></button>
 
                         <br /><br />
@@ -307,26 +306,26 @@ function App() {
                                                     <td>{post.service}</td>
                                                     <td >
 
-                                                    </td>
+                                                    </td >
 
                                                     <td>
                                                         <button style={{ width: "120%", marginLeft: '-20%', marginTop: "" }} onClick={() => deletePost(post._id)}>DELETE</button>
                                                     </td>
 
 
-                                                </tr>
-                                            </tbody>
+                                                </tr >
+                                            </tbody >
                                         );
                                     })}
-                            </table>
-                        </div>
+                            </table >
+                        </div >
 
-                    </div>
+                    </div >
 
                 ) : (
                     ""
                 )}
-            </div>
+            </div >
         </div >
     );
 }
