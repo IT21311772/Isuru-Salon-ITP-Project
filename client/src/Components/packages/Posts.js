@@ -162,14 +162,15 @@ return (
             </Modal.Body>
             <Modal.Footer>
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"200px", fontSize:"17px", 
-                border:"#b30059", marginRight:"25%"}} onClick={handleClose}>
-                    Close
+                    border:"#b30059", marginRight:"25%"}} onClick={saveUpdatedPost}>
+                        Save Changes
+                </button>
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"200px", fontSize:"17px", 
+                    border:"#b30059", marginRight:"25%"}} onClick={handleClose}>
+                        Close
                 </button>
                 <br />
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"200px", fontSize:"17px", 
-                border:"#b30059", marginRight:"25%"}} onClick={saveUpdatedPost}>
-                    Save Changes
-                </button>
+                
             </Modal.Footer>
         </Modal>
 

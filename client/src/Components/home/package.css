@@ -3,9 +3,15 @@
     margin: auto;
     padding: auto;
   }
+
+  .search{
+    border-color: #b30059;
+
+  }
   
 
   .packages {
+    /* display: flex; */
     align-items: center;
     justify-content: center;
     height: 120%;
@@ -22,7 +28,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* height: 120%; */
+    height: 120%;
     background: linear-gradient(
         rgba(255, 255, 255, 0.7),
         rgba(255, 255, 255, 0.3)
@@ -34,6 +40,7 @@
   
   .packages-create .Create-post {
     width: 40%;
+    height: 440px;
     margin: 10%;
     padding: 20px;
     text-align: center;
@@ -68,22 +75,15 @@
     margin-left: 10%;
   }
   
-  .packages-create .Form-Cont{
-    width: 100%;
-    padding: 6px 10px;
-    margin: 10px 0;
-    border: 1px solid #a66f72;
-    border-radius: 5px;
-    box-sizing: border-box;
-    display: block;
-  }
 
   .package-report{
     background-color: white;
     background: white;
   }
   
-  .packages .package-preview {
+  /* App.js Styling Part */
+  
+  .bg-white .package-preview {
     width: 300px;
     padding: 20px;
     margin: 30px;
@@ -95,11 +95,11 @@
     margin-left: 45px;
   }
   
-  .packages .package-preview:hover {
+  .bg-white .package-preview:hover {
     box-shadow: 1px 3px 5px rgba(10, 10, 10, 10);
   }
   
-  .packages .package-preview button {
+  .bg-white .package-preview button {
     color: white;
     background-color: #c762a1;
     border: #dc6c8a;
@@ -111,22 +111,22 @@
     font-size: 13px;
   }
   
-  .packages .package-preview h2{
+  .bg-white .package-preview h2{
     color: black;
     font-weight: bold;
   }
   
-  .packages .package-preview p{
+  .bg-white .package-preview p{
     font-size: 17px;
     color: black;
   }
   
-  .packages .update{
+  .bg-white .update{
     color: white;
     background-color: black;
   }
   
-  .packages button{
+  .bg-white button{
     color: white;
     background-color: #b30059;
     border: #b30059;
@@ -139,10 +139,10 @@
     font-size: 15px;
   }
   
-  .packages button:hover{
+  .bg-white button:hover{
     box-shadow: 1px 3px 5px rgba(10, 10, 10, 10);
   }
   
-  .packages .container button{
+  .bg-white .container button{
     margin-left: 85%;
   }
