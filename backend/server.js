@@ -24,7 +24,7 @@ const empRoutes = require('./routes/employeeRoutes');
 const customPackRoutes = require('./routes/customPackRoutes');
 const financeRoutes = require('./routes/financeRoutes');
 const attendenceRoutes = require('./routes/attendenceRoutes');
-const appointmentPackRoutes = require('./routes/appointmentPackRoutes');
+// const appointmentPackRoutes = require('./routes/appointmentPackRoutes');
 
 
 // Routes
@@ -34,7 +34,7 @@ app.use("/api/Serv", serviceRoutes);
 app.use("/api/Sup", supplierRoutes);
 app.use("/api/Ord", orderRoutes)
 app.use("/api/Book", appointmentRoutes);
-app.use("/api/PBook", appointmentPackRoutes);
+// app.use("/api/PBook", appointmentPackRoutes);
 app.use("/api/Product", inventoryRoutes);
 app.use("/api/emp", empRoutes);
 app.use("/api/CustPost", customPackRoutes);

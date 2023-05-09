@@ -110,7 +110,7 @@ function App() {
 
 
                 <Route path='/appointments/add/ViewAppointment' element={<ViewAppointment />} />
-                <Route path='/ViewAppointment' element={<ViewAppointment />} />
+                <Route path='/ViewAppointment/:id' element={<ViewAppointment />} />
 
 
             </Routes >

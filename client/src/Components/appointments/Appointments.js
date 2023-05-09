@@ -188,10 +188,42 @@ function App() {
                                     name="service"
                                     value={updatedPost.service ? updatedPost.service : ""}
                                     onChange={handleChange}>
-                                    <option>Select Service</option>
-                                    <option>Hair Cutting</option>
-                                    <option>Hair Coloring</option>
-                                    <option>Nail Arts</option>
+
+                                    <option>Long Layer </option>
+                                    <option>Short Layer</option>
+                                    <option>Ladies Hair Cut</option>
+                                    <option>Curling </option>
+                                    <option>Straightening  </option>
+                                    <option>Keratin Treatment  </option>
+                                    <option>Colouring </option>
+                                    <option>Rebonding</option>
+                                    <option>Head Massage</option>
+                                    <option>Hair Style </option>
+                                    <option>Facial</option>
+                                    <option> Hair Style</option>
+                                    <option>Body Polishing </option>
+                                    <option>First Hair Cutting </option>
+                                    <option>Hair Cut Girls</option>
+                                    <option>Facial</option>
+                                    <option> Hair Style</option>
+                                    <option>Body Polishing </option>
+                                    <option>First Hair Cutting </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 </Form.Select>
                             </Form.Group>
                         </Form>
@@ -226,7 +258,7 @@ function App() {
                         </Form>
                         <br />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button style={{ borderRadius: "5px", background: "#b30059", padding: "0.5%" }}><Link to="/appointments/add" style={{ color: "white", textDecoration: "none" }}>Create New Package</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
+
                         <button style={{ borderRadius: "5px", background: "#b30059", padding: "0.5%" }}><Link to="/appointments/report" style={{ color: "white", textDecoration: "none" }}>Download Appointments</Link></button>
 
                         <br /><br />
@@ -275,10 +307,7 @@ function App() {
                                                     <td>{post.service}</td>
                                                     <td >
 
-                                                        <button style={{
-                                                            width: "90%",
-                                                            marginLeft: '10px'
-                                                        }} onClick={() => updatePost(post)}>UPDATE</button>   </td>
+                                                    </td>
 
                                                     <td>
                                                         <button style={{ width: "120%", marginLeft: '-20%', marginTop: "" }} onClick={() => deletePost(post._id)}>DELETE</button>
