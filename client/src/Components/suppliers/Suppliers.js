@@ -259,6 +259,7 @@ return (
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/sup/add" style={{color:"white", textDecoration:"none"}}>Add New Supplier</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/sup/report" style={{color:"white", textDecoration:"none"}}>Download Supplier List</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/imsg" style={{color:"white", textDecoration:"none"}}>View Messages</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
                 
                 <br /><br />
                 <center>

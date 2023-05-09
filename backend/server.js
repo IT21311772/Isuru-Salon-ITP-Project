@@ -22,12 +22,18 @@ const inventoryRoutes = require('./routes/inventoryRoutes');
 const empRoutes = require('./routes/employeeRoutes');
 const customPackRoutes = require('./routes/customPackRoutes');
 const financeRoutes = require('./routes/financeRoutes');
+const supMsgRoutes = require('./routes/supMsgRoutes');
+const inveMsgRoutes = require('./routes/inveMsgRoutes');
+
 
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/Post", packageRoutes);
 app.use("/api/Sup", supplierRoutes);
-app.use("/api/Ord", orderRoutes)
+app.use("/api/Ord", orderRoutes);
+app.use("/api/Msg", supMsgRoutes);
+app.use("/api/IMsg", inveMsgRoutes);
+app.use("/api/Product", inventoryRoutes);
 
 // Connect the database
 mongoose

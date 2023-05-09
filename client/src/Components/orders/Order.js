@@ -16,7 +16,8 @@ function App() {
 const [posts, setPosts] = useState([]);
 const [updatedPost, setUpdatedPost] = useState({})
 const [search, setSearch] = useState('');
-console.log(search);
+
+
 
 const [show, setShow] = useState(false);
 const handleClose = () => setShow(false);
@@ -67,6 +68,8 @@ window.location.reload();
 };
 
 //Sorting function
+const filteredPosts = posts.filter(post => post.name && post.name.toLowerCase().includes(search.toLowerCase()));
+
 const [order, setOrder] = useState("ASC");
 const sorting = (col) =>{
   if(order ==="ASC"){
@@ -85,6 +88,42 @@ const sorting = (col) =>{
     }
   };
 
+// const [order, setOrder] = useState("ASC");
+// const sorting = (col) => {
+//     if (order === "ASC") {
+//       const sorted = [...posts].sort((a, b) =>
+//         a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
+//       );
+//       setPosts(sorted);
+//       setOrder("DESC");
+//     }
+//     if (order === "DESC") {
+//       const sorted = [...posts].sort((a, b) =>
+//         a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1
+//       );
+//       setPosts(sorted);
+//       setOrder("ASC");
+//     }
+//   };
+
+//Sorting function
+// const [order, setOrder] = useState("ASC");
+// const sorting = (col) =>{
+//   if(order ==="ASC"){
+//     const sorted = [...posts].sort((a,b) =>
+//         a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1);
+
+//         setPosts(sorted);
+//         setOrder("DESC");
+//   }
+//   if(order ==="DESC"){
+//     const sorted = [...posts].sort((a,b) =>
+//         a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1);
+
+//         setPosts(sorted);
+//         setOrder("ASC");
+//     }
+//   };
 
 
 return (
@@ -207,13 +246,13 @@ return (
             
             <div>
             
-            <Form>
+            {/* <Form>
                 <InputGroup className="my-1" style={{width:"20%", marginLeft:"75%"}}>
                     <Form.Control 
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Search here"/>
                 </InputGroup>
-            </Form>
+            </Form> */}
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/ord/add" style={{color:"white", textDecoration:"none"}}>Add New Order</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;

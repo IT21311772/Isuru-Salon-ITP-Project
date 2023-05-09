@@ -14,9 +14,40 @@ import ReactPdfPrint from './Components/packages/ReactPdfPrint';
 import Client from './Components/packages/Client';
 import AddSupplier from './Components/suppliers/AddSupplier';
 import Supplier from './Components/suppliers/Suppliers';
-import Order from './Components/orders/Order'
+import Order from './Components/orders/Order';
+import SuppliersPdf from './Components/suppliers/SuppliersPdf';
+import OrdersPdf from './Components/orders/OrdersPdf';
+import SupOrder from './Components/dashboard/suporder';
+import CreateOrder from './Components/orders/AddOrder';
+
+
 import AddOrder from './Components/orders/Order'
 // import SupplierPdf from './Components/suppliers/SuppliersPdf';
+import Appointment from './Components/appointments/Appointments';
+import AddAppointment from './Components/appointments/AddAppointment';
+import Appointmentsreport from './Components/appointments/Appointmentsreport';
+import Products from './Components/products/Products';
+import AddProducts from './Components/products/addProduct';
+import AddEmployee from './Components/employees/addEmployee';
+import Employees from './Components/employees/Employee';
+import ReportPdf from './Components/employees/ReportPdf';
+import CustomPack from './Components/packages/CustomPack';
+import CustomSucces from './Components/packages/CustomSucces';
+import AddTransactions from './Components/finance/addTransactions';
+import Transactions from './Components/finance/Transactions';
+import FinanceReport from '../src/Components/finance/FinanceReport';
+
+import ViewMsg from './Components/suppliers/ViewMsg';
+import SendMessage from './Components/suppliers/SendMessage';
+
+import ViewIMsg from './Components/products/ViewIMsg';
+import SendIMessage from './Components/products/SendMessage';
+
+//import Products from './Components/products/Products';
+import CreateProduct from './Components/products/addProduct';
+import ProductsPdf from './Components/products/ProductsPdf';
+
+
 
 function App() {
     return (
@@ -60,6 +91,19 @@ function App() {
                 <Route path='/fin/add' element={<AddTransactions />} />
                 <Route path='/fin/add/trans'element={<Transactions />} />
                 <Route path='/fin/report' element={<FinanceReport />} />
+
+                <Route path='/msg' element={<ViewMsg />}/>
+                <Route path='/msg/add' element={<SendMessage />} />
+                <Route path='/msg/add/msgs' element={<ViewMsg />}/>
+
+                <Route path='/imsg' element={<ViewIMsg />}/>
+                <Route path='/imsg/add' element={<SendIMessage />} />
+                <Route path='/imsg/add/imsgs' element={<ViewIMsg />}/>
+
+                <Route path='/products' element={<Products />} />
+                <Route path='/products/add' element={<CreateProduct />} />
+                <Route path='/products/add/products' element={<Products />} />
+
             </Routes>
         </div>
     );
