@@ -9,7 +9,8 @@ router.post("/add", (req, res) => {
         type: req.body.type,
         category: req.body.category,
         date: req.body.date,
-        quantity: req.body.quantity,
+        rquantity: req.body.rquantity,
+        uquantity: req.body.uquantity,
         totalPrice: req.body.totalPrice
     })
         .then((doc) => console.log(doc))
@@ -42,7 +43,8 @@ router.put("/update/:id", (req, res) => {
             type: req.body.type,
             category: req.body.category,
             date: req.body.date,
-            quantity: req.body.quantity,
+            rquantity: req.body.rquantity,
+            uquantity: req.body.uquantity,
             totalPrice: req.body.totalPrice,
         }
     )
