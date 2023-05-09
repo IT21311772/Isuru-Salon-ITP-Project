@@ -9,6 +9,8 @@ import Logo from '../../images/logo.jpg';
 const ReactPdfPrint = () => {
 
     const [posts, setPosts] = useState([]);
+    const [income, SetIncome] = useState(0);
+const [expenses, SetExpenses] = useState(0);
 
     useEffect(() => {
         axios.get("/api/Fin/trans")
@@ -18,6 +20,24 @@ const ReactPdfPrint = () => {
             })
             .catch((err) => console.log(err));
 }, []);
+
+useEffect(() => { 
+    let amount1 = 0;
+    let amount2 = 0;
+    if(posts){
+        posts.map((post) => {
+            if(post.type == "Income"){
+                amount1 = amount1 + post.amount;
+            }
+            else{
+                amount2 = amount2 + post.amount;
+            }
+    })
+    SetIncome(amount1);
+    SetExpenses(amount2);
+    }
+
+}, [posts]);
 
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
@@ -43,6 +63,23 @@ const ReactPdfPrint = () => {
             <br /><br /><br /><br />
                 <h1 className="text-center my-3 border py-2" style={{fontWeight:"bold"}}>Finance Report</h1>
                 <br />
+
+                <div className="container">
+                    <div className="reportincome">
+                        Income - LKR.
+                        <span>{income} </span>
+                    </div>
+                    <div className="reportincome">
+                        Expenses - LKR.
+                        <span>{expenses} </span>
+                    </div>
+                    <div className="reportbalance">
+                        Balance - LKR.
+                        <span>{income - expenses} </span>
+                    </div>
+                </div>
+
+                <br/>
                 <Table className="w-75 mx-auto" bordered>
                     <thead>
                         <th>Amount</th>
