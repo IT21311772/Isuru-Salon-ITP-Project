@@ -5,7 +5,7 @@
 }
 
 
-.packages {
+.product {
   /* display: flex; */
   align-items: center;
   justify-content: center;
@@ -19,7 +19,7 @@
   background-position: center;
 }
 
-.packages-create {
+.product-create {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +33,7 @@
   background-position: center;
 }
 
-.packages-create .Create-post {
+.product-create .Create-post {
   width: 40%;
   height: 440px;
   margin: 10%;
@@ -46,20 +46,20 @@
   margin-left: 8%;
 }
 
-.packages-create .title {
+.product-create .title {
   font-style: inherit;
   color: #b30059;
   font-weight: bold;
 }
 
 
-.packages-create .Form-Group {
+.product-create .Form-Group {
   text-align: left;
   display: block;
   
 }
 
-.packages-create .Form-Control {
+.product-create .Form-Control {
   width: 80%;
   padding: 6px 10px;
   margin: 10px 0;
@@ -70,7 +70,7 @@
   margin-left: 10%;
 }
 
-.packages-create .Form-Cont{
+.product-create .Form-Cont{
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
@@ -87,7 +87,7 @@
 
 /* App.js Styling Part */
 
-.packages .package-preview {
+.product .package-preview {
   width: 300px;
   padding: 20px;
   margin: 30px;
@@ -99,23 +99,23 @@
   margin-left: 45px;
 }
 
-.packages .package-preview:hover {
+.product .package-preview:hover {
   box-shadow: 1px 3px 5px rgba(10, 10, 10, 10);
 }
 
 
 
-.packages .package-preview h2{
+.product .package-preview h2{
   color: black;
   font-weight: bold;
 }
 
-.packages .package-preview p{
+.product .package-preview p{
   font-size: 17px;
   color: black;
 }
 
-.packages .update{
+.product .update{
   color: white;
   background-color: black;
 }
@@ -136,10 +136,10 @@
 
 }
 
-.packages button:hover{
+.product button:hover{
   box-shadow: 1px 3px 5px rgba(10, 10, 10, 10);
 }
 
-.packages .container button{
+.product .container button{
   margin-left: 85%;
 }

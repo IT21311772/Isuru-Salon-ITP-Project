@@ -83,7 +83,7 @@ const sorting = (col) =>{
   };
 
 return (
-    <div className="packages">
+    <div className="product">
     <div>
         {/* style={{width:"90%", margin: "auto auto", textAlign: "center"}} */}
         
