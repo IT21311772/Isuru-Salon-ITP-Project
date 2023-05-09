@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import { Form } from "react-bootstrap";
 import MainLayout from "../../layouts/MainLayout";
+import "./Services.css"
 
 //create page for show the inputs
 function Posts() {
@@ -96,7 +97,8 @@ function Posts() {
 
 
   return (
-    <div>
+    <div className="services">
+
     <MainLayout>
     <h1>Available Services</h1>
     </MainLayout>
@@ -106,7 +108,8 @@ function Posts() {
       
       <div className="input-group mb-3 mt-2">
   <input type="text" className="form-control" placeholder="Search Service..." aria-label="Recipient's username" 
-  style={{marginLeft:'5%', width:'10px'}} aria-describedby="button-addon2" onChange={(e) => setSearch(e.target.value)}></input>
+  style={{marginLeft:'5%', width:'10px'}} aria-describedby="button-addon2" onChange={(e) => setSearch(e.target.value)}>
+  </input>
   </div></div>
 
   <div className="container mt-3  p-3 mt-4 rounded-3"> 
@@ -116,9 +119,6 @@ function Posts() {
         </div>
   
   </div>
-
-    
-
  
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -213,15 +213,9 @@ function Posts() {
               
                     </div>
 
-
                     
       </div>  
-      
-      
-
-
-
-          
+        
     
   );
 }
