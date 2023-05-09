@@ -4,7 +4,7 @@ import {Form, InputGroup } from "react-bootstrap";
 // import {useNavigate } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
 import { Link } from "react-router-dom";
-import './package.css';
+import './products.css';
 
 
 function App() {
@@ -12,35 +12,34 @@ function App() {
 
 
 // const navigate = useNavigate();
-const [posts, setPosts] = useState([]);
+const [products, setProducts] = useState([]);
 const [updatedPost, setUpdatedPost] = useState({})
 const [search, setSearch] = useState('');
-console.log(search);
 
 const [show, setShow] = useState(false);
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
 
 useEffect(() => {
-    axios.get("/api/Post/posts")
+    axios.get("/api/Product/products")
         .then((res) => {
             console.log(res)
-            setPosts(res.data);
+            setProducts(res.data);
         })
         .catch((err) => console.log(err));
 }, []);
 
 const deletePost = (id) => {
 axios
-.delete(`/api/Post/delete/${id}`)
+.delete(`/api/Product/delete/${id}`)
 .then((res) => console.log(res))
 .catch((err) => console.log(err));
 
 window.location.reload();
 };
 
-const updatePost = (post) => {
-setUpdatedPost(post);
+const updatePost = (products) => {
+setUpdatedPost(products);
 handleShow();
 }
 
@@ -56,7 +55,7 @@ setUpdatedPost((prev) => {
 };
 
 const saveUpdatedPost = () => {
-axios.put(`/api/Post/update/${updatedPost._id}`, updatedPost)
+axios.put(`/api/Product/update/${updatedPost._id}`, updatedPost)
 .then((res) => console.log(res))
 .catch((err) => console.log(err));
 
@@ -68,17 +67,17 @@ window.location.reload();
 const [order, setOrder] = useState("ASC");
 const sorting = (col) =>{
   if(order ==="ASC"){
-    const sorted = [...posts].sort((a,b) =>
+    const sorted = [...products].sort((a,b) =>
         a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1);
 
-        setPosts(sorted);
+        setProducts(sorted);
         setOrder("DESC");
   }
   if(order ==="DESC"){
-    const sorted = [...posts].sort((a,b) =>
+    const sorted = [...products].sort((a,b) =>
         a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1);
 
-        setPosts(sorted);
+        setProducts(sorted);
         setOrder("ASC");
     }
   };
@@ -95,7 +94,6 @@ return (
         <Modal show={show} onHide={handleClose} >
             <Modal.Header closeButton>
                 <Modal.Title style={{color:"#b30059"}}>Update Package</Modal.Title>
-                <Modal.Title style={{color:"#b30059"}}>Update a Package</Modal.Title>
             </Modal.Header>
             <Modal.Body style={{width:"100%", height:"200%"}}>
                 <Form>
@@ -109,11 +107,11 @@ return (
                                     boxSizing: "border-box",
                                     display: "block",
                                     marginLeft: "10%"}}
-                            placeholder="title"
-                            name="title"
-                            value={updatedPost.title ? updatedPost.title : ""}
+                            placeholder="name"
+                            name="name"
+                            value={updatedPost.name ? updatedPost.name : ""}
                             onChange={handleChange}/>
-                        <Form.Select
+                        <Form.Control 
                             style={{width: "80%",
                             padding: "6px 10px",
                             margin: "10px 0",
@@ -125,24 +123,6 @@ return (
                             placeholder="type"
                             name="type"
                             value={updatedPost.type ? updatedPost.type : ""}
-                            onChange={handleChange}>
-                                <option>Package Type</option>
-                                <option>Daily Package</option>
-                                <option>Event Package</option>
-                                <option>Seasonal Package</option>
-                            </Form.Select>
-                        <Form.Control 
-                            style={{width: "80%",
-                            padding: "6px 10px",
-                            margin: "10px 0",
-                            border: "1px solid #c762a1",
-                            borderRadius: "5px",
-                            boxSizing: "border-box",
-                            display: "block",
-                            marginLeft: "10%"}}
-                            placeholder="description"
-                            name="description"
-                            value={updatedPost.description ? updatedPost.description : ""}
                             onChange={handleChange}/>
                         <Form.Control 
                             style={{width: "80%",
@@ -153,28 +133,66 @@ return (
                             boxSizing: "border-box",
                             display: "block",
                             marginLeft: "10%"}}
-                            placeholder="price"
-                            name="price"
-                            value={updatedPost.price ? updatedPost.price : ""}
+                            placeholder="category"
+                            name="category"
+                            value={updatedPost.category ? updatedPost.category : ""}
+                            onChange={handleChange}/>
+                        <Form.Control 
+                            style={{width: "80%",
+                            padding: "6px 10px",
+                            margin: "10px 0",
+                            border: "1px solid #c762a1",
+                            borderRadius: "5px",
+                            boxSizing: "border-box",
+                            display: "block",
+                            marginLeft: "10%"}}
+                            placeholder="date"
+                            name="date"
+                            value={updatedPost.date ? updatedPost.date : ""}
+                            onChange={handleChange}/>
+                        <Form.Control 
+                            style={{width: "80%",
+                            padding: "6px 10px",
+                            margin: "10px 0",
+                            border: "1px solid #c762a1",
+                            borderRadius: "5px",
+                            boxSizing: "border-box",
+                            display: "block",
+                            marginLeft: "10%"}}
+                            placeholder="quantity"
+                            name="quantity"
+                            value={updatedPost.quantity ? updatedPost.quantity : ""}
+                            onChange={handleChange}/>
+                        <Form.Control 
+                            style={{width: "80%",
+                            padding: "6px 10px",
+                            margin: "10px 0",
+                            border: "1px solid #c762a1",
+                            borderRadius: "5px",
+                            boxSizing: "border-box",
+                            display: "block",
+                            marginLeft: "10%"}}
+                            placeholder="totalPrice"
+                            name="totalPrice"
+                            value={updatedPost.totalPrice ? updatedPost.totalPrice : ""}
                             onChange={handleChange}/>
                     </Form.Group>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"200px", fontSize:"17px", 
-                    border:"#b30059", marginRight:"25%"}} onClick={saveUpdatedPost}>
-                        Save Changes
-                </button>
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"200px", fontSize:"17px", 
-                    border:"#b30059", marginRight:"25%"}} onClick={handleClose}>
-                        Close
+                border:"#b30059", marginRight:"25%"}} onClick={handleClose}>
+                    Close
                 </button>
                 <br />
-                
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"200px", fontSize:"17px", 
+                border:"#b30059", marginRight:"25%"}} onClick={saveUpdatedPost}>
+                    Save Changes
+                </button>
             </Modal.Footer>
         </Modal>
 
-        {posts ? (
+        {products ? (
             
             <>
             
@@ -187,13 +205,12 @@ return (
             </Form>
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/posts/create" style={{color:"white", textDecoration:"none"}}>Create New Package</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/products/add" style={{color:"white", textDecoration:"none"}}>Add New Products</Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"0.5%"}}><Link to="/posts/report" style={{color:"white", textDecoration:"none"}}>Download Package Menu</Link></button>
             
                 <br /><br />
                 <center>
-                    <h1 style={{color:"#660033", fontWeight:"bolder", fontSize:"50px"}}>Salon Packages</h1>
-                    <h1 style={{color:"#660033", fontWeight:"bolder", fontSize:"50px"}}>Updated Packages</h1>
+                    <h1 style={{color:"#660033", fontWeight:"bolder", fontSize:"50px"}}>Products</h1>
                 </center>
 
                 <div className="container">
@@ -202,22 +219,27 @@ return (
                 </div>
                 <br />
                     
-                        {posts.filter((post) => {
+                        {products.filter((post) => {
                             return search.toLowerCase() === ''
                                 ? post
-                                : post.title.toLowerCase().includes(search) ||
+                                : post.name.toLowerCase().includes(search) ||
                                   post.type.toLowerCase().includes(search) ||
-                                  post.description.toLowerCase().includes(search)
+                                  post.category.toLowerCase().includes(search) ||
+                                  post.date.toLowerCase().includes(search) ||
+                                  post.quantity.toLowerCase().includes(search) ||
+                                  post.totalPrice.toLowerCase().includes(search)
                         })
                         .map((post) => {
                     return (
 
                             <div key={post._id} className = "package-preview" >
                                 <center>
-                                    <h2>{post.title}</h2>
+                                    <h2>{post.name}</h2>
                                     <p>{post.type}</p>
-                                    <p>{post.description}</p>
-                                    <p>Rs. {post.price}.00</p>
+                                    <p>{post.category}</p>
+                                    <p>{post.date}</p>
+                                    <p>{post.quantity}</p>
+                                    <p>{post.totalPrice}</p>
                                         <button onClick={() => updatePost(post)}>UPDATE</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <button style={{color:"white", background:"#3d3c3c", border:"black"}} onClick={() => deletePost(post._id)}>DELETE</button><br />
