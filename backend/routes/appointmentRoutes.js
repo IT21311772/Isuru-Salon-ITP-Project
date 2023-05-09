@@ -16,9 +16,17 @@ router.post("/make", (req, res) => {
         .catch((err) => console.log(err));
 });
 
-// Create API route for Read method in CRUD Operations
+//Create API route for Read method in CRUD Operations
+
 router.get("/appointments", (req, res) => {
     Appointment.find()
+        .then((items) => res.json(items))
+        .catch((err) => console.log(err));
+});
+
+router.get("/appointment/:id", (req, res) => {
+    Appointment.findById(
+        { _id: req.params.id })
         .then((items) => res.json(items))
         .catch((err) => console.log(err));
 });
