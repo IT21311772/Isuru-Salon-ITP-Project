@@ -30,14 +30,19 @@ function Posts() {
 
   //after click delete button
   const deletePost = (id) => {
-    //console.log(id);
-    axios
+    let text = "Do you want to delete the service ?";
+    if(window.confirm(text) == true) {
+      
+      axios
       .delete(`/api/Serv/delete/${id}`)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
     window.location.reload(); // for reload the page after delete
   };
+    }
+
+    
 
   const updatePosts = (post) => {
     setUpdatedPost(post);
@@ -122,7 +127,7 @@ function Posts() {
         <Modal.Body>
           <Form>
             <Form.Group>
-              
+
               <Form.Control
                 name="sName"
                 value={updatedPost.sName ? updatedPost.sName : ""}
@@ -186,6 +191,7 @@ function Posts() {
 
 })
               .map((post, index) => (
+               
               <tr key={index+1}>
                 <th scope="row">{index+1}</th>
                 <td>{post.sName}</td>

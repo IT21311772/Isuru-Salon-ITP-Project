@@ -1,4 +1,4 @@
-.App {
+App {
   background: #fbf6f0;
   font-family: mulish,sans-serif;
 }
@@ -16,30 +16,6 @@
   font-family: mulish,sans-serif;
 }
 
-.btn-logout{
-  padding: 0.5%;
-  margin-right: 3%;
-  border-radius: 10px;
-  border: none;
-  width: 6%;
-  font-size: 18px;
-  color: white;
-  background-color: #a66f72;
-  
-} */
-
-
-.btn-func{
-  padding: 4%;
-  margin-right: 3%;
-  border-radius: 10px;
-  border: none;
-  width: 25%;
-  font-size: 20px;
-  color: white;
-  background-color: #a66f72;
-  
-}
 .btn-logout{
   padding: 0.5%;
   margin-right: 3%;
