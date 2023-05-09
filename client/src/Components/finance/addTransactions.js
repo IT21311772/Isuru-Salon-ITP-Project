@@ -36,7 +36,7 @@ function CreatePost () {
         event.preventDefault();
 
         if( !data.amount || !data.type || !data.category || !data.date || !data.description || !data.reference){
-            alert("Error")
+            alert("Please fill all the fields")
         }
         else{
             axios.post("/api/Fin/add", data)
@@ -68,10 +68,10 @@ function CreatePost () {
 
 
     return (
-        <div className="packages-create">
+        <div className="finance-create">
 
         <div className="Create-post">
-            <h1 className="title">Add Transaction Details</h1><br />
+            <h3 className="title">Add Transaction Details</h3><br />
             <Form className="Form">
                 <Form.Group className="Form-Group">
                     <Form.Control className="Form-Control" 

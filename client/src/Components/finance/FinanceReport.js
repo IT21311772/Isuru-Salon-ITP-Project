@@ -61,7 +61,7 @@ useEffect(() => {
                     </div>
             </div>
             <br /><br /><br /><br />
-                <h1 className="text-center my-3 border py-2" style={{fontWeight:"bold"}}>Finance Report</h1>
+                <h3 className="text-center my-3 border py-2" style={{fontWeight:"bold"}}>Finance Report</h3>
                 <br />
 
                 <div className="container">
