@@ -6,13 +6,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table } from "react-bootstrap";
 import Logo from '../../images/logo.jpg';
 
-const ReactPdfPrint = () => {
+export default function Attendancereport() {
 
     const [posts, setPosts] = useState([]);
+    const dataSch = { date:"2023-5-10"}
 
-    const dataSch = { date:"2023-5-10"};
     useEffect(() => {
-        axios.get("/api/Book/appointments")
+        axios.post("/api/sch/get/daily", dataSch)
             .then((res) => {
                 console.log(res)
                 setPosts(res.data);
@@ -23,7 +23,7 @@ const ReactPdfPrint = () => {
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
-        documentTitle: 'salon-Appointments',
+        documentTitle: 'salon-attendans',
         onAfterPrint: () => alert('Print success')
     });
 
@@ -42,16 +42,12 @@ const ReactPdfPrint = () => {
                         </div>
                     </div>
                     <br /><br /><br /><br />
-                    <h1 className="text-center my-3 border py-2" style={{ fontWeight: "bold" }}>Salon Appointments</h1>
+                    <h1 className="text-center my-3 border py-2" style={{ fontWeight: "bold" }}>Salon Attendans</h1>
                     <br />
                     <Table className="w-75 mx-auto" bordered>
                         <thead>
                             <th>Name</th>
-                            <th>Contact</th>
-                            <th>Email</th>
                             <th>Date</th>
-                            <th>Time</th>
-                            <th>Select Service</th>
                         </thead>
                         <tbody>
                             {posts ? (
@@ -60,12 +56,7 @@ const ReactPdfPrint = () => {
                                         return (
                                             <tr key={post._id} >
                                                 <td>{post.name}</td>
-                                                <td>{post.contact}</td>
-                                                <td>{post.email}</td>
                                                 <td>{post.date}</td>
-                                                <td>{post.time}</td>
-                                                <td>{post.service}</td>
-
                                             </tr>
                                         );
                                     })}
@@ -85,5 +76,3 @@ const ReactPdfPrint = () => {
         </>
     );
 };
-
-export default ReactPdfPrint;

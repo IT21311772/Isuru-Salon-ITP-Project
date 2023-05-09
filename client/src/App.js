@@ -65,9 +65,17 @@ import CustomSucces from './Components/packages/CustomSucces';
 import AddTransactions from './Components/finance/addTransactions';
 import Transactions from './Components/finance/Transactions';
 import FinanceReport from '../src/Components/finance/FinanceReport';
+
+import Shedule from './Components/attendence/Shedule';
+import AddShedule from './Components/attendence/AddShedule';
+import AppoimentReport from './Components/attendence/Attendancereport';
+
+
+
 import SuppliersPdf from './Components/suppliers/SuppliersPdf';
 
 import CreateProduct from './Components/products/addProduct';
+
 
 function App() {
     return (
@@ -164,6 +172,9 @@ function App() {
                 <Route path='/data' element={<Attendence />} />
                 <Route path='/data/add' element={<AttendenceForm />} />
                 <Route path='/data/add/data' element={<Attendence />} />
+                <Route path='/shedule' element={<Shedule/>} />
+                <Route path='/shedule/add' element={<AddShedule/>} />
+                <Route path='attaend/data/report' element={<AppoimentReport/>} />
 
 
                 <Route path='/appointments/add/ViewAppointment' element={<ViewAppointment />} />

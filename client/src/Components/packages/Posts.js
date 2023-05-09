@@ -95,7 +95,6 @@ return (
         <Modal show={show} onHide={handleClose} >
             <Modal.Header closeButton>
                 <Modal.Title style={{color:"#b30059"}}>Update Package</Modal.Title>
-                <Modal.Title style={{color:"#b30059"}}>Update a Package</Modal.Title>
             </Modal.Header>
             <Modal.Body style={{width:"100%", height:"200%"}}>
                 <Form>
@@ -162,15 +161,14 @@ return (
             </Modal.Body>
             <Modal.Footer>
                 <button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"200px", fontSize:"17px", 
-                    border:"#b30059", marginRight:"25%"}} onClick={saveUpdatedPost}>
-                        Save Changes
-                </button>
-                <button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"200px", fontSize:"17px", 
-                    border:"#b30059", marginRight:"25%"}} onClick={handleClose}>
-                        Close
+                border:"#b30059", marginRight:"25%"}} onClick={handleClose}>
+                    Close
                 </button>
                 <br />
-                
+                <button style={{borderRadius:"5px", background:"#b30059", padding:"1.5%", width:"200px", fontSize:"17px", 
+                border:"#b30059", marginRight:"25%"}} onClick={saveUpdatedPost}>
+                    Save Changes
+                </button>
             </Modal.Footer>
         </Modal>
 

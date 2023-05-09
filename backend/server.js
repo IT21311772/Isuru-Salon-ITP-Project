@@ -26,6 +26,7 @@ const financeRoutes = require('./routes/financeRoutes');
 const supMsgRoutes = require('./routes/supMsgRoutes');
 const inveMsgRoutes = require('./routes/inveMsgRoutes');
 const attendenceRoutes = require('./routes/attendenceRoutes');
+const sheduleRoutes = require('./routes/sheduleRoutes');
 
 // const appointmentPackRoutes = require('./routes/appointmentPackRoutes');
 
@@ -49,7 +50,12 @@ app.use("/api/emp", empRoutes);
 app.use("/api/CustPost", customPackRoutes);
 app.use("/api/Fin", financeRoutes);
 app.use("/api/sch", attendenceRoutes);
+
+app.use("/api/shedu", sheduleRoutes);
+
+
 app.use("/api/sal", salRoutes);
+
 
 // Connect the database
 mongoose
