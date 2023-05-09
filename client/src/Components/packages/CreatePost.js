@@ -8,10 +8,10 @@ import MainLayout from "../../layouts/MainLayout";
 function CreateService() {
   const navigate = useNavigate();
   const [post, setPost] = useState({
-    sId: "",
-    sName: "",
-    sPrice: "",
-    sCategory:"",
+    title: "",
+    type: "",
+    description: "",
+    price:"",
   });
 
   const handleChange = (event) => {
@@ -110,7 +110,7 @@ function CreateService() {
                         placeholder="Title"
                         onChange={handleChange}
                         style={{width:"80%", marginLeft:"10%"}}
-                        required />
+                         />
 
                     { TitleerrorMessage && <div className="error" style={{marginLeft:"10%"}}>{TitleerrorMessage}</div> }
 
@@ -135,7 +135,7 @@ function CreateService() {
                         placeholder="Description"
                         onChange={handleChange} 
                         style={{width:"80%", marginLeft:"10%"}}
-                        required />
+                         />
 
                     { DescriptionerrorMessage && <div className="error" style={{marginLeft:"10%"}}>{DescriptionerrorMessage}</div> }
 
@@ -145,7 +145,7 @@ function CreateService() {
                         placeholder="Price"
                         onChange={handleChange} 
                         style={{width:"80%", marginLeft:"10%"}}
-                        required />
+                         />
                                            
                     { PriceerrorMessage && <div className="error" style={{marginLeft:"10%"}}>{PriceerrorMessage}</div> }
 
