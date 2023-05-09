@@ -11,6 +11,7 @@ import Client from './Components/packages/Client';
 import Appointment from './Components/appointments/Appointments';
 import AddAppointment from './Components/appointments/AddAppointment';
 import Appointmentsreport from './Components/appointments/Appointmentsreport';
+import ViewAppointment from './Components/appointments/ViewAppointment';
 
 function App() {
     return (
@@ -24,12 +25,16 @@ function App() {
                 <Route path='/posts/create/posts' element={<Posts />} />
                 <Route path='/posts/report' element={<ReactPdfPrint />} />
                 <Route path='/posts/clientPack' element={<Client />} />
+
                 <Route path='/appointments' element={<Appointment />} />
                 <Route path='/appointments/add' element={<AddAppointment />} />
-                <Route path='/appointments/add/appointments' element={<Appointment />} />
                 <Route path='/appointments/report' element={<Appointmentsreport />} />
+                <Route path='/appointments/add/ViewAppointment' element={<ViewAppointment />} />
+                <Route path='/ViewAppointment' element={<ViewAppointment />} />
+
+
             </Routes>
-        </div>
+        </div >
     );
 }
 
