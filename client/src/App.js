@@ -25,8 +25,6 @@ import AddSalary from './Components/salary/addSalary';
 import ReportSal from './Components/salary/ReportSal';
 
 import CustomPack from './Components/packages/CustomPack';
-import CustomPack from './Components/home/CustomPack';
-import Client from './Components/home/Client';
 import Home from './Components/home/Home';
 import ContactUs from './Components/home/ContactUs';
 import HProducts from './Components/home/Product';
@@ -49,9 +47,6 @@ import Appointmentsreport from './Components/appointments/Appointmentsreport';
 
 import Products from './Components/products/Products';
 import AddProducts from './Components/products/addProduct';
-import AddEmployee from './Components/employees/addEmployee';
-import Employees from './Components/employees/Employee';
-import ReportPdf from './Components/employees/ReportPdf';
 
 import CustomSucces from './Components/packages/CustomSucces';
 import AddTransactions from './Components/finance/addTransactions';
