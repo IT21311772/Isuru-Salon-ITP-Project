@@ -24,6 +24,7 @@ const empRoutes = require('./routes/employeeRoutes');
 const customPackRoutes = require('./routes/customPackRoutes');
 const financeRoutes = require('./routes/financeRoutes');
 const attendenceRoutes = require('./routes/attendenceRoutes');
+const salRoutes = require('./routes/salaryRoutes');
 
 
 // Routes
@@ -38,6 +39,7 @@ app.use("/api/emp", empRoutes);
 app.use("/api/CustPost", customPackRoutes);
 app.use("/api/Fin", financeRoutes);
 app.use("/api/sch", attendenceRoutes);
+app.use("/api/sal", salRoutes);
 
 
 // Connect the database
