@@ -15,11 +15,14 @@ function App() {
 const [data, setData] = useState([]);
 const [updatedPost, setUpdatedPost] = useState({})
 const [search, setSearch] = useState('');
+const [income, SetIncome] = useState(0);
+const [expenses, SetExpenses] = useState(0);
 console.log(search);
 
 const [show, setShow] = useState(false);
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
+
 
 useEffect(() => {
     axios.get("/api/Fin/trans")
@@ -30,13 +33,37 @@ useEffect(() => {
         .catch((err) => console.log(err));
 }, []);
 
-const deletePost = (id) => {
-axios
-.delete(`/api/Fin/delete/${id}`)
-.then((res) => console.log(res))
-.catch((err) => console.log(err));
 
-window.location.reload();
+useEffect(() => { 
+    let amount1 = 0;
+    let amount2 = 0;
+    if(data){
+        data.map((post) => {
+            if(post.type == "Income"){
+                amount1 = amount1 + post.amount;
+            }
+            else{
+                amount2 = amount2 + post.amount;
+            }
+    })
+    SetIncome(amount1);
+    SetExpenses(amount2);
+    }
+
+}, [data]);
+
+//delete validation
+const deletePost = (id) => {
+    let text = "Do you want to delete";
+    if (window.confirm(text) == true) {
+        axios
+        .delete(`/api/Fin/delete/${id}`)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+        
+        window.location.reload();
+    } 
+
 };
 
 const updatePost = (post) => {
@@ -129,7 +156,7 @@ return (
                                 <option>Income</option>
                                 <option>Expense</option>
                             </Form.Select>
-                        <Form.Control 
+                        <Form.Select 
                             style={{width: "80%",
                             padding: "6px 10px",
                             margin: "10px 0",
@@ -141,7 +168,18 @@ return (
                             placeholder="Category"
                             name="category"
                             value={updatedPost.category ? updatedPost.category : ""}
-                            onChange={handleChange}/>
+                            onChange={handleChange}>
+                            <option>Select Category</option>
+                            <option>Salary</option>
+                            <option>Stationery</option>
+                            <option>Supplier charges</option>
+                            <option>Food</option>
+                            <option>Transport</option>
+                            <option>Bills</option>
+                            <option>Medical</option>
+                            <option>TAX</option>
+                            <option>Services</option>
+                            </Form.Select>
                         <Form.Control 
                             style={{width: "80%",
                             padding: "6px 10px",
@@ -154,6 +192,7 @@ return (
                             placeholder="Date"
                             name="date"
                             value={updatedPost.date ? updatedPost.date : ""}
+                            readOnly={true}
                             onChange={handleChange}/>
                         <Form.Control 
                             style={{width: "80%",
@@ -222,6 +261,21 @@ return (
                 <button onClick={() => sorting("type")}>Sort by Type</button>&nbsp;
                 </div>
                 <br />
+                <div className="container">
+                    <div className="income" style={{textAlign:"right"}}>
+                        Income - LKR. 
+                        <span>{income} </span>
+                    </div>
+                    <div className="income" style={{textAlign:"right"}}>
+                        Expenses - LKR. 
+                        <span>{expenses} </span>
+                    </div>
+                    <div className="balance">
+                        Balance - LKR. 
+                        <span>{income - expenses} </span>
+                    </div>
+                </div>
+                <br/>
 
             <div className="container">   
             
@@ -229,7 +283,7 @@ return (
                 <thead>
                   <tr>
                   <th scope="col">Id</th>
-                  <th scope="col">Amount</th>
+                  <th scope="col">Amount(LKR)</th>
                   <th scope="col">Type</th>
                   <th scope="col">Category</th>
                   <th scope="col">Date</th>
@@ -251,6 +305,7 @@ return (
                                   post.description.toLowerCase().includes(search)
                         })
                         .map((post,index) => {
+
                     return (
                         <tbody>
                         <tr>
