@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -39,6 +39,8 @@ function MainLayout({children}) {
               <button 
               style={{ borderRadius:'5px', border:'none', width:'120%',height:'35px', fontSize:'18px', color: 'white', marginLeft:"80%", marginTop:'6px',
               background: '#f65365'}}
+              style={{ borderRadius:'5px', border:'none', width:'120%',height:'35px', fontSize:'18px', color: 'white', marginLeft:"20%", marginTop:'6px',
+              background: '#b30059'}}
                 onClick={(logout)}
               >
               Logout

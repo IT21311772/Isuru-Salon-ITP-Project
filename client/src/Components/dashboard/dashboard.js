@@ -1,5 +1,4 @@
 import "./dashboard.css";
-import { useNavigate } from "react-router-dom"; //use to create dynamic application
 import MainLayout from "../../layouts/MainLayout";
 
 function Dashboard() {
@@ -9,6 +8,7 @@ function Dashboard() {
   return (
     <div className="dashboard">
 
+
     <div className="App">
 
       <MainLayout>
@@ -16,6 +16,10 @@ function Dashboard() {
       </MainLayout>
 
       
+
+        <center><h1 style={{fontFamily:"Georgia",fontWeight:"bold"}}>Dashboard</h1></center><br />
+      </MainLayout>
+
       <div className="dash">
         <center>
           <div className="container">
@@ -37,6 +41,23 @@ function Dashboard() {
           </div>
           
        
+
+          </div>
+          
+        <div className="container">
+          <button className="btn-func" onClick={() => navigate("/fin")}>Finance Management</button>
+          <button className="btn-func" onClick={() => navigate("/data")}>Schedule Management</button>
+        </div>
+
+        <div className="container">
+          <button className="btn-func" onClick={() => navigate("/products")}> Inventory Management</button>
+          <button className="btn-func" onClick={() => navigate("/appointments")}>Appointment Management</button>
+        </div>
+
+        <div className="container">
+          <button className="btn-func" onClick={() => navigate("/sups")}>Supplier Management</button>
+          <button className="btn-func" onClick={() => navigate("/emp")}>Employee Management</button>
+        </div>
         
         </center>
       </div>
