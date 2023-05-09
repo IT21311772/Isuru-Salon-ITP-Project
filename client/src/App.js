@@ -41,17 +41,20 @@ import CreateService from './Components/services/CreateService';
 import AddSupplier from './Components/suppliers/AddSupplier';
 import Supplier from './Components/suppliers/Suppliers';
 import Order from './Components/orders/Order'
-import AddOrder from './Components/orders/Order'
+import CreateOrder from './Components/orders/Order'
 // import SupplierPdf from './Components/suppliers/SuppliersPdf';
 import Appointment from './Components/appointments/Appointments';
 import AddAppointment from './Components/appointments/AddAppointment';
 import Appointmentsreport from './Components/appointments/Appointmentsreport';
 import Products from './Components/products/Products';
 import AddProducts from './Components/products/addProduct';
-import AddEmployee from './Components/employees/addEmployee';
-import Employees from './Components/employees/Employee';
-import ReportPdf from './Components/employees/ReportPdf';
-import CustomPack from './Components/packages/CustomPack';
+import SupOrder from './Components/dashboard/suporder';
+
+import OrderPdf from './Components/orders/OrderPdf';
+
+
+
+
 
 
 import ProductsPdf from './Components/products/ProductsPdf';
@@ -60,8 +63,8 @@ import CustomSucces from './Components/packages/CustomSucces';
 import AddTransactions from './Components/finance/addTransactions';
 import Transactions from './Components/finance/Transactions';
 import FinanceReport from '../src/Components/finance/FinanceReport';
+import SuppliersPdf from './Components/suppliers/SuppliersPdf';
 
-import Products from './Components/products/Products';
 import CreateProduct from './Components/products/addProduct';
 
 function App() {
@@ -71,6 +74,7 @@ function App() {
                 <Route path='/' element={<Login />} />
                 <Route path='/home' element={<DashBoard />} />
                 <Route path='/signup' element={<Signup />} />
+                <Route path='/suporder' element={<SupOrder/>} />
 
                 <Route path='/posts' element={<Posts />} />
                 <Route path='/posts/create' element={<CreatePost />} />
@@ -94,12 +98,14 @@ function App() {
                 <Route path='/services/create' element={<CreateService />} />
 
 
+                <Route path='/sup' element={<Supplier />} />
                 <Route path='/sup/add' element={<AddSupplier />} />
-                <Route path='/sups' element={<Supplier />} />
                 <Route path='/sup/add/sups' element={<Supplier />} />
-                <Route  path='/ords/addorder' element ={<AddOrder/>}/>
-                <Route path='/ords' element={< Order/>}/>
-                <Route path='/sup/addorder/ords' element={<Order />} />
+                <Route path='/sup/report' element={<SuppliersPdf/>}/>
+                <Route path='/ord' element={<Order/>}/>
+                <Route  path='/ord/add' element ={<CreateOrder />}/>
+                <Route path='/ord/add/ords' element={<Order />}/>
+                <Route path='/ord/report' element={< OrderPdf/>} />
                 
                 <Route path='/appointments' element={<Appointment />} />
                 <Route path='/appointments/add' element={<AddAppointment />} />
@@ -143,7 +149,4 @@ function App() {
     );
 }
   
-
-
-
-
+export default App;

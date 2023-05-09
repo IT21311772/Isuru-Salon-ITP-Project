@@ -29,7 +29,7 @@ const ReactPdfPrint = () => {
     return (
         <>
             <div className="package-report">
-            {/* <div ref={componentRef} style={{width: '100%', height: '100%', background:"white", backgroundColor:"white"}}> */}
+            <div ref={componentRef} style={{width: '100%', height: '100%', background:"white", backgroundColor:"white"}}>
             <div className="container mt-3" style={{background:"white", backgroundColor:"white"}}>
                 <img src={Logo} style={{width:'20%', height:'20%', marginLeft:'0%', marginBottom:'2%'}}></img>
                 <div style={{width:'20%', height:'20%', marginRight:'0%', marginTop:'-19%'}}>
@@ -75,7 +75,6 @@ const ReactPdfPrint = () => {
                 <button className="btn btn-secondary" style={{ borderRadius:"5px", width:"20%"}} onClick={handlePrint}>Download</button>
             </center>
             <br /><br /><br />
-            </div>
             </div>
         </>
     );
