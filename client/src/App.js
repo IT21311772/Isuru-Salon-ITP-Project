@@ -10,7 +10,8 @@ import DashBoard from './Components/dashboard/dashboard';
 import ReactPdfPrint from './Components/packages/ReactPdfPrint';
 import Client from './Components/packages/Client';
 import Products from './Components/products/Products';
-import AddProducts from './Components/products/addProduct';
+import CreateProduct from './Components/products/addProduct';
+import ProductsPdf from './Components/products/ProductsPdf';
 
 function App() {
     return ( 
@@ -24,9 +25,11 @@ function App() {
                 <Route path='/posts/create/posts' element={<Posts />} />
                 <Route path='/posts/report' element={<ReactPdfPrint />} />
                 <Route path='/posts/clientPack' element={<Client />} />
+                
                 <Route path='/products' element={<Products />} />
-                <Route path='/products/add' element={<AddProducts />} />
+                <Route path='/products/add' element={<CreateProduct />} />
                 <Route path='/products/add/products' element={<Products />} />
+                <Route path='/products/report' element={<ProductsPdf/>} /> 
             </Routes>
         </div>
     );
