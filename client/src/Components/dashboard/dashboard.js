@@ -1,7 +1,6 @@
 import "./dashboard.css";
 import { useNavigate } from "react-router-dom"; //use to create dynamic application
 import MainLayout from "../../layouts/MainLayout";
-import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
 
@@ -9,10 +8,8 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-  // const location = useLocation()
 
 
-  return (
     <div className="App">
 
       <MainLayout>
@@ -84,6 +81,7 @@ function Dashboard() {
         
         </center>
       </div>
+    </div>
     </div>
   );
 }

@@ -16,7 +16,6 @@ import Client from './Components/packages/Client'
 import Services from './Components/services/Services';
 import Report from './Components/services/Report'
 import CreateService from './Components/services/CreateService';
-import Client from './Components/packages/Client';
 import AddSupplier from './Components/suppliers/AddSupplier';
 import Supplier from './Components/suppliers/Suppliers';
 import Order from './Components/orders/Order'
@@ -30,10 +29,8 @@ import AddProducts from './Components/products/addProduct';
 import AddEmployee from './Components/employees/addEmployee';
 import Employees from './Components/employees/Employee';
 import ReportPdf from './Components/employees/ReportPdf';
-import Client from './Components/packages/Client'
 import CustomPack from './Components/packages/CustomPack';
 import CustomSucces from './Components/packages/CustomSucces';
-import Client from './Components/packages/Client';
 import AddTransactions from './Components/finance/addTransactions';
 import Transactions from './Components/finance/Transactions';
 import FinanceReport from '../src/Components/finance/FinanceReport';
@@ -87,7 +84,6 @@ function App() {
     );
 }
   
-export default App;
 
 export default App;
 
