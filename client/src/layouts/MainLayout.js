@@ -28,10 +28,7 @@ function MainLayout({children}) {
             <label className="navbar-brand" onClick={()=>navigate("/home")}>
               Service Management
               </label>
-            <label className="navbar-brand" onClick={()=>navigate("/dash")}>
-              Finance Management
-
-            </label>
+            
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               {/* <li className="mt-2" style={{marginLeft:'-40%'}}> 
               {location.state.id}
@@ -41,7 +38,7 @@ function MainLayout({children}) {
               
               <button 
               style={{ borderRadius:'5px', border:'none', width:'120%',height:'35px', fontSize:'18px', color: 'white', marginLeft:"20%", marginTop:'6px',
-              background: '#f65365'}}
+              background: '#b30059'}}
                 onClick={(logout)}
               >
               Logout

@@ -3,6 +3,7 @@ import './Components/products/products.css';
 import './Components/employees/Employee.css';
 import './Components/finance/transactions.css';
 import './Components/attendence/Attendence.css';
+import './Components/salary/salary.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from 'react-router-dom';
 
@@ -14,12 +15,23 @@ import Signup from './Components/login/Signup';
 import DashBoard from './Components/dashboard/dashboard';
 
 import ReactPdfPrint from './Components/packages/ReactPdfPrint';
+
+
+import AddEmployee from './Components/employees/addEmployee';
+import Employees from './Components/employees/Employee';
+import ReportPdf from './Components/employees/ReportPdf';
+import Salary from './Components/salary/Salary';
+import AddSalary from './Components/salary/addSalary';
+import ReportSal from './Components/salary/ReportSal';
+
+
+import CustomPack from './Components/home/CustomPack';
 import Client from './Components/home/Client';
 import Home from './Components/home/Home';
 import ContactUs from './Components/home/ContactUs';
 import HProducts from './Components/home/Product';
 
-// import Client from './Components/packages/Client';
+
 import Attendence from './Components/attendence/Attendence';
 import AttendenceForm from './Components/attendence/AttendenceForm';
 
@@ -43,6 +55,7 @@ import Employees from './Components/employees/Employee';
 import ReportPdf from './Components/employees/ReportPdf';
 // import CustomPack from './Components/packages/CustomPack';
 import CustomPack from './Components/packages/CustomPack';
+
 import CustomSucces from './Components/packages/CustomSucces';
 import AddTransactions from './Components/finance/addTransactions';
 import Transactions from './Components/finance/Transactions';
@@ -108,6 +121,10 @@ function App() {
                 <Route path='/emp/add' element={<AddEmployee />} />
                 <Route path='/emp/add/emp' element={<Employees />} />
                 <Route path='/emp/empDetails' element={<ReportPdf />} />
+                <Route path='/emp/sals' element={<Salary />} />
+                <Route path='/emp/sals/tap' element={<AddSalary />} />
+                <Route path='/emp/sals/tap/sals' element={<Salary />} />
+                <Route path='/emp/sal/salDetails' element={<ReportSal />} />
                 
 
                 <Route path='/fin'element={<Transactions />} />
