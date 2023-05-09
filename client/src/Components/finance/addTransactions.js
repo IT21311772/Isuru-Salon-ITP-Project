@@ -1,10 +1,15 @@
 import { Form } from "react-bootstrap";
 import {useNavigate} from 'react-router-dom';
-import { useState } from "react";
+import { useEffect,useState } from "react";
 import axios from "axios";
 import './transactions.css';
 
 function CreatePost () {
+
+    useEffect(() => {
+        getDate();
+    }, []);
+
     const navigate = useNavigate();
     const [data, setData] = useState ({
         amount:"",
@@ -14,6 +19,7 @@ function CreatePost () {
         description:"",
         reference:"",
     });
+    const [date, setDate] = useState("");
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -25,23 +31,47 @@ function CreatePost () {
             };
         });
     };
-
+//add transaction form validation
     const handleClick = (event) => {
         event.preventDefault();
 
-        axios.post("/api/Fin/add", data)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+        if( !data.amount || !data.type || !data.category || !data.date || !data.description || !data.reference){
+            alert("Please fill all the fields")
+        }
+        else{
+            axios.post("/api/Fin/add", data)
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err));
 
-        navigate("trans");
+            navigate("trans");
+        }
         
     };
 
+    const getDate = () => {
+        const date = new Date();
+        let currentDay= String(date.getDate()).padStart(2, '0');
+        let currentMonth = String(date.getMonth()+1).padStart(2,"0");
+        let currentYear = date.getFullYear();
+        let currentDate = `${currentYear}-${currentMonth}-${currentDay}`;
+        setDate(currentDate);
+        setData({
+            amount:"",
+            type:"",
+            category:"",
+            date:currentDate,
+            description:"",
+            reference:"",
+        })
+    }
+
+
+
     return (
-        <div className="packages-create">
+        <div className="finance-create">
 
         <div className="Create-post">
-            <h1 className="title">Add Transaction Details</h1><br />
+            <h3 className="title">Add Transaction Details</h3><br />
             <Form className="Form">
                 <Form.Group className="Form-Group">
                     <Form.Control className="Form-Control" 
@@ -87,9 +117,9 @@ function CreatePost () {
                         name="date" 
                         value={data.date}
                         placeholder="Date"
-                        type="Date"
                         onChange={handleChange} 
                         style={{width:"80%", marginLeft:"10%"}}
+                        readOnly={true}
                         required />
                     <Form.Control className="Form-Control"
                         name="description" 

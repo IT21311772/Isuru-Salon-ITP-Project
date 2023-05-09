@@ -1,18 +1,17 @@
-import React, { useRef} from "react";
-import { useReactToPrint } from "react-to-print";
-import { useEffect, useState } from "react";
+import React,{ useRef} from "react";
+import { useReactToPrint} from 'react-to-print';
+import { useEffect,useState } from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table } from "react-bootstrap";
-//import Logo from '../../images/logo.jpg';
 import Logo from '../../images/logo.jpg';
 
-const ReactPdfPrint = () =>{
+const ReportSal = () => {
 
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        axios.get("/api/Sup/sups")
+        axios.get("/api/sal/sals")
             .then((res) => {
                 console.log(res)
                 setPosts(res.data);
@@ -20,10 +19,10 @@ const ReactPdfPrint = () =>{
             .catch((err) => console.log(err));
 }, []);
 
-const componentRef = useRef();
+    const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
-        documentTitle: 'salon-packages',
+        documentTitle: 'Salaon-employee-salary',
         onAfterPrint: ()=> alert('Print success')
     });
 
@@ -42,19 +41,15 @@ const componentRef = useRef();
                     </div>
             </div>
             <br /><br /><br /><br />
-                <h1 className="text-center my-3 border py-2" style={{fontWeight:"bold"}}>Supplier Details</h1>
+                <h1 className="text-center my-3 border py-2" style={{fontWeight:"bold"}}>Salary</h1>
                 <br />
                 <Table className="w-75 mx-auto" bordered>
                     <thead>
-                        <th>Supplier Name</th>
-                        <th>Product</th>
-                        <th>Contact</th>
-                        <th>Email</th>
-                        <th>Status</th>
-                        <th>Date</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        
+                        <th>Employee ID</th>
+                        <th>Month</th>
+                        <th>Working Days</th>
+                        <th>Pay Rate</th>
+                        <th>Net Salary</th>
                     </thead>
                     <tbody>
                     {posts ? (
@@ -62,14 +57,11 @@ const componentRef = useRef();
                             {posts.map((post) => {
                                 return (
                                         <tr key={post._id} >
-                                            <td>{post.name}</td>
-                                            <td>{post.product}</td>
-                                            <td>{post.contact}</td>
-                                            <td>{post.email}</td>
-                                            <td>{post.status}</td>
-                                            <td>{post.date}</td>
-                                            <td>{post.quantity}</td>
-                                            <td>Rs. {post.price}.00</td>
+                                            <td>{post.id}</td>
+                                            <td>{post.month}</td>
+                                            <td>{post.workingDays}</td>
+                                            <td>{post.payRate}</td>
+                                            <td>{post.netSal}</td>
                                         </tr>
                                         );
                             })}
@@ -88,6 +80,6 @@ const componentRef = useRef();
             </div>
         </>
     );
-}
+};
 
-export default ReactPdfPrint;
+export default ReportSal;
