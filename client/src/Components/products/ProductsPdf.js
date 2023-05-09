@@ -50,7 +50,8 @@ const componentRef = useRef();
                         <th>Type</th>
                         <th>Category</th>
                         <th>Date</th>
-                        <th>Quantity</th>
+                        <th>Remaining Quantity</th>
+                        <th>Used Quantity</th>
                         <th>Total Price</th>
                         
                     </thead>
@@ -64,7 +65,8 @@ const componentRef = useRef();
                                             <td>{post.type}</td>
                                             <td>{post.category}</td>
                                             <td>{post.date}</td>
-                                            <td>{post.quantity}</td>
+                                            <td>{post.rquantity}</td>
+                                            <td>{post.uquantity}</td>
                                             <td>Rs. {post.totalPrice}.00</td>
                                         </tr>
                                         );

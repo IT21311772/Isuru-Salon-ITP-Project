@@ -157,9 +157,22 @@ return (
                             boxSizing: "border-box",
                             display: "block",
                             marginLeft: "10%"}}
-                            placeholder="quantity"
-                            name="quantity"
-                            value={updatedPost.quantity ? updatedPost.quantity : ""}
+                            placeholder="Remaining quantity"
+                            name="rquantity"
+                            value={updatedPost.rquantity ? updatedPost.rquantity : ""}
+                            onChange={handleChange}/>
+                        <Form.Control 
+                            style={{width: "80%",
+                            padding: "6px 10px",
+                            margin: "10px 0",
+                            border: "1px solid #c762a1",
+                            borderRadius: "5px",
+                            boxSizing: "border-box",
+                            display: "block",
+                            marginLeft: "10%"}}
+                            placeholder="Used Quantity"
+                            name="uquantity"
+                            value={updatedPost.uquantity ? updatedPost.uquantity : ""}
                             onChange={handleChange}/>
                         <Form.Control 
                             style={{width: "80%",
@@ -227,7 +240,8 @@ return (
                   <th scope="col">Type</th>
                   <th scope="col">Category</th>
                   <th scope="col">Date</th>
-                  <th scope="col">Quantity</th>
+                  <th scope="col">Remaining Quantity</th>
+                  <th scope="col">Used Quantity</th>
                   <th scope="col">Total Price</th>
                   <th></th>
                   <th scope="col">Action</th>
@@ -255,7 +269,8 @@ return (
                         <td>{post.type}</td>
                         <td>{post.category}</td>
                         <td>{post.date}</td>
-                        <td>{post.quantity}</td>
+                        <td>{post.rquantity}</td>
+                        <td>{post.uquantity}</td>
                         <td>{post.totalPrice}</td>
                         <td >
                         
