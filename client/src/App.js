@@ -40,7 +40,13 @@ import Report from './Components/services/Report'
 import CreateService from './Components/services/CreateService';
 import AddSupplier from './Components/suppliers/AddSupplier';
 import Supplier from './Components/suppliers/Suppliers';
-import Order from './Components/orders/Order'
+import Order from './Components/orders/Order';
+import SuppliersPdf from './Components/suppliers/SuppliersPdf';
+import OrdersPdf from './Components/orders/OrdersPdf';
+import SupOrder from './Components/dashboard/suporder';
+import CreateOrder from './Components/orders/AddOrder';
+
+
 import AddOrder from './Components/orders/Order'
 // import SupplierPdf from './Components/suppliers/SuppliersPdf';
 import Appointment from './Components/appointments/Appointments';
@@ -61,6 +67,16 @@ import AddTransactions from './Components/finance/addTransactions';
 import Transactions from './Components/finance/Transactions';
 import FinanceReport from '../src/Components/finance/FinanceReport';
 
+import ViewMsg from './Components/suppliers/ViewMsg';
+import SendMessage from './Components/suppliers/SendMessage';
+
+import ViewIMsg from './Components/products/ViewIMsg';
+import SendIMessage from './Components/products/SendMessage';
+
+//import Products from './Components/products/Products';
+import CreateProduct from './Components/products/addProduct';
+import ProductsPdf from './Components/products/ProductsPdf';
+
 import Products from './Components/products/Products';
 import CreateProduct from './Components/products/addProduct';
 
@@ -70,6 +86,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<Login />} />
                 <Route path='/home' element={<DashBoard />} />
+                <Route path='/suporder' element={<SupOrder />}/>
                 <Route path='/signup' element={<Signup />} />
 
                 <Route path='/posts' element={<Posts />} />
@@ -77,6 +94,7 @@ function App() {
                 <Route path='/posts/create/posts' element={<Posts />} />
                 <Route path='/posts/report' element={<ReactPdfPrint />} />
                 <Route path='/posts/clientPack' element={<Client />} />
+                <Route path='/sup' element={<Supplier />} />
 
                 <Route path='/posts/clientPack/create' element={<CustomPack />} />
 
@@ -93,10 +111,17 @@ function App() {
                 <Route path='/services/report' element={<Report />} />
                 <Route path='/services/create' element={<CreateService />} />
 
-
                 <Route path='/sup/add' element={<AddSupplier />} />
-                <Route path='/sups' element={<Supplier />} />
                 <Route path='/sup/add/sups' element={<Supplier />} />
+                <Route path='/sup/report' element={<SuppliersPdf/>}/>
+
+                <Route path='/ord' element={<Order/>}/>
+                <Route  path='/ord/add' element ={<CreateOrder />}/>
+                <Route path='/ord/add/ords' element={<Order />}/>
+                <Route path='/ord/report' element={< OrdersPdf/>} />
+
+                
+
                 <Route  path='/ords/addorder' element ={<AddOrder/>}/>
                 <Route path='/ords' element={< Order/>}/>
                 <Route path='/sup/addorder/ords' element={<Order />} />
@@ -132,6 +157,18 @@ function App() {
                 <Route path='/fin/add/trans'element={<Transactions />} />
                 <Route path='/fin/report' element={<FinanceReport />} />
 
+                <Route path='/msg' element={<ViewMsg />}/>
+                <Route path='/msg/add' element={<SendMessage />} />
+                <Route path='/msg/add/msgs' element={<ViewMsg />}/>
+
+                <Route path='/imsg' element={<ViewIMsg />}/>
+                <Route path='/imsg/add' element={<SendIMessage />} />
+                <Route path='/imsg/add/imsgs' element={<ViewIMsg />}/>
+
+                <Route path='/products' element={<Products />} />
+                <Route path='/products/add' element={<CreateProduct />} />
+                <Route path='/products/add/products' element={<Products />} />
+
                 <Route path='/data' element={<Attendence />} />
                 <Route path='/data/add' element={<AttendenceForm />} />
                 <Route path='/data/add/data' element={<Attendence />} />
@@ -143,7 +180,5 @@ function App() {
     );
 }
   
-
-
 
 

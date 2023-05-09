@@ -11,7 +11,7 @@ const supplierSchema = mongoose.Schema(
             required: true
         },
         contact:{
-            type: String,
+            type: Number,
             required: true
         },
         email:{
@@ -31,7 +31,7 @@ const supplierSchema = mongoose.Schema(
             required: true
         },
         price:{
-            type: Number,
+            type: String,
             required: true
         },
     },
