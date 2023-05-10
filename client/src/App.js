@@ -42,7 +42,7 @@ import CreateService from './Components/services/CreateService';
 import AddSupplier from './Components/suppliers/AddSupplier';
 import Supplier from './Components/suppliers/Suppliers';
 import Order from './Components/orders/Order'
-import CreateOrder from './Components/orders/Order'
+import CreateOrder from './Components/orders/AddOrder';
 
 
 // import SupplierPdf from './Components/suppliers/SuppliersPdf';
@@ -117,7 +117,7 @@ function App() {
                 <Route path='/sup' element={<Supplier />} />
                 <Route path='/sup/add' element={<AddSupplier />} />
                 <Route path='/sup/add/sups' element={<Supplier />} />
-                <Route path='/ords/addorder' element={<AddOrder />} />
+                {/* <Route path='/ords/addorder' element={<AddOrder />} /> */}
                 <Route path='/ords' element={< Order />} />
                 <Route path='/sup/addorder/ords' element={<Order />} />
 
@@ -161,13 +161,13 @@ function App() {
                 <Route path='/fin/add/trans' element={<Transactions />} />
                 <Route path='/fin/report' element={<FinanceReport />} />
 
-                <Route path='/msg' element={<ViewMsg />}/>
+                {/* <Route path='/msg' element={<ViewMsg />}/>
                 <Route path='/msg/add' element={<SendMessage />} />
-                <Route path='/msg/add/msgs' element={<ViewMsg />}/>
+                <Route path='/msg/add/msgs' element={<ViewMsg />}/> */}
 
-                <Route path='/imsg' element={<ViewIMsg />}/>
-                <Route path='/imsg/add' element={<SendIMessage />} />
-                <Route path='/imsg/add/imsgs' element={<ViewIMsg />}/>
+                {/* <Route path='/imsg' element={<ViewIMsg />}/> */}
+                {/* <Route path='/imsg/add' element={<SendIMessage />} />
+                <Route path='/imsg/add/imsgs' element={<ViewIMsg />}/> */}
 
                 <Route path='/products' element={<Products />} />
                 <Route path='/products/add' element={<CreateProduct />} />

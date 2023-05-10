@@ -209,9 +209,9 @@ return (
                             return search.toLowerCase() === ''
                                 ? post
                                 : post.name.toLowerCase().includes(search) ||
-                                  post.id.toLowerCase().includes(search) ||
-                                  post.date.toLowerCase().includes(search) ||
-                                  post.state.toLowerCase().includes(search)
+                                //   post.id.toLowerCase().includes(search) ||
+                                  post.date.toLowerCase().includes(search) 
+                                //   post.state.toLowerCase().includes(search)
                         })
                         .map((post, index) => {
                     return (

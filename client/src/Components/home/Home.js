@@ -26,7 +26,7 @@ function app(){
         <a className="nav-link"  href="./service">Services</a>
       </li>
       <li className="nav-New">
-        <a className="nav-link-item"  href="#">Book Now</a>
+        <a className="nav-link-item"  href="/appointments/add">Book Now</a>
       </li>
     </ul>
   </div>

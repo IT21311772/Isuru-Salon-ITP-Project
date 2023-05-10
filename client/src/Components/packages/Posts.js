@@ -5,6 +5,7 @@ import {Form, InputGroup } from "react-bootstrap";
 import Modal from 'react-bootstrap/Modal';
 import { Link } from "react-router-dom";
 import './package.css';
+import { useNavigate } from "react-router-dom";
 
 
 function App() {
@@ -20,6 +21,8 @@ console.log(search);
 const [show, setShow] = useState(false);
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
+
+const navigate = useNavigate();
 
 useEffect(() => {
     axios.get("/api/Post/posts")
@@ -47,21 +50,25 @@ handleShow();
 const handleChange = (e) => {
 const { name, value} = e.target;
 
-setUpdatedPost((prev) => {
-    return {
-        ...prev,
-        [name]: value,
+if (validateUpdate()) {
+    setUpdatedPost((prev) => {
+        return {
+            ...prev,
+            [name]: value,
+        };
+    });
     };
-});
-};
+}
+
 
 const saveUpdatedPost = () => {
-axios.put(`/api/Post/update/${updatedPost._id}`, updatedPost)
-.then((res) => console.log(res))
-.catch((err) => console.log(err));
+        axios.put(`/api/Post/update/${updatedPost._id}`, updatedPost)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
 
-handleClose();
-window.location.reload();
+        handleClose();
+        window.location.reload();
+    
 };
 
 //Sorting function
@@ -82,6 +89,38 @@ const sorting = (col) =>{
         setOrder("ASC");
     }
   };
+
+  const [post, setPost] = useState({
+    title: "",
+    type: "",
+    description: "",
+    price: "",
+  });
+
+  const [errorTitle, setErrorTitle] = useState("");
+  const [errorType, setErrorType] = useState("");
+  const [errorDescription, setErrorDescription] = useState("");
+  const [errorPrice, setErrorPrice] = useState("");
+
+  const validateUpdate = () =>{
+    let valid = true ;
+
+    const validatePrice = document.getElementById('price');
+    if (post.price === '') {
+        validatePrice.setCustomValidity('Please Valid a Price');
+        setErrorPrice("Please Valid a Price");
+        valid = false;
+    } else if (isNaN(post.price)) {
+        validatePrice.setCustomValidity('Please Enter a Valid Price');
+        setErrorPrice("Please Enter a Valid Price");
+        valid = false;
+    }else{
+        validatePrice.setCustomValidity('');
+        setErrorType("");
+    }
+
+    return valid;
+  }
 
 
 
@@ -108,10 +147,14 @@ return (
                                     boxSizing: "border-box",
                                     display: "block",
                                     marginLeft: "10%"}}
+                                    id="title"
                             placeholder="title"
                             name="title"
                             value={updatedPost.title ? updatedPost.title : ""}
                             onChange={handleChange}/>
+
+                            {errorTitle && <div className="error">{errorTitle}</div>}
+
                         <Form.Select
                             style={{width: "80%",
                             padding: "6px 10px",
@@ -123,6 +166,7 @@ return (
                             marginLeft: "10%"}}
                             placeholder="type"
                             name="type"
+                            id="type"
                             value={updatedPost.type ? updatedPost.type : ""}
                             onChange={handleChange}>
                                 <option>Package Type</option>
@@ -130,6 +174,9 @@ return (
                                 <option>Event Package</option>
                                 <option>Seasonal Package</option>
                             </Form.Select>
+                            {errorType && <div className="error">{errorType}</div>}
+
+
                         <Form.Control 
                             style={{width: "80%",
                             padding: "6px 10px",
@@ -139,10 +186,15 @@ return (
                             boxSizing: "border-box",
                             display: "block",
                             marginLeft: "10%"}}
+                            id="description"
                             placeholder="description"
                             name="description"
                             value={updatedPost.description ? updatedPost.description : ""}
                             onChange={handleChange}/>
+
+                            {errorDescription && <div className="error">{errorDescription}</div>}
+
+                            
                         <Form.Control 
                             style={{width: "80%",
                             padding: "6px 10px",
@@ -154,8 +206,13 @@ return (
                             marginLeft: "10%"}}
                             placeholder="price"
                             name="price"
+                            id="price"
                             value={updatedPost.price ? updatedPost.price : ""}
                             onChange={handleChange}/>
+
+                            {errorPrice && <div className="error">{errorPrice}</div>}
+
+
                     </Form.Group>
                 </Form>
             </Modal.Body>
@@ -195,7 +252,7 @@ return (
 
                 <div className="container">
                 <button onClick={() => sorting("type")}>Sort by Type</button>&nbsp;
-                <button onClick={() => sorting("price")}>Sort by Price</button>
+                {/* <button onClick={() => sorting("price")}>Sort by Price</button> */}
                 </div>
                 <br />
                     
