@@ -31,14 +31,19 @@ function Posts() {
 
   //after click delete button
   const deletePost = (id) => {
-    //console.log(id);
-    axios
+    let text = "Do you want to delete the service ?";
+    if(window.confirm(text) == true) {
+      
+      axios
       .delete(`/api/Serv/delete/${id}`)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
     window.location.reload(); // for reload the page after delete
   };
+    }
+
+    
 
   const updatePosts = (post) => {
     setUpdatedPost(post);
@@ -92,7 +97,8 @@ function Posts() {
 
 
   return (
-    <div>
+    <div className="services">
+
     <MainLayout>
     <h1>Available Services</h1>
     </MainLayout>
@@ -102,19 +108,17 @@ function Posts() {
       
       <div className="input-group mb-3 mt-2">
   <input type="text" className="form-control" placeholder="Search Service..." aria-label="Recipient's username" 
-  style={{marginLeft:'5%', width:'10px'}} aria-describedby="button-addon2" onChange={(e) => setSearch(e.target.value)}></input>
+  style={{marginLeft:'5%', width:'10px'}} aria-describedby="button-addon2" onChange={(e) => setSearch(e.target.value)}>
+  </input>
   </div></div>
 
   <div className="container mt-3  p-3 mt-4 rounded-3"> 
           <div className="d-grid d-md-flex justify-content-md-end mb-3 ">
-                <button className="btn-generate " onClick={() => navigate("/services/report")}>Generate Report</button> &nbsp;
+                <button className="btn-generate " onClick={() => navigate("/services/report")}>Generate a Report</button> &nbsp;
                 <button className="btn-add " type="submit" onClick={() => navigate("/services/create")}>Add New Service</button>
         </div>
   
   </div>
-
-    
-
  
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -123,15 +127,7 @@ function Posts() {
         <Modal.Body>
           <Form>
             <Form.Group>
-              {/* <Form.Control
-                style={{ marginBottom: "1rem" }}
-                placeholder="Service ID"
-                name="sId"
-                value={updatedPost.sId ? updatedPost.sId : ""}
-                onChange={handleChange}
-              />{" "} */}
-              {/*if updatedPost.title avaliable return that
-                                                                                        if not return nothing */}
+
               <Form.Control
                 name="sName"
                 value={updatedPost.sName ? updatedPost.sName : ""}
@@ -194,8 +190,10 @@ function Posts() {
                 toLowerCase().includes(search.toLowerCase());
 
 })
-              .map((post,index) => (
-              <tr key={post.id}>
+
+              .map((post, index) => (
+               
+              <tr key={index+1}>
                 <th scope="row">{index+1}</th>
                 <td>{post.sName}</td>
                 <td>{post.sPrice}</td>
@@ -216,15 +214,9 @@ function Posts() {
               
                     </div>
 
-
                     
       </div>  
-      
-      
-
-
-
-          
+        
     
   );
 }

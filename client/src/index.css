@@ -1,7 +1,7 @@
 
 
 .btn-update{
-    background-color: #a66f72 ;
+    background-color: #bc0059 ;
     color:white;
     border-radius: 5px;
     width: 20%;
@@ -10,12 +10,12 @@
 
 }
 .btn-update:hover{
-    background-color: azure;
-    color: black;
+    background-color: #2a2a2a;
+    color: white;
 }
 
 .btn-delete{
-    background-color:#dc6c8a;
+    background-color:#a66f72;
     color:white;
     border-radius: 5px;
     width: 20%;

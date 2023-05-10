@@ -1,9 +1,7 @@
 import { Form } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-
-
 
 //create function
 function CreatePost() {
@@ -14,13 +12,12 @@ function CreatePost() {
         email: "",
         date: "",
         time: "",
-        service: "",
+        package: "",
     });
 
     const [nameError, setNameError] = useState("");
     const [contactError, setContactError] = useState("");
     const [emailError, setEmailError] = useState("");
-    const [date, setDate] = useState("");
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -33,21 +30,6 @@ function CreatePost() {
         });
     };
 
-    useEffect(() => {
-        getdate();
-    }, []);
-
-    const getdate = () => {
-        const date = new Date();
-
-        let day = date.getDate();
-        let month = date.getMonth() + 1;
-        let year = date.getFullYear();
-
-        let currentDate = `${year}-${month}-${day}`;
-        console.log(currentDate)
-        setDate(currentDate);
-    }
     // const handleClick = (event) => {
     //     event.preventDefault();
 
@@ -60,38 +42,21 @@ function CreatePost() {
     // };
 
     const handleClick = (event) => {
-
-        if (validateCheck()) {
-            createAppoimnt();
-        }
         event.preventDefault();
 
-    };
-
-    const createAppoimnt = () => {
-
-        axios.post("/api/Book/make2", post)
-            .then((res) => {
-
-                if (res.status) {
-                    console.log(res.data);
+        if (validateCheck()) {
+            axios.post("/api/PBook/make", post)
+                .then((res) => {
                     const appointmentData = res.data;
-                    const appointmentUrl = `/ViewAppointment/${appointmentData.appoiment._id}`;
+                    const appointmentUrl = `/ViewAppointment?name=${appointmentData.name}&contact=${appointmentData.contact}&email=${appointmentData.email}&date=${appointmentData.date}&time=${appointmentData.time}&service=${appointmentData.service}`;
                     navigate(appointmentUrl);
-                }
-                else {
-                    navigate("ViewAppointment");
-                }
+                })
+                .catch((err) => console.log(err));
 
+            navigate("ViewAppointment");
+        }
 
-            })
-
-
-    }
-
-    const [time, setTime] = useState('');
-
-
+    };
 
     const validateCheck = () => {
         let valid = true;
@@ -124,14 +89,9 @@ function CreatePost() {
 
         //Email validation
         const email = document.getElementById('email');
-        const emailRegex = /\S+@\S+\.\S+/; // regular expression for validating email address
         if (post.email === '') {
-            email.setCustomValidity('Please enter an email');
-            setEmailError("Please enter an email");
-            valid = false;
-        } else if (!emailRegex.test(post.email)) {
-            email.setCustomValidity('Please enter a valid email address');
-            setEmailError("Please enter a valid email address");
+            email.setCustomValidity('Please Enter a Email');
+            setEmailError("Please Enter a Email");
             valid = false;
         } else {
             email.setCustomValidity('');
@@ -139,6 +99,7 @@ function CreatePost() {
         }
         return valid;
     }
+
 
 
     return (
@@ -188,7 +149,6 @@ function CreatePost() {
                             type="date"
                             onChange={handleChange}
                             style={{ width: "80%", marginLeft: "10%" }}
-                            min={new Date().toISOString().split("T")[0]}
                             required />
                         <Form.Control className="Form-Control"
                             name="time"
@@ -196,38 +156,18 @@ function CreatePost() {
                             placeholder="Choose Time"
                             type="time"
                             onChange={handleChange}
-                            style={{
-                                width: "80%", marginLeft: "10%"
-                            }}
+                            style={{ width: "80%", marginLeft: "10%" }}
                             required />
                         <Form.Select name="service" className="Form-Control"
-                            value={post.service}
+                            value={post.package}
                             placeholder="Select Service"
                             onChange={handleChange}
                             style={{ width: "80%", marginLeft: "10%" }}
                             required>
-                            <option>Long Layer </option>
-                            <option>Short Layer</option>
-                            <option>Ladies Hair Cut</option>
-                            <option>Curling </option>
-                            <option>Straightening  </option>
-                            <option>Keratin Treatment  </option>
-                            <option>Colouring </option>
-                            <option>Rebonding</option>
-                            <option>Head Massage</option>
-                            <option>Hair Style </option>
-                            <option>Facial</option>
-                            <option> Hair Style</option>
-                            <option>Body Polishing </option>
-                            <option>First Hair Cutting </option>
-                            <option>Hair Cut Girls</option>
-                            <option>Facial</option>
-                            <option> Hair Style</option>
-                            <option>Body Polishing </option>
-                            <option>First Hair Cutting </option>
-
-                        </Form.Select >
-                    </Form.Group >
+                            <option>Hair cut</option>
+                            <option>Hair Colour</option>
+                        </Form.Select>
+                    </Form.Group>
 
                     < button style={{
                         borderRadius: "5px",
@@ -241,11 +181,11 @@ function CreatePost() {
                         color: "#ffffff"
 
                     }} onClick={handleClick}>Make Appointment</button>
-                </Form >
+                </Form>
 
                 {/* <br />
             <button style={{borderRadius:"5px", background:"#a66f72", padding:"0.5%"}} onClick={() => navigate(-1)}> BACK </button>   */}
-            </div >
+            </div>
         </div >
     );
 }

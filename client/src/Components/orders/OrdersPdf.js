@@ -12,7 +12,7 @@ const ReactPdfPrint = () =>{
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        axios.get("/api/Sup/sups")
+        axios.get("/api/Ord/ords")
             .then((res) => {
                 console.log(res)
                 setPosts(res.data);
@@ -42,18 +42,16 @@ const componentRef = useRef();
                     </div>
             </div>
             <br /><br /><br /><br />
-                <h1 className="text-center my-3 border py-2" style={{fontWeight:"bold"}}>Supplier Details</h1>
+                <h1 className="text-center my-3 border py-2" style={{fontWeight:"bold"}}>Order Details</h1>
                 <br />
                 <Table className="w-75 mx-auto" bordered>
                     <thead>
                         <th>Supplier Name</th>
                         <th>Product</th>
-                        <th>Contact</th>
-                        <th>Email</th>
-                        <th>Status</th>
                         <th>Date</th>
                         <th>Quantity</th>
                         <th>Price</th>
+                        <th>Status</th>
                         
                     </thead>
                     <tbody>
@@ -64,12 +62,11 @@ const componentRef = useRef();
                                         <tr key={post._id} >
                                             <td>{post.name}</td>
                                             <td>{post.product}</td>
-                                            <td>{post.contact}</td>
-                                            <td>{post.email}</td>
-                                            <td>{post.status}</td>
                                             <td>{post.date}</td>
                                             <td>{post.quantity}</td>
                                             <td>Rs. {post.price}.00</td>
+                                            <td>{post.status}</td>
+                                            
                                         </tr>
                                         );
                             })}
